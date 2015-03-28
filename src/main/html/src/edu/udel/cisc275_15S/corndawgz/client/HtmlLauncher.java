@@ -3,7 +3,7 @@ package edu.udel.cisc275_15S.corndawgz.client;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import edu.udel.cisc275_15S.corndawgz.CornDawgzGame;
+import edu.udel.cisc275_15S.corndawgz.CornDawgzGame1;
 
 public class HtmlLauncher extends GwtApplication {
 
@@ -14,6 +14,6 @@ public class HtmlLauncher extends GwtApplication {
 
         @Override
         public ApplicationListener getApplicationListener () {
-                return new CornDawgzGame();
+                return new CornDawgzGame1();
         }
 }
