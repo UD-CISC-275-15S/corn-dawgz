@@ -56,7 +56,7 @@ public class StartScreen extends GameScreen {
 			public void clicked(InputEvent event, float x, float y) {
 				// write the String in the textField to the file
 				// only shows up in the Desktop assets 
-				file.writeString(textField.getText(), false);
+				file.writeString(textField.getText() + "@", false);
 				game.setScreen(new WalkScreen(game));
 			}
 		});
@@ -69,7 +69,7 @@ public class StartScreen extends GameScreen {
 	
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+		Gdx.gl.glClearColor(0, 0, 0.4f, 1);
 	    Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		// draw the stage
