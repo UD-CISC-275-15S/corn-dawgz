@@ -55,13 +55,8 @@ public class StartScreen extends GameScreen {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				// write the String in the textField to the file
-				// DOSEN'T WORK!!!!!!!!!!!!!!!!
-				System.out.println(file.exists());
-				System.out.println(file.name());
-				System.out.println(file.nameWithoutExtension());
-				System.out.println(file.readString());
-				file.writeString(textField.getText(), true);
-				System.out.println(textField.getText());
+				// only shows up in the Desktop assets 
+				file.writeString(textField.getText(), false);
 				game.setScreen(new WalkScreen(game));
 			}
 		});
