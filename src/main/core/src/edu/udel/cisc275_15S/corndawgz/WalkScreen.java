@@ -3,14 +3,15 @@ package edu.udel.cisc275_15S.corndawgz;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
 public class WalkScreen extends GameScreen {
 	SpriteBatch batch;
-	Texture guyImg;
-	Rectangle guy; 
+	Texture thumbImg;
+	Rectangle thumb; 
 	
 	public WalkScreen(Game g) {
 		super(g);
@@ -18,32 +19,32 @@ public class WalkScreen extends GameScreen {
 
 	public void show() {
 		batch = new SpriteBatch();
-		guyImg = new Texture("walkingGuy.png");
-		guy = new Rectangle();
-		guy.x = 0;
-		guy.y = 0;
-		guy.height = 512;
-		guy.width = 405;
+		thumbImg = new Texture("thumbsUp.png");
+		thumb = new Rectangle();
+		thumb.x = 0;
+		thumb.y = 0;
+		thumb.height = thumbImg.getHeight();
+		thumb.width = thumbImg.getDepth();
 	}
 	
 	public void render(float delta) {
+		Gdx.gl.glClearColor(1, 1, 1, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-		batch.draw(guyImg, guy.x, guy.y);
+		batch.draw(thumbImg, thumb.x, thumb.y);
 		batch.end();
 	
-	    if(Gdx.input.isKeyPressed(Keys.LEFT)) guy.x -= 200 * Gdx.graphics.getDeltaTime();
-	    if(Gdx.input.isKeyPressed(Keys.RIGHT)) guy.x += 200 * Gdx.graphics.getDeltaTime();
-	    if(Gdx.input.isKeyPressed(Keys.UP)) guy.y += 200 * Gdx.graphics.getDeltaTime();
-	    if(Gdx.input.isKeyPressed(Keys.DOWN)) guy.y -= 200 * Gdx.graphics.getDeltaTime();
+	    if(Gdx.input.isKeyPressed(Keys.LEFT)) thumb.x -= 200 * Gdx.graphics.getDeltaTime();
+	    if(Gdx.input.isKeyPressed(Keys.RIGHT)) thumb.x += 200 * Gdx.graphics.getDeltaTime();
+	    if(Gdx.input.isKeyPressed(Keys.UP)) thumb.y += 200 * Gdx.graphics.getDeltaTime();
+	    if(Gdx.input.isKeyPressed(Keys.DOWN)) thumb.y -= 200 * Gdx.graphics.getDeltaTime();
 
-	    if(guy.x < 0) guy.x = 0;
-	    if(guy.x > 800 - 512) guy.x = 800 - 512;
-	    if(guy.y < 0) guy.y = 0;
-	    if(guy.y > 800 - 405) guy.y = 800 - 405;
+	    if(thumb.x < 0) thumb.x = 0;
+	    if(thumb.y < 0) thumb.y = 0;
 	}
 	
 	public void dispose() {
-		guyImg.dispose();
+		thumbImg.dispose();
 		batch.dispose();
 	}
 }
