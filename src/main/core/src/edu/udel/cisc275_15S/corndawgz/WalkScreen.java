@@ -22,7 +22,7 @@ public class WalkScreen extends GameScreen {
 
 	public void show() {
 		batch = new SpriteBatch();
-		thumbImg = new Texture("thumbsUp.png");
+		thumbImg = new Texture("headtom.png");
 		thumb = new Rectangle();
 		thumb.x = 0;
 		thumb.y = 0;
