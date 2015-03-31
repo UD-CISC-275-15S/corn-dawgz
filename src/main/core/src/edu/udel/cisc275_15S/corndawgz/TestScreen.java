@@ -62,6 +62,7 @@ public class TestScreen extends GameScreen {
 			int d = f.indexOf("<D>", next);
 			next = f.indexOf("@", next + 1);
 			question.setQuestion(f.substring(q+3, a));
+			System.out.println(f.substring(q+3, a));
 			question.setAnswerA(f.substring(a+3, b));
 			question.setAnswerB(f.substring(b+3, c));
 			question.setAnswerC(f.substring(c+3, d));
@@ -79,7 +80,8 @@ public class TestScreen extends GameScreen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		// doesnt work for some reason
-		font.draw(batch, stage.getQuestion(), 5, 5);
+		System.out.println(stage.getQuestion());
+		font.draw(batch, stage.getQuestion(), 0, Gdx.graphics.getHeight() - 10f);
 		stage.draw();
 		batch.end();
 	}

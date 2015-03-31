@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
-// this class should be changed to the world map/beginning of game
+// this class should be changed to the world map/beginning of game 
 public class WalkScreen extends GameScreen {
 	SpriteBatch batch;
 	Texture thumbImg;
