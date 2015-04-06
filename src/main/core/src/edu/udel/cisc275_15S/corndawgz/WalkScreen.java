@@ -15,6 +15,8 @@ public class WalkScreen extends GameScreen {
 	Texture thumbImg;
 	Rectangle thumb; 
 	BitmapFont font;
+	Texture mapImg;
+	Rectangle map;
 	
 	public WalkScreen(Game g) {
 		super(g);
@@ -28,6 +30,10 @@ public class WalkScreen extends GameScreen {
 		thumb.y = 0;
 		thumb.height = thumbImg.getHeight();
 		thumb.width = thumbImg.getDepth();
+		mapImg = new Texture("CampusMap.png");
+		map = new Rectangle();
+		map.x = 0;
+		map.y = 0;
 		font = new BitmapFont();
 		font.setColor(Color.BLACK);
 	}
@@ -36,7 +42,8 @@ public class WalkScreen extends GameScreen {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-		batch.draw(thumbImg, thumb.x, thumb.y);
+		batch.draw(mapImg, 0, 0, (float)Gdx.graphics.getWidth(), (float)Gdx.graphics.getHeight());
+		batch.draw(thumbImg, thumb.x, thumb.y, 85, 131);
 		font.draw(batch, "Click Enter to go to the test", 0, Gdx.graphics.getHeight() - 10f);
 		batch.end();
 	
