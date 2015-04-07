@@ -79,10 +79,11 @@ public class TestScreen extends GameScreen {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-		// doesnt work for some reason
-		System.out.println(stage.getQuestion());
-		font.draw(batch, stage.getQuestion(), 0, Gdx.graphics.getHeight() - 10f);
+		// doesn't work for some reason
+		//System.out.println(stage.getQuestion());
 		stage.draw();
+		font.draw(batch, stage.getQuestion(), 100, 100);//Gdx.graphics.getHeight() - 10f);
+		
 		batch.end();
 	}
 

@@ -20,7 +20,7 @@ public class ReportScreen extends GameScreen {
 	@Override
 	public void show (){
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		img = new Texture("headtom.png");
 		file = Gdx.files.internal("data/correctAnswers.txt");
 		String cor = file.readString();
 		// clean up the file (the numbers were to help make file readable)
