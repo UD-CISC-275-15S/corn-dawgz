@@ -6,7 +6,7 @@ public class CornDawgzGame extends Game{
 	
 	@Override
 	public void create(){
-		setScreen(new StartScreen(this));
+		setScreen(new SplashScreen(this));
 	}
 
 }
