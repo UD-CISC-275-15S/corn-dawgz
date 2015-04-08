@@ -1,10 +1,8 @@
 Enter your UDel Username@
-A
-A
-A
-A
-A
-A
+B
+B
+B
+B
+B
+B
 2/6 = 0.33333334
-A
-2/23 = 0.08695652

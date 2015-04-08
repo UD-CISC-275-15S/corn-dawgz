@@ -57,7 +57,7 @@ public class StartScreen extends GameScreen {
 				// write the String in the textField to the file
 				// only shows up in the Desktop assets 
 				file.writeString(textField.getText() + "@", false);
-				game.setScreen(new WalkScreen(game));
+				game.setScreen(new RoommateScreen(game));
 			}
 		});
 		// add the button and textField to the stage
