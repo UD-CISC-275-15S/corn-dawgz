@@ -64,7 +64,7 @@ public class WalkScreen extends GameScreen {
 	    if(Gdx.input.isKeyPressed(Keys.DOWN)) thumb.y -= 200 * Gdx.graphics.getDeltaTime();
 	    ///System.out.println(thumb.x + " " + thumb.y);
 	    if(thumb.x > 170 && thumb.x < 175 && thumb.y < 150 && thumb.y > 145){
-	    	game.setScreen(new TestScreen(game));
+	    	game.setScreen(new TempHallLocation(game));
 	    }
 	    //if(Gdx.input.isKeyPressed(Keys.ENTER)) game.setScreen(new TestScreen(game));
 

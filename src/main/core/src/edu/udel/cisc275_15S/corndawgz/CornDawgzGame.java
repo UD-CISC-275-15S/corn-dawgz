@@ -8,5 +8,7 @@ public class CornDawgzGame extends Game{
 	public void create(){
 		setScreen(new SplashScreen(this));
 	}
+	
+	
 
 }
