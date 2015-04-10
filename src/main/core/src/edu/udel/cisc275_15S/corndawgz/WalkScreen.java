@@ -72,9 +72,9 @@ public class WalkScreen extends GameScreen {
 	    if(thumb.y < 0) thumb.y = 0;
 	    
 	    if(Gdx.input.isButtonPressed(Buttons.LEFT)){
-	    	if((Gdx.input.getX() < 230) && (Gdx.input.getX() > 220)  && (Gdx.input.getY() > 280) && (Gdx.input.getY() < 300)){
-	    		game.setScreen(new TestScreen(game));
-	    	}
+	    //	if((Gdx.input.getX() < 230) && (Gdx.input.getX() > 220)  && (Gdx.input.getY() > 280) && (Gdx.input.getY() < 300)){
+	    		game.setScreen(new TempHallLocation(game));
+	   // 	}
 	    };
 	}
 	

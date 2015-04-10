@@ -14,9 +14,9 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.TimeUtils;
 
-import edu.udel.cisc275_15S.corndawgz.RoommateScreen;
+import edu.udel.cisc275_15S.corndawgz.StoryScreenOne;
 // this class should be changed to the world map/beginning of game 
-public class RoommateScreen extends GameScreen {
+public class StoryScreenThree extends GameScreen {
 	Game g;
 	SpriteBatch batch;
 	Texture thumbImg;
@@ -26,13 +26,13 @@ public class RoommateScreen extends GameScreen {
 	private long startTime;
 	private int rendCount;
 	
-	public RoommateScreen(Game g) {
+	public StoryScreenThree(Game g) {
 		super(g);
 	}
 
 	public void show() {
 		batch = new SpriteBatch();
-		mapImg = new Texture("Christopher.png");
+		mapImg = new Texture("headtom.png");
 		startTime = TimeUtils.millis();
 	}
 	
@@ -43,7 +43,7 @@ public class RoommateScreen extends GameScreen {
 		batch.draw(mapImg, 0, 0, (float)Gdx.graphics.getWidth(), (float)Gdx.graphics.getHeight());	
 		batch.end();
 		rendCount++;
-		if (TimeUtils.millis()>(startTime+7500)) game.setScreen(new WalkScreen(game));
+		if (TimeUtils.millis()>(startTime+2500)) game.setScreen(new WalkScreen(game));
 	}
 	
 	public void dispose() {
