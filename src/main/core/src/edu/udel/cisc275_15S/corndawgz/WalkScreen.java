@@ -14,6 +14,9 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Rectangle;
 // this class should be changed to the world map/beginning of game 
 public class WalkScreen extends GameScreen {
+
+	
+	//extras
 	SpriteBatch batch;
 	Texture thumbImg;
 	Rectangle thumb; 
@@ -22,7 +25,18 @@ public class WalkScreen extends GameScreen {
 	Rectangle map;
 	ShapeRenderer shaperenderer;
 	
-	public WalkScreen(Game g) {
+	// 
+	
+	
+	
+	
+	//
+	
+	public WalkScreen(Game g){
+		super(g);
+	}
+	
+	public WalkScreen(Game g, String name) {
 		super(g);
 	}
 
@@ -64,7 +78,7 @@ public class WalkScreen extends GameScreen {
 	    if(Gdx.input.isKeyPressed(Keys.DOWN)) thumb.y -= 200 * Gdx.graphics.getDeltaTime();
 	    ///System.out.println(thumb.x + " " + thumb.y);
 	    if(thumb.x > 170 && thumb.x < 175 && thumb.y < 150 && thumb.y > 145){
-	    	game.setScreen(new TempHallLocation(game));
+	    	game.setScreen(new TempHallLocation(game, "memhall"));
 	    }
 	    //if(Gdx.input.isKeyPressed(Keys.ENTER)) game.setScreen(new TestScreen(game));
 
@@ -73,7 +87,7 @@ public class WalkScreen extends GameScreen {
 	    
 	    if(Gdx.input.isButtonPressed(Buttons.LEFT)){
 	    //	if((Gdx.input.getX() < 230) && (Gdx.input.getX() > 220)  && (Gdx.input.getY() > 280) && (Gdx.input.getY() < 300)){
-	    		game.setScreen(new TempHallLocation(game));
+	    		game.setScreen(new TempHallLocation(game, "purnhall"));
 	   // 	}
 	    };
 	}

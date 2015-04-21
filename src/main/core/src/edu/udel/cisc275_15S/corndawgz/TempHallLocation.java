@@ -14,9 +14,38 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 
 public class TempHallLocation extends GameScreen{
+	// traits
+	private String placename;
+	/*
+	 * place names are listed as such
+	 * -memhall		-mcdhall	-trab	-purnhall	-gorehall	-smithhall	-
+	 */
+	
+	public String getPic4Hall(String name){
+		if(this.placename == "memhall"){
+			return "memhall.jpg";
+		}
+		if(this.placename == "mcdhall"){
+			return "mcdhall.jpg";
+		}
+		if(this.placename == "trab"){
+			return "traba.jpg";
+		}
+		if(this.placename == "gorehall"){
+			return "gorehallb.png";
+		}
+		if(this.placename == "smithhall"){
+			return "smithhalla.jpg";
+		}
+		if(this.placename == "purnhall"){
+			return "purnhalla.jpg";
+		}
+		else return "headtom.png";
+	}
+	
 	
 	public class MyActor extends Actor {
-		Texture texture = new Texture("memhall.jpg");
+		Texture texture = new Texture(getPic4Hall(placename));
 		float actorX = 0, actorY= 0;
 		public boolean started = false;
 		
@@ -47,8 +76,9 @@ public class TempHallLocation extends GameScreen{
 	private Batch batch;
 
 	
-	public TempHallLocation(Game g) {
+	public TempHallLocation(Game g, String name) {
 		super(g);
+		this.placename = name;
 		// TODO Auto-generated constructor stub
 	}
 	
