@@ -32,12 +32,13 @@ public class SplashScreen implements Screen{
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(texture, 0, 0);
+        batch.draw(texture, 0, 0, (float)Gdx.graphics.getWidth(), (float)Gdx.graphics.getHeight());
         batch.end();
         rendCount++;
-        if (TimeUtils.millis()>(startTime+200)) myGame.setScreen(new StartScreen(myGame));
+        if (TimeUtils.millis()>(startTime+2000)) myGame.setScreen(new StartScreen(myGame));
         
     }
 
