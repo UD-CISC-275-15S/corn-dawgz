@@ -4,9 +4,11 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
@@ -22,6 +24,7 @@ public class StartScreen extends GameScreen {
 	private final float buttonWidth = 100;
 	private final float textFieldHeight = 20;
 	private final float textFieldWidth = 200;
+	private Image background;
 	
 	
 	
@@ -35,10 +38,11 @@ public class StartScreen extends GameScreen {
 		skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 		stage = new Stage();
 		file = Gdx.files.local("data/myfile.txt");
-
-	
+		
+		background = new Image(new Texture("EnterUsername.png"));
+		
 		// Set up the textField
-		textField = new TextField("Enter your UDel Username", skin);
+		textField = new TextField(" ", skin);
 		textField.setHeight(textFieldHeight);
 		textField.setWidth(textFieldWidth);
 		textField.setPosition(Gdx.graphics.getWidth() /2 - textFieldWidth/2 - 75f, 
@@ -61,6 +65,7 @@ public class StartScreen extends GameScreen {
 			}
 		});
 		// add the button and textField to the stage
+		stage.addActor(background);
 		stage.addActor(button);
 		stage.addActor(textField);
 		// set the input processor to the stage
