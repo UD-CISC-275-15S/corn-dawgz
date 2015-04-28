@@ -7,25 +7,22 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector3;
 
 // this class should be changed to the world map/beginning of game 
 public class WalkScreen extends GameScreen implements InputProcessor {
 
-	// final float WORLD_WIDTH = 16;
-	// final float WORLD_HEIGHT = 12;
+	private static final int WORLD_WIDTH = 1000;
+	private static final int WORLD_HEIGHT = 1000;
 	SpriteBatch batch;
-	Texture thumbImg;
-	Rectangle thumb;
-	Texture mapImg;
-	ShapeRenderer shaperenderer;
+	Texture headImg;
+	Rectangle head;
 	Phone phone;
 	OrthographicCamera camera;
-	Sprite map;
+	Sprite mapSprite;
 
 	public WalkScreen(Game g) {
 		super(g);
@@ -36,82 +33,86 @@ public class WalkScreen extends GameScreen implements InputProcessor {
 	}
 
 	public void show() {
-		shaperenderer = new ShapeRenderer();
 		batch = new SpriteBatch();
-		thumbImg = new Texture("headtom.png");
-		thumb = new Rectangle();
-		thumb.x = 0;
-		thumb.y = 0;
-		thumb.height = thumbImg.getHeight();
-		thumb.width = thumbImg.getDepth();
+
+		headImg = new Texture("headtom.png");
+		head = new Rectangle();
+		head.x = 0;
+		head.y = 0;
+		head.height = headImg.getHeight();
+		head.width = headImg.getWidth();
+
 		phone = new Phone();
 
-		mapImg = new Texture("CampusMap.png");
-		mapImg.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+		mapSprite = new Sprite(new Texture("CampusMap.png"));
+		mapSprite.setPosition(0, 0);
+		mapSprite.setSize(WORLD_WIDTH, WORLD_HEIGHT);
 
-		map = new Sprite(mapImg);
-		map.setOrigin(0, 0);
-		map.setPosition(-map.getWidth() / 2, -map.getHeight() / 2);
+		float w = Gdx.graphics.getWidth();
+		float h = Gdx.graphics.getHeight();
+		camera = new OrthographicCamera(1000, 1000 * (h / w));
+		camera.position.set(camera.viewportWidth / 2f,
+				camera.viewportHeight / 2f, 0);
+		camera.update();
+	}
 
-		camera = new OrthographicCamera(mapImg.getWidth(), mapImg.getHeight());
-
-		Gdx.input.setInputProcessor(this);
+	@Override
+	public void resize(int width, int height) {
+		camera.viewportWidth = 1000f;
+		camera.viewportHeight = 1000f;
+		camera.update();
 	}
 
 	public void render(float delta) {
+		HandleInput();
+		batch.setProjectionMatrix(camera.combined);
 
-		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
-		map.draw(batch);
+		mapSprite.draw(batch);
+		batch.draw(phone.getTexture(), phone.getX(), phone.getY());
+		 
+		batch.draw(headImg, head.x, head.y, 60, 80);
+		 
 		batch.end();
-		batch.begin();
-		batch.draw(phone.getTexture(), phone.getX() - (map.getWidth() / 2),
-				phone.getY() - (map.getHeight() / 2));
+		
+		System.out.println("head.x: " + head.x + " head.y: " + head.y);
+	}
 
-		batch.draw(thumbImg, thumb.x - (map.getWidth() / 2),
-				thumb.y - (map.getHeight() / 2), 80, 120);
-		batch.end();
-
-		// shaperenderer.begin(ShapeType.Filled);
-		// shaperenderer.circle(225, 190, 5);// center of memorial hall (225,
-		// 290)
-		// // for getX, getY
-		// shaperenderer.setColor(Color.RED);
-		// shaperenderer.end();
-		// batch.draw(phone.getTexture(), phone.getX(), phone.getY());
+	public void HandleInput() {
+		if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+			head.x -= 200 * Gdx.graphics.getDeltaTime();
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+			head.x += 200 * Gdx.graphics.getDeltaTime();
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+			head.y -= 200 * Gdx.graphics.getDeltaTime();
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+			head.y += 200 * Gdx.graphics.getDeltaTime();
+		}
+		if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+			float x = Gdx.input.getX();
+			float y = Gdx.input.getY();
+			System.out.println("x: " + x + "y: " + y);
+		}
 	}
 
 	public void dispose() {
-		thumbImg.dispose();
+		headImg.dispose();
 		batch.dispose();
 	}
 
 	@Override
 	public boolean keyDown(int keycode) {
-		if (keycode == Input.Keys.RIGHT)
-			thumb.x += 200 * Gdx.graphics.getDeltaTime();
-
-		if (keycode == Input.Keys.LEFT)
-			thumb.x -= 200 * Gdx.graphics.getDeltaTime();
-
-		if (keycode == Input.Keys.UP)
-			thumb.y += 200 * Gdx.graphics.getDeltaTime();
-
-		if (keycode == Input.Keys.DOWN)
-			thumb.y -= 200 * Gdx.graphics.getDeltaTime();
-
-		if (thumb.x > 170 && thumb.x < 175 && thumb.y < 150 && thumb.y > 145)
-			game.setScreen(new TempHallLocation(game, "memhall"));
-
-		System.out.println("thumb: " + thumb.x + ", " + thumb.y);
 		return true;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -123,23 +124,16 @@ public class WalkScreen extends GameScreen implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
+		Vector3 pos = new Vector3(screenX, screenY, 0);
+		camera.project(pos); // changed
+		System.out.println("x!!: " + pos.x + "  y!!: " + pos.y);
+		phone.clicked(screenX, screenY);
 		return false;
 	}
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		System.out.println("x: " + (screenX - phone.getX()) + " y: " + (screenY - phone.getY()));
-		if (screenX >= phone.getX()
-				&& screenX <= phone.getX() + phone.getWidth()
-				&& screenY >= phone.getY()
-				&& screenY <= phone.getY() + phone.getHeight()) {
-			phone.clicked(screenX - phone.getX(), screenY - phone.getY());
-		}
-		if ((screenX < 230) && (screenY > 220) && (screenX > 280)
-				&& (screenY < 300)) {
-			game.setScreen(new TempHallLocation(game, "purnhall"));
-		}
+		// TODO Auto-generated method stub
 		return false;
 	}
 
