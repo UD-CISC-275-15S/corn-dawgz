@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.TimeUtils;
 // this class should be changed to the world map/beginning of game 
-public class StoryScreenThree extends GameScreen {
+public class LibraryEvent extends GameScreen {
 	Game g;
 	SpriteBatch batch;
 	Texture thumbImg;
@@ -19,13 +19,13 @@ public class StoryScreenThree extends GameScreen {
 	private long startTime;
 	private int rendCount;
 	
-	public StoryScreenThree(Game g) {
+	public LibraryEvent(Game g) {
 		super(g);
 	}
 
 	public void show() {
 		batch = new SpriteBatch();
-		mapImg = new Texture("headtom.png");
+		mapImg = new Texture("locations/LibraryInside1.jpg");
 		startTime = TimeUtils.millis();
 	}
 	
@@ -36,7 +36,7 @@ public class StoryScreenThree extends GameScreen {
 		batch.draw(mapImg, 0, 0, (float)Gdx.graphics.getWidth(), (float)Gdx.graphics.getHeight());	
 		batch.end();
 		rendCount++;
-		if (TimeUtils.millis()>(startTime+2500)) game.setScreen(new WalkScreen(game));
+		if (TimeUtils.millis()>(startTime+2500)) game.setScreen(new TempMapScreen(game));
 	}
 	
 	public void dispose() {

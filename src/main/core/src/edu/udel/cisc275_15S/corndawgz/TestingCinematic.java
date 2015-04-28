@@ -31,13 +31,13 @@ public class TestingCinematic extends GameScreen implements Screen {
 
 	private SpriteBatch batch;
 	// Three textures created for images
-	private Texture texture = new Texture(Gdx.files.internal("story/startscreenone.png"));
-    private Texture texture2 = new Texture(Gdx.files.internal("story/startscreentwo.png"));
-    private Texture texture3 = new Texture(Gdx.files.internal("story/startscreenthree.png"));
+	private Texture texture;
+    private Texture texture2;
+    private Texture texture3;
     // Three images created with the corresponding textures
-    private Image splashImage = new Image(texture);
-    private Image splashImage2 = new Image(texture2);
-    private Image splashImage3 = new Image(texture3);
+    private Image splashImage;
+    private Image splashImage2;
+    private Image splashImage3;
     // Stage created
     private Stage stage = new Stage();
     private long startTime;
@@ -48,24 +48,24 @@ public class TestingCinematic extends GameScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act();
         stage.draw();
-        // Image 1 drawn
         stage.addActor(splashImage);
         // Image1 removed, Image 2 added and size set to the full stage size
         splashImage.setSize(stage.getWidth(), stage.getWidth());
-		if (TimeUtils.millis()>(startTime+3500)) {
+		if (TimeUtils.millis()>(startTime+500)) {
         	splashImage.remove();
         	stage.addActor(splashImage2);
+      
         	 splashImage2.setSize(stage.getWidth(), stage.getWidth());
         }
 		 // Image2 removed, Image 3 added and size set to the full stage size
-		if (TimeUtils.millis()>(startTime+6500)) {
+		if (TimeUtils.millis()>(startTime+1000)) {
 			splashImage2.remove();
 			stage.addActor(splashImage3);
 			splashImage3.setSize(stage.getWidth(), stage.getWidth());
 		}
 		 // Screen set to WalkScreen
-		if (TimeUtils.millis()>(startTime+9500)) {
-			game.setScreen(new WalkScreen(game));
+		if (TimeUtils.millis()>(startTime+1200)) {
+			game.setScreen(new TempMapScreen(game));
         }
 		batch.end();
     }
@@ -78,6 +78,12 @@ public class TestingCinematic extends GameScreen implements Screen {
     public void show() {
     	batch = new SpriteBatch();
         startTime = TimeUtils.millis();
+    	texture = new Texture(Gdx.files.internal("story/startscreenone.png"));
+        texture2 = new Texture(Gdx.files.internal("story/startscreentwo.png"));
+        texture3 = new Texture(Gdx.files.internal("story/startscreenthree.png"));
+        splashImage = new Image(texture);
+        splashImage2 = new Image(texture2);
+        splashImage3 = new Image(texture3);
     }
 
     @Override
