@@ -21,9 +21,9 @@ public class TestingCinematic extends GameScreen implements Screen {
 	}
 
 	private SpriteBatch batch;
-	private Texture texture = new Texture(Gdx.files.internal("startscreenone.png"));
-    private Texture texture2 = new Texture(Gdx.files.internal("startscreentwo.png"));
-    private Texture texture3 = new Texture(Gdx.files.internal("startscreenthree.png"));
+	private Texture texture = new Texture(Gdx.files.internal("story/startscreenone.png"));
+    private Texture texture2 = new Texture(Gdx.files.internal("story/startscreentwo.png"));
+    private Texture texture3 = new Texture(Gdx.files.internal("story/startscreenthree.png"));
     private Image splashImage = new Image(texture);
     private Image splashImage2 = new Image(texture2);
     private Image splashImage3 = new Image(texture3);
