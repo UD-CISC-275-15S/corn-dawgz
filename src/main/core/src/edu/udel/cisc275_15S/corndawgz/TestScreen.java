@@ -15,13 +15,14 @@ public class TestScreen extends GameScreen {
 	private Skin skin;
 	private QuestionStage stage;
 	private int questionNumber;
-	private Question[] questions;
+	private Question[] questions; // an array of all the questions
 	private BitmapFont font;
 	
 	public TestScreen(Game g) {
 		super(g);
 	}
 	
+	// goes to the next question 
 	public void nextQuestion() {
 		questionNumber++;
 		if (questionNumber >= questions.length) {
@@ -62,7 +63,6 @@ public class TestScreen extends GameScreen {
 			int d = f.indexOf("<D>", next);
 			next = f.indexOf("@", next + 1);
 			question.setQuestion(f.substring(q+3, a));
-			System.out.println(f.substring(q+3, a));
 			question.setAnswerA(f.substring(a+3, b));
 			question.setAnswerB(f.substring(b+3, c));
 			question.setAnswerC(f.substring(c+3, d));
@@ -79,16 +79,16 @@ public class TestScreen extends GameScreen {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-		// doesn't work for some reason
-		//System.out.println(stage.getQuestion());
 		stage.draw();
-		font.draw(batch, stage.getQuestion(), 100, 100);//Gdx.graphics.getHeight() - 10f);
-		
+		batch.end();
+		batch.begin();
+		font.draw(batch, stage.getQuestion(), Gdx.graphics.getWidth()/2 - 50f, 
+				Gdx.graphics.getHeight()/2 + 30f);	
 		batch.end();
 	}
 
 	@Override
 	public void dispose() {
-		batch.dispose();
+		batch.dispose(); 
 	}
 }

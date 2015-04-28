@@ -47,28 +47,34 @@ public class WalkScreen extends GameScreen implements InputProcessor {
 		mapSprite = new Sprite(new Texture("CampusMap.png"));
 		mapSprite.setPosition(0, 0);
 		mapSprite.setSize(WORLD_WIDTH, WORLD_HEIGHT);
-
-		float w = Gdx.graphics.getWidth();
+		
 		float h = Gdx.graphics.getHeight();
-		camera = new OrthographicCamera(1000, 1000 * (h / w));
+		float w = Gdx.graphics.getWidth();
+		camera = new OrthographicCamera(WORLD_WIDTH, WORLD_WIDTH * (h / w));
 		camera.position.set(camera.viewportWidth / 2f,
 				camera.viewportHeight / 2f, 0);
+		//camera.setToOrtho(true);
 		camera.update();
+		
+		Gdx.input.setInputProcessor(this);
 	}
 
 	@Override
 	public void resize(int width, int height) {
-		camera.viewportWidth = 1000f;
-		camera.viewportHeight = 1000f;
+		float h = Gdx.graphics.getHeight();
+		float w = Gdx.graphics.getWidth();
+		camera.viewportWidth = WORLD_WIDTH; 
+		camera.viewportHeight = WORLD_WIDTH * (h / w);
 		camera.update();
 	}
 
 	public void render(float delta) {
 		HandleInput();
+		camera.update();
 		batch.setProjectionMatrix(camera.combined);
 
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+		
 		batch.begin();
 		mapSprite.draw(batch);
 		batch.draw(phone.getTexture(), phone.getX(), phone.getY());
@@ -77,7 +83,7 @@ public class WalkScreen extends GameScreen implements InputProcessor {
 		 
 		batch.end();
 		
-		System.out.println("head.x: " + head.x + " head.y: " + head.y);
+		//System.out.println("head.x: " + head.x + " head.y: " + head.y);
 	}
 
 	public void HandleInput() {
@@ -97,6 +103,9 @@ public class WalkScreen extends GameScreen implements InputProcessor {
 			float x = Gdx.input.getX();
 			float y = Gdx.input.getY();
 			System.out.println("x: " + x + "y: " + y);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
+			game.setScreen(new TestScreen(game));
 		}
 	}
 
@@ -122,10 +131,11 @@ public class WalkScreen extends GameScreen implements InputProcessor {
 		return false;
 	}
 
+	
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		Vector3 pos = new Vector3(screenX, screenY, 0);
-		camera.project(pos); // changed
+		camera.unproject(pos); // changed
 		System.out.println("x!!: " + pos.x + "  y!!: " + pos.y);
 		phone.clicked(screenX, screenY);
 		return false;
