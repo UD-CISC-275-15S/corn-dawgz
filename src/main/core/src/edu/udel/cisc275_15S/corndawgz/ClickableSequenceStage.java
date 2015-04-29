@@ -18,6 +18,7 @@ public class ClickableSequenceStage extends Stage {
 		this.clear();
 		this.addActor(images.get(counter));
 	}
+	
 	public void addImages(Image i) {
 		i.setSize(this.getWidth(), this.getWidth());
 		images.add(i);

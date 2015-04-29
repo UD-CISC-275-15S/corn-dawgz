@@ -39,26 +39,28 @@ public class TestingCinematic extends GameScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
+		HandleInput();
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
 		batch.begin();
 		clickStage.draw();
 		batch.end();
-		
-		if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
-			if (TimeUtils.millis() > startTime + 1000) {
-				if(clickStage.hasNext()) {
-					clickStage.nextImage();
-					startTime = TimeUtils.millis();
-				} else {
-					game.setScreen(new TempMapScreen(game));
-				}
-			}
-		}
-		System.out.println("THISI SHOULD DEFINITELY NEED TO BE UPDATED");
 	}
 
+	 public void HandleInput() {
+		 if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
+				if (TimeUtils.millis() > startTime + 1000) {
+					if(clickStage.hasNext()) {
+						System.out.println("has next");
+						clickStage.nextImage();
+						startTime = TimeUtils.millis();
+					} else {
+						game.setScreen(new TempMapScreen(game));
+					}
+				}
+			}
+	    }
+	
 	@Override
 	public void dispose() {
 		clickStage.dispose();
