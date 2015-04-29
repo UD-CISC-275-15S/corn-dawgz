@@ -36,6 +36,8 @@ public class AdvisorEvent extends GameScreen implements InputProcessor {
 		// TODO Auto-generated constructor stub
 	}
 	private long startTime;
+	private long secondTime;
+	private long thirdTime;
  	boolean step1 = false;
 	boolean step2 = false;
 	boolean step3 = false;
@@ -59,11 +61,10 @@ public class AdvisorEvent extends GameScreen implements InputProcessor {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act();
-        stage.draw();
-        if(step1 == false) {
+        stage.draw(); 
         stage.addActor(splashImage);   
         splashImage.setSize(stage.getWidth(), stage.getWidth());
-        }
+        
         if(step2 == true) {
         	splashImage.remove();
         	stage.addActor(splashImage2);
@@ -99,29 +100,27 @@ public class AdvisorEvent extends GameScreen implements InputProcessor {
     }
 
     public void HandleInput() {
-    	 if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-    		 
-    	 if (TimeUtils.millis()>(startTime+2000)) {
- 			step1 = true;
- 		}
-      if (TimeUtils.millis()>(startTime+3000)) {
-         
-		if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+    		 step1 = true;
+    if (step1 == true){
+    	
+		if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && (TimeUtils.millis()>(startTime+3000))) {
 			step2 = true;
-		}
-      }
-		if (TimeUtils.millis()>(startTime+4000)) {
-		if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-			step3 = true;
-		}
-		}
-		if (TimeUtils.millis()>(startTime+6000)) {
-			if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-				step4 = true;
-			}
-			}
+			secondTime++;
 		}
     }
+    
+	if(step2 == true) {
+		if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && secondTime > 10) {
+			step3 = true;
+			 thirdTime++;
+		}
+		}
+
+			if (step3 == true &&Gdx.input.isButtonPressed(Input.Buttons.LEFT) && thirdTime > 10) {
+				step4 = true;
+			}
+    }
+    
     
     
     @Override
