@@ -51,7 +51,6 @@ public class TestingCinematic extends GameScreen implements Screen {
 		 if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
 				if (TimeUtils.millis() > startTime + 1000) {
 					if(clickStage.hasNext()) {
-						System.out.println("has next");
 						clickStage.nextImage();
 						startTime = TimeUtils.millis();
 					} else {
