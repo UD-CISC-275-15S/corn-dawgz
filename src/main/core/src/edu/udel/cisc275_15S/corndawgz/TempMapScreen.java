@@ -32,6 +32,9 @@ public class TempMapScreen extends GameScreen implements Screen {
 	public TempMapScreen(Game g){
 		super(g);
 	}
+	public TempMapScreen(Game g, String name) {
+		super(g);
+	}
 	
 	@Override
 	public void show (){	
