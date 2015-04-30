@@ -30,10 +30,17 @@ public class QuestionStage extends Stage {
 	// and places them in the correct spot
 	public void setQuestion(Question q){
 		question = q.getQuestion();
+		
+		
 		aButton = new TestButton(q.getAnswerA(), skin, "A");
 		bButton = new TestButton(q.getAnswerB(), skin, "B");
 		cButton = new TestButton(q.getAnswerC(), skin, "C");
 		dButton = new TestButton(q.getAnswerD(), skin, "D");		
+		
+		aButton.setSize(q.getAnswerA().length() * 10, 20);
+		bButton.setSize(q.getAnswerB().length() * 10, 20);
+		cButton.setSize(q.getAnswerC().length() * 10, 20);
+		dButton.setSize(q.getAnswerD().length() * 10, 20);
 		
 		// 0 is top 3 is bottom
 		aButton.setPosition(0);
