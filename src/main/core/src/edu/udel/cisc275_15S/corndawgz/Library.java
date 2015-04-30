@@ -24,12 +24,14 @@ public class Library implements MyEvent {
 		batch = new SpriteBatch();
 		startTime = TimeUtils.millis();
 
+
 		stage.addImages(new Image(new Texture(Gdx.files
-				.internal("locations/Library1.jpg"))));
+				.internal("locations/LIBRARYSCENE1.png"))));
 		stage.addImages(new Image(new Texture(Gdx.files
-				.internal("locations/Library2.jpg"))));
+				.internal("locations/LIBRARYSCENE2.png"))));
 		stage.addImages(new Image(new Texture(Gdx.files
-				.internal("locations/Library3.jpg"))));
+				.internal("locations/LIBRARYSCENE3.png"))));
+
 
 		stage.update();
 	}
