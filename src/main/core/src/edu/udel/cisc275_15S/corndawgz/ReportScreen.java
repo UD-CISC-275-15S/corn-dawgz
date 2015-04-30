@@ -62,7 +62,7 @@ public class ReportScreen extends GameScreen {
 		batch.begin();
 		batch.draw(img, 0, 0);
 		batch.end();
-		if (Gdx.input.isKeyPressed(Keys.ANY_KEY)) System.exit(0);
+		if (Gdx.input.isKeyPressed(Keys.SPACE)) game.setScreen(new StartScreen(game));
 	}
 	
 	@Override
