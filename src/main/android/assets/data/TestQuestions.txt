@@ -23,15 +23,27 @@
 <C>iushfishdfasd
 <D>aishgdioaonsdf
 @
-<Q>Question Five
-<A>aiusdfiauhsdfiuahsdfiuasdf
-<B>OIUHSIUSNDFSDF
-<C>oifd
-<D>0000000
+<Q>5.Where can you find the Math Tutorial Lab?
+<A>McKinly 053
+<B>McDowell 100
+<C>Brown 205
+<D>Trabant Lounge
 @
-<Q>Question Six
-<A>56789
-<B>yvtubinj
-<C>IUN
-<D>9ihofwef
+<Q>6.Where can you find the UD Writing Center?
+<A>Perkins Student Center
+<B>Library Basement
+<C>Memorial 016
+<D>Wolf 100
+@
+<Q>7.Where can you find information on different majors?
+<A>Morris Library
+<B>The Fountain
+<C>Your Roommate
+<D>Academic Catalog
+@
+<Q>8.Where can you change your major?
+<A>Old College
+<B>UDSIS
+<C>Little Bob
+<D>Student Career Services
 @

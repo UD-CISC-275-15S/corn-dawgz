@@ -1,10 +1,15 @@
 package edu.udel.cisc275_15S.corndawgz;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.TimeUtils;
 
@@ -18,16 +23,17 @@ public class MemorialHall implements MyEvent {
     	batch = new SpriteBatch();
         startTime = TimeUtils.millis();
         stage = new ClickableSequenceStage();
-        stage.addImages(new Image(new Texture(Gdx.files.internal("locations/MemorialSouth.jpg"))));
-        stage.addImages(new Image(new Texture(Gdx.files.internal("locations/Memorial.jpg"))));
-        stage.addImages(new Image(new Texture(Gdx.files.internal("locations/memhall.jpg"))));
+        stage.addImages(new Image(new Texture(Gdx.files.internal("text_images/mem1.png"))));
+        stage.addImages(new Image(new Texture(Gdx.files.internal("text_images/mem2.png"))));
+        stage.addImages(new Image(new Texture(Gdx.files.internal("text_images/mem3.png"))));
         stage.update();
-    }
-    
+	}
+	
+	
     @Override
     public void render(float delta) {
     	HandleInput();
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         stage.draw(); 
