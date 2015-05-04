@@ -25,10 +25,12 @@ public class TempMapScreen extends GameScreen implements Screen {
 	private boolean advisorBool = false;
 	private boolean libraryBool = false;
 	private boolean memorialBool = false;
+	private boolean udsisBool = false;	//udsis
 	private MyEvent myEvent;
 	private TextButton button1;
 	private TextButton button2;	
 	private TextButton button3;
+	private TextButton button4;		//udsis
 
 	public TempMapScreen(Game g) {
 		super(g);
@@ -90,12 +92,29 @@ public class TempMapScreen extends GameScreen implements Screen {
 				otherStage = true;
 			}
 		});
+		
+		//UDSIS
+		button4 = new TextButton("UDSIS", skin);
+		button4.setColor(Color.RED);
+		button4.setWidth(BUTTON_WIDTH);
+		button4.setHeight(BUTTON_HEIGHT);
+		button4.setPosition(Gdx.graphics.getWidth() / 2 + 50,
+				Gdx.graphics.getHeight() / 2 - 100);
+
+		button4.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				myEvent = new UDSIS();
+				otherStage = true;
+			}
+		});
 
 		// add the button and textField to the stage
 		stage.addActor(background);
 		stage.addActor(button1);
 		stage.addActor(button2);
 		stage.addActor(button3);
+		stage.addActor(button4);	//udsis
 		Gdx.input.setInputProcessor(stage);
 	}
 
@@ -115,7 +134,7 @@ public class TempMapScreen extends GameScreen implements Screen {
 				completed(myEvent.getEventType());
 			}
 		}
-		if (advisorBool && libraryBool && memorialBool) {
+		if (advisorBool && libraryBool && memorialBool && udsisBool) {	//udsis
 			game.setScreen(new TestScreen(game));
 		}
 	}
@@ -132,6 +151,10 @@ public class TempMapScreen extends GameScreen implements Screen {
 		if (s.equals("MemorialHall")) {
 			memorialBool = true;
 			button2.setColor(Color.GREEN);
+		}
+		if(s.equals("UDSIS")) {
+			udsisBool = true;
+			button4.setColor(Color.GREEN);
 		}
 	}
 
