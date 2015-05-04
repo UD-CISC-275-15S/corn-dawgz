@@ -134,7 +134,7 @@ public class TempMapScreen extends GameScreen implements Screen {
 				completed(myEvent.getEventType());
 			}
 		}
-		if (advisorBool && libraryBool && memorialBool && udsisBool) {	//udsis
+		if (advisorBool && libraryBool && memorialBool) {
 			game.setScreen(new TestScreen(game));
 		}
 	}

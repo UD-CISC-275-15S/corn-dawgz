@@ -41,4 +41,16 @@ public class ClickableSequenceStage extends Stage {
 		return true;
 	}
 	
+	public boolean hasPrev() {
+		if(counter-1 < 0){
+			return false;
+		}
+		return true;
+		}
+
+	public void prevImage(){
+		counter--;
+		this.clear();
+		this.addActor(images.get(counter));
+	}
 }
