@@ -1,0 +1,15 @@
+<start>
+<details: 
+	/background starscreenone.png
+	/character narrator
+
+
+At the University of Delaware, YouDee and the other Blue Hens reigned freely throughout the day. --/
+But one masked villain, DeeYou...hatched an evil scheme. --/
+He stole YouDee in the night, without being seen. --/
+If only someone could help us get YouDee back! --/
+Wait how about you? --/
+You could do it!  I know you can! --/
+
+<End>
+
