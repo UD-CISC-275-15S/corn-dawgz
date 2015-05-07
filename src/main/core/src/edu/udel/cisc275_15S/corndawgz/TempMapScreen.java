@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -18,8 +19,8 @@ public class TempMapScreen extends GameScreen implements Screen {
 	private SpriteBatch batch;
 	private Skin skin;
 	private Stage stage;
-	private final float BUTTON_HEIGHT = 60;
-	private final float BUTTON_WIDTH = 100;
+	private final float BUTTON_HEIGHT = 30;
+	private final float BUTTON_WIDTH = 50;
 	private Image background;
 	private boolean otherStage = false;
 	private boolean advisorBool = false;
@@ -120,6 +121,7 @@ public class TempMapScreen extends GameScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
+		
 		if (!otherStage) {
 			//System.out.println("not other stage");
 			Gdx.gl.glClearColor(0, 0, 0.4f, 1);
@@ -127,14 +129,27 @@ public class TempMapScreen extends GameScreen implements Screen {
 			batch.begin();
 			stage.draw();
 			batch.end();
-		} else {
+			
+			button1.setTouchable(Touchable.enabled);
+			button2.setTouchable(Touchable.enabled);
+			button3.setTouchable(Touchable.enabled);
+			button4.setTouchable(Touchable.enabled);
+			
+		} 
+		if(otherStage) {
+			button1.setTouchable(Touchable.disabled);
+			button2.setTouchable(Touchable.disabled);
+			button3.setTouchable(Touchable.disabled);
+			button4.setTouchable(Touchable.disabled);
+			
+			
 			myEvent.render(delta);
 			if(myEvent.done()) {
 				otherStage = false;
 				completed(myEvent.getEventType());
 			}
 		}
-		if (advisorBool && libraryBool && memorialBool) {
+		if (advisorBool && libraryBool && memorialBool && udsisBool) {
 			game.setScreen(new TestScreen(game));
 		}
 	}
@@ -143,18 +158,22 @@ public class TempMapScreen extends GameScreen implements Screen {
 		if (s.equals("Advisor")) {
 			advisorBool = true;
 			button3.setColor(Color.GREEN);
+			button3.setTouchable(Touchable.disabled);
 		}
 		if (s.equals("Library")) {
 			libraryBool = true;
 			button1.setColor(Color.GREEN);
+			button4.setTouchable(Touchable.disabled);
 		}
 		if (s.equals("MemorialHall")) {
 			memorialBool = true;
 			button2.setColor(Color.GREEN);
+			button4.setTouchable(Touchable.disabled);
 		}
 		if(s.equals("UDSIS")) {
 			udsisBool = true;
 			button4.setColor(Color.GREEN);
+			button4.setTouchable(Touchable.disabled);
 		}
 	}
 
