@@ -13,38 +13,8 @@ public class QuestionReader {
 	private ArrayList<Question> questions;
 	private int index;
 
-	public QuestionReader(){
-		file = Gdx.files.local("data/TestQuestions.txt");
-		questions = new ArrayList<Question>();
-		
-		// parse the question file
-		String f = file.readString();
-		int numQuestions = 0;
-		for (char c : f.toCharArray()) {
-			if (c == '@') {
-				numQuestions++;
-			}
-		}
-		
-		int next = f.indexOf("@");
-		for (int j = 0; j < numQuestions-1; j++) {
-			Question question = new Question();
-			int q = f.indexOf("<Q>", next);
-			int a = f.indexOf("<A>", next);
-			int b = f.indexOf("<B>", next);
-			int c = f.indexOf("<C>", next);
-			int d = f.indexOf("<D>", next);
-			next = f.indexOf("@", next + 1);
-			question.setQuestion(f.substring(q+3, a));
-			question.setAnswerA(f.substring(a+3, b));
-			question.setAnswerB(f.substring(b+3, c));
-			question.setAnswerC(f.substring(c+3, d));
-			question.setAnswerD(f.substring(d+3, next));
-			questions.add(question);
-		}
-		index = 0;
-		
-		file = Gdx.files.internal("data/correctAnswers.txt");
+	public QuestionReader(String answerFile, String questionFile, String writeFile){
+		file = Gdx.files.internal(answerFile);
 		String cor = file.readString();
 		// clean up the file (the numbers were to help make file readable)
 		cor = cor.replaceAll(":", "");
@@ -59,15 +29,48 @@ public class QuestionReader {
 		cor = cor.replaceAll("9", "");
 		cor = cor.replaceAll("\n","");
 		char[] correct = cor.toCharArray();
-		for (int i = 0; i < correct.length; i++) {
-			questions.get(i).setCorrect(Character.toString(correct[i]));
+
+		file = Gdx.files.local(questionFile);
+		questions = new ArrayList<Question>();
+		
+		// parse the question file
+		String f = file.readString();
+		int numQuestions = 0;
+		for (char c : f.toCharArray()) {
+			if (c == '@') {
+				numQuestions++;
+			}
 		}
 		
-		file = Gdx.files.local("data/myfile.txt");
+		int next = f.indexOf("@");
+		int i = 0;
+		for (int j = 0; j < numQuestions-1; j++) {
+			Question question = new Question();
+			int q = f.indexOf("<Q>", next);
+			int a = f.indexOf("<A>", next);
+			int b = f.indexOf("<B>", next);
+			int c = f.indexOf("<C>", next);
+			int d = f.indexOf("<D>", next);
+			next = f.indexOf("@", next + 1);
+			question.setQuestion(f.substring(q+3, a));
+			question.setAnswerA(f.substring(a+3, b));
+			question.setAnswerB(f.substring(b+3, c));
+			question.setAnswerC(f.substring(c+3, d));
+			question.setAnswerD(f.substring(d+3, next));
+			question.setCorrect(Character.toString(correct[i]));
+			questions.add(question);
+			i++;
+		}
+		index = 0;
+		
+		file = Gdx.files.local(writeFile);
 	}
 
 	public Question nextQuestion() {
 		index++;
+		if (index >= questions.size()){
+			index = 0;
+		}
 		return questions.get(index);
 	}
 	

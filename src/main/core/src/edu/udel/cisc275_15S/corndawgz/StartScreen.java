@@ -40,6 +40,7 @@ public class StartScreen extends GameScreen {
 		file = Gdx.files.local("data/myfile.txt");
 		
 		background = new Image(new Texture("EnterUsername.png"));
+		background.setFillParent(true);
 		
 		// Set up the textField
 		textField = new TextField(" ", skin);

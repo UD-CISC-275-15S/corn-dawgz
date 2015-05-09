@@ -26,6 +26,7 @@ public class MemorialHall implements MyEvent {
         stage.addImages(new Image(new Texture(Gdx.files.internal("text_images/mem1.png"))));
         stage.addImages(new Image(new Texture(Gdx.files.internal("text_images/mem2.png"))));
         stage.addImages(new Image(new Texture(Gdx.files.internal("text_images/mem3.png"))));
+        stage.setFillParentTrue();
         stage.update();
 	}
 	

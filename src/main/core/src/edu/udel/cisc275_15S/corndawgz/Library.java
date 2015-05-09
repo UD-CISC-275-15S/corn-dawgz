@@ -1,6 +1,5 @@
 package edu.udel.cisc275_15S.corndawgz;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
@@ -15,7 +14,6 @@ public class Library implements MyEvent {
 	private long startTime;
 	private SpriteBatch batch;
 	private ImageSequence stage;
-	private MapScreen screen;
 	private boolean done;
 	
 	public Library() {

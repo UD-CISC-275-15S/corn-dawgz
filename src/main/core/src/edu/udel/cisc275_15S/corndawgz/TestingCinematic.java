@@ -34,6 +34,7 @@ public class TestingCinematic extends GameScreen implements Screen {
 		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreenone.png"))));
 		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreentwo.png"))));
 		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreenthree.png"))));
+		clickStage.setFillParentTrue();
 		clickStage.update();
 	}
 

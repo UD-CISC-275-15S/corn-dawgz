@@ -1,47 +1,47 @@
 @
-<Q>When is the add/drop period?
+<Q>1: When is the add/drop period?
 <A>2/8
 <B>3/7
 <C>2/6
 <D>1/2
 @
-<Q>As a student, you have the responsibility to...
+<Q>2: As a student, you have the responsibility to...
 <A>clarify your personal values
 <B>become knowledgeable with the UDSIS system
 <C>not prepare for advisement sessions
 <D>A & B
 @
-<Q>Advisors are not supposed to assist or mentor you in anyway, why?
+<Q>3: Advisors are not supposed to assist or mentor you in anyway, why?
 <A>They have better things to do
 <B>Advisors are mentors, this statement is false
 <C>Academic policies prevent them from showing favoritism
 <D>This is just policy, most advisors will help you anyway
 @
-<Q>Who is responsible for a students academic decisions?
+<Q>4: Who is responsible for a students academic decisions?
 <A>YoUDee
 <B>President Obama, thanks Obama...
 <C>the Chick-fil-et people
 <D>the student
 @
-<Q>5.Where can you find the Math Tutorial Lab?	
+<Q>5: Where can you find the Math Tutorial Lab?	
 <A>McKinly 053
 <B>McDowell 100
 <C>Brown 205	
 <D>Trabant Lounge
 @
-<Q>6.Where can you find the UD Writing Center?
+<Q>6: Where can you find the UD Writing Center?
 <A>Perkins Student Center
 <B>Library Basement
 <C>Memorial 016	
 <D>Wolf 100
 @
-<Q>7.Where can you find information on different majors?
+<Q>7: Where can you find information on different majors?
 <A>Morris Library	
 <B>The Fountain
 <C>Your Roommate
 <D>Academic Catalog
 @
-<Q>8.Where can you change your major?
+<Q>8: Where can you change your major?
 <A>Old College
 <B>UDSIS
 <C>Little Bob

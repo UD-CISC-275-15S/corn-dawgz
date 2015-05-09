@@ -52,6 +52,7 @@ public class Question {
 		return question + "\n" + "A: " + answerA + "\n" 
 							   + "B: " + answerB + "\n" 
 							   + "C: " + answerC + "\n" 	
-							   + "D: " + answerD;
+							   + "D: " + answerD + "\n"
+							   + "Correct: " + correct;
 	}
 }

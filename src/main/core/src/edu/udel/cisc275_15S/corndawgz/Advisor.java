@@ -22,6 +22,7 @@ public class Advisor implements MyEvent {
 		stage.addImages(new Image(new Texture (Gdx.files.internal("locations/Fountain1.jpg"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("locations/youdee.jpg"))));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("locations/Fountain2.jpg"))));
+		stage.setFillParentTrue();
 		stage.update();
 	}
 
