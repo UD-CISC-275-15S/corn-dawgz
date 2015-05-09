@@ -15,7 +15,7 @@ public class Library implements MyEvent {
 	private long startTime;
 	private SpriteBatch batch;
 	private ImageSequence stage;
-	private TempMapScreen screen;
+	private MapScreen screen;
 	private boolean done;
 	
 	public Library() {
@@ -32,7 +32,7 @@ public class Library implements MyEvent {
 		stage.addImages(new Image(new Texture(Gdx.files
 				.internal("locations/LIBRARYSCENE3.png"))));
 
-
+		stage.setFillParentTrue();
 		stage.update();
 	}
 

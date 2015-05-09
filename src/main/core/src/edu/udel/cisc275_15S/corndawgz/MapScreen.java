@@ -16,16 +16,17 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
-public class TempMapScreen extends GameScreen  {
+public class MapScreen extends GameScreen  {
 	private SpriteBatch batch;
 	private Skin skin;
 	private Stage stage;
 	private final float BUTTON_HEIGHT = 30;
 	private final float BUTTON_WIDTH = 50;
+	private final float LARGE_PHONE_X = 150;
+	private final float LARGE_PHONE_Y = 20;
 	
-	private Phone phone;
+	private ImageSequence phone;
 	private Image smallPhone;
-	private Image largePhone;
 	private boolean showLarge;
 	private BitmapFont font;
 	
@@ -46,7 +47,7 @@ public class TempMapScreen extends GameScreen  {
 	
 	private int time;
 
-	public TempMapScreen(Game g) {
+	public MapScreen(Game g) {
 		super(g);
 	}
 
@@ -69,21 +70,19 @@ public class TempMapScreen extends GameScreen  {
 			public void clicked(InputEvent event, float x, float y) {
 				showLarge = !showLarge;
 				if (showLarge) {
-					stage.addActor(largePhone);
+					stage.addActor(phone.getImage());
 				} else {
-					largePhone.remove();
+					phone.getImage().remove();
 				}
 			}
 		});
 		
-		largePhone = new Image(new Texture("phone/phoneLarge.png"));
-		largePhone.setPosition(150, 20);
-		largePhone.setScale(.4f);
-
-		
-		phone = new Phone();
-		phone.addText("TEST");
-		font = new BitmapFont();
+		phone = new ImageSequence();
+		phone.addImages(new Image(new Texture("phone/meetAtLibrary.png")));
+		phone.addImages(new Image(new Texture("phone/phoneLarge.png")));
+		phone.setAllScale(.7f);
+		phone.setAllPosition(LARGE_PHONE_X, LARGE_PHONE_Y);
+		phone.update();
 
 		button1 = new TextButton("Library", skin);
 		button1.setColor(Color.RED);
@@ -163,7 +162,6 @@ public class TempMapScreen extends GameScreen  {
 		time++;
 		Gdx.gl.glClearColor(0, 0, 0.4f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		renderPhone();
 		if (!otherStage) {
 			batch.begin();
 			stage.draw();
@@ -220,14 +218,6 @@ public class TempMapScreen extends GameScreen  {
 		}
 	}
 
-	private void renderPhone() {
-		if (showLarge) {
-			batch.begin();
-			font.draw(batch, phone.getText(), largePhone.getOriginX(), 
-					largePhone.getOriginY() + largePhone.getHeight() - 30f);
-			batch.end();
-		}
-	}
 	
 	@Override
 	public void dispose() {

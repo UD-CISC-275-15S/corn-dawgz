@@ -54,7 +54,7 @@ public class TestingCinematic extends GameScreen implements Screen {
 						clickStage.nextImage();
 						startTime = TimeUtils.millis();
 					} else {
-						game.setScreen(new TempMapScreen(game));
+						game.setScreen(new MapScreen(game));
 					}
 				}
 			}

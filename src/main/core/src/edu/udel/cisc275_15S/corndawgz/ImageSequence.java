@@ -7,16 +7,16 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 public class ImageSequence extends Stage {
 	private ArrayList<Image> images;
-	private int counter;
+	private int index;
 	
 	public ImageSequence () {
 		images = new ArrayList<Image>();
-		counter = 0;
+		index = 0;
 	}
 
 	public void update(){
 		this.clear();
-		this.addActor(images.get(counter));
+		this.addActor(images.get(index));
 	}
 	
 	public void addImages(Image i) {
@@ -30,33 +30,49 @@ public class ImageSequence extends Stage {
 	}
 	
 	public void nextImage() {
-		counter++;
+		index++;
 		this.clear();
-		this.addActor(images.get(counter));
+		this.addActor(images.get(index));
 	}
 	public boolean hasNext() {
-		if (counter+1 >= images.size()) {
+		if (index+1 >= images.size()) {
 			return false;
 		}
 		return true;
 	}
 	
 	public boolean hasPrev() {
-		if(counter-1 < 0){
+		if(index-1 < 0){
 			return false;
 		}
 		return true;
 	}
 
 	public void prevImage(){
-		counter--;
+		index--;
 		this.clear();
-		this.addActor(images.get(counter));
+		this.addActor(images.get(index));
+	}
+	
+	public Image getImage() {
+		return images.get(index);
 	}
 	
 	public void setFillParentTrue() {
 		for(Image i: images) {
 			i.setFillParent(true);
+		}
+	}
+	
+	public void setAllScale(float s) {
+		for (Image i : images) {
+			i.setScale(s);
+		}
+	}
+	
+	public void setAllPosition(float x, float y) {
+		for (Image i : images) {
+			i.setPosition(x, y);
 		}
 	}
 }
