@@ -11,13 +11,13 @@ import com.badlogic.gdx.utils.TimeUtils;
 public class Advisor implements MyEvent {
 	private long startTime;
 	private SpriteBatch batch;
-	private ClickableSequenceStage stage;
+	private ImageSequence stage;
 	private boolean done;
 
 	public Advisor() {
 		startTime = TimeUtils.millis();
 		batch = new SpriteBatch();
-		stage = new ClickableSequenceStage();
+		stage = new ImageSequence();
 		stage.addImages(new Image(new Texture (Gdx.files.internal("locations/Advisor.jpg"))));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("locations/Fountain1.jpg"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("locations/youdee.jpg"))));

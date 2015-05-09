@@ -20,6 +20,10 @@ public class QuestionStage extends Stage {
 		file = f;
 		skin = s;
 		screen = sc; // observer
+		aButton = new TestButton("", skin, "A");
+		bButton = new TestButton("", skin, "B");
+		cButton = new TestButton("", skin, "C");
+		dButton = new TestButton("", skin, "D");
 	}
 	
 	public void clicked() {
@@ -31,22 +35,21 @@ public class QuestionStage extends Stage {
 	public void setQuestion(Question q){
 		question = q.getQuestion();
 		
+		aButton.setText(q.getAnswerA());
+		bButton.setText(q.getAnswerB());
+		cButton.setText(q.getAnswerC());
+		dButton.setText(q.getAnswerD());	
 		
-		aButton = new TestButton(q.getAnswerA(), skin, "A");
-		bButton = new TestButton(q.getAnswerB(), skin, "B");
-		cButton = new TestButton(q.getAnswerC(), skin, "C");
-		dButton = new TestButton(q.getAnswerD(), skin, "D");		
-		
-		aButton.setSize(q.getAnswerA().length() * 10, 20);
-		bButton.setSize(q.getAnswerB().length() * 10, 20);
-		cButton.setSize(q.getAnswerC().length() * 10, 20);
-		dButton.setSize(q.getAnswerD().length() * 10, 20);
+		aButton.setSize(q.getAnswerA().length() * 1, 20);
+		bButton.setSize(q.getAnswerB().length() * 2, 20);
+		cButton.setSize(q.getAnswerC().length() * 4, 20);
+		dButton.setSize(q.getAnswerD().length() * 8, 20);
 		
 		// 0 is top 3 is bottom
-		aButton.setPosition(0);
-		bButton.setPosition(1);
-		cButton.setPosition(2);
-		dButton.setPosition(3);
+		aButton.setPosition(0, q.getAnswerA().length() * 8);
+		bButton.setPosition(1, q.getAnswerA().length() * 8);
+		cButton.setPosition(2, q.getAnswerA().length() * 8);
+		dButton.setPosition(3, q.getAnswerA().length() * 8);
 		
 		aButton.addListener(file, this);
 		bButton.addListener(file, this);

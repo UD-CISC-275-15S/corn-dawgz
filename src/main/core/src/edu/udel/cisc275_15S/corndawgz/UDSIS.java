@@ -16,7 +16,7 @@ import com.badlogic.gdx.utils.TimeUtils;
 public class UDSIS implements MyEvent {
 	private long startTime;
 	private SpriteBatch batch;
-	private ClickableSequenceStage stage;
+	private ImageSequence stage;
 	private boolean done;
 
 	private Skin skin;
@@ -28,11 +28,12 @@ public class UDSIS implements MyEvent {
 	public UDSIS(){
 		batch = new SpriteBatch();
 		startTime = TimeUtils.millis();
-		stage = new ClickableSequenceStage();
+		stage = new ImageSequence();
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/start.png"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register1.png"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register2.png"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register3.png"))));
+		stage.setFillParentTrue();
 		stage.update();
 	}
 

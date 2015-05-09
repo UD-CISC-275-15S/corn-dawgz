@@ -21,8 +21,8 @@ public class TestButton extends TextButton {
 	}
 	
 	// sets the position of the button
-	public void setPosition(int offset) {
-		setPosition((Gdx.graphics.getWidth() - buttonWidth)/2,
+	public void setPosition(int offset, int buttonSize) {
+		setPosition((Gdx.graphics.getWidth() - buttonSize)/2,
 				(Gdx.graphics.getHeight() - buttonHeight)/2 - buttonOffset*offset);
 	}
 	

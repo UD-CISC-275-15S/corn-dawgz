@@ -77,7 +77,7 @@ public class WalkScreen extends GameScreen implements InputProcessor {
 		
 		batch.begin();
 		mapSprite.draw(batch);
-		batch.draw(phone.getTexture(), phone.getX(), phone.getY());
+		//batch.draw(phone.getTexture(), phone.getX(), phone.getY());
 		 
 		batch.draw(headImg, head.x, head.y, 60, 80);
 		 
@@ -137,7 +137,7 @@ public class WalkScreen extends GameScreen implements InputProcessor {
 		Vector3 pos = new Vector3(screenX, screenY, 0);
 		camera.unproject(pos); // changed
 		System.out.println("x!!: " + pos.x + "  y!!: " + pos.y);
-		phone.clicked(screenX, screenY);
+		//phone.clicked(screenX, screenY);
 		return false;
 	}
 

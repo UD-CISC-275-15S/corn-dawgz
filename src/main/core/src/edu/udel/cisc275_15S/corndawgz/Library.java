@@ -14,13 +14,13 @@ public class Library implements MyEvent {
 
 	private long startTime;
 	private SpriteBatch batch;
-	private ClickableSequenceStage stage;
+	private ImageSequence stage;
 	private TempMapScreen screen;
 	private boolean done;
 	
 	public Library() {
 		done = false;
-		stage = new ClickableSequenceStage();
+		stage = new ImageSequence();
 		batch = new SpriteBatch();
 		startTime = TimeUtils.millis();
 

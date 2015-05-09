@@ -16,13 +16,13 @@ import com.badlogic.gdx.utils.TimeUtils;
 public class MemorialHall implements MyEvent {
 	private long startTime;
 	private SpriteBatch batch;
-	private ClickableSequenceStage stage;
+	private ImageSequence stage;
 	private boolean done;
 	
 	public MemorialHall() {
     	batch = new SpriteBatch();
         startTime = TimeUtils.millis();
-        stage = new ClickableSequenceStage();
+        stage = new ImageSequence();
         stage.addImages(new Image(new Texture(Gdx.files.internal("text_images/mem1.png"))));
         stage.addImages(new Image(new Texture(Gdx.files.internal("text_images/mem2.png"))));
         stage.addImages(new Image(new Texture(Gdx.files.internal("text_images/mem3.png"))));

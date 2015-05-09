@@ -19,7 +19,7 @@ import com.badlogic.gdx.utils.TimeUtils;
 
 public class TestingCinematic extends GameScreen implements Screen {
 	private SpriteBatch batch;
-	private ClickableSequenceStage clickStage;
+	private ImageSequence clickStage;
 	private long startTime;
 
 	public TestingCinematic(Game g) {
@@ -30,7 +30,7 @@ public class TestingCinematic extends GameScreen implements Screen {
 	public void show() {
 		batch = new SpriteBatch();
 		startTime = TimeUtils.millis();
-		clickStage = new ClickableSequenceStage();
+		clickStage = new ImageSequence();
 		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreenone.png"))));
 		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreentwo.png"))));
 		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreenthree.png"))));

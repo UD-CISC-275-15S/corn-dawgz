@@ -6,6 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -21,13 +22,23 @@ public class TempMapScreen extends GameScreen implements Screen {
 	private Stage stage;
 	private final float BUTTON_HEIGHT = 30;
 	private final float BUTTON_WIDTH = 50;
+	
+	private Phone phone;
+	private Image smallPhone;
+	private Image largePhone;
+	private boolean showLarge;
+	private BitmapFont font;
+	
 	private Image background;
+	
 	private boolean otherStage = false;
 	private boolean advisorBool = false;
 	private boolean libraryBool = false;
 	private boolean memorialBool = false;
 	private boolean udsisBool = false;	//udsis
+	
 	private MyEvent myEvent;
+	
 	private TextButton button1;
 	private TextButton button2;	
 	private TextButton button3;
@@ -48,6 +59,32 @@ public class TempMapScreen extends GameScreen implements Screen {
 		stage = new Stage();
 
 		background = new Image(new Texture("CampusMap.png"));
+		background.setFillParent(true); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		
+		showLarge = false;
+		smallPhone = new Image(new Texture("phone/phone.png"));
+		smallPhone.setPosition(20, 20);
+		smallPhone.setScale(.5f);
+		smallPhone.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				showLarge = !showLarge;
+				if (showLarge) {
+					stage.addActor(largePhone);
+				} else {
+					largePhone.remove();
+				}
+			}
+		});
+		
+		largePhone = new Image(new Texture("phone/phoneLarge.png"));
+		largePhone.setPosition(150, 20);
+		largePhone.setScale(.4f);
+
+		
+		phone = new Phone();
+		phone.addText("TEST");
+		font = new BitmapFont();
 
 		button1 = new TextButton("Library", skin);
 		button1.setColor(Color.RED);
@@ -116,16 +153,16 @@ public class TempMapScreen extends GameScreen implements Screen {
 		stage.addActor(button2);
 		stage.addActor(button3);
 		stage.addActor(button4);	//udsis
+		stage.addActor(smallPhone);
 		Gdx.input.setInputProcessor(stage);
 	}
 
 	@Override
-	public void render(float delta) {
-		
+	public void render(float delta) {	
+		Gdx.gl.glClearColor(0, 0, 0.4f, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		renderPhone();
 		if (!otherStage) {
-			//System.out.println("not other stage");
-			Gdx.gl.glClearColor(0, 0, 0.4f, 1);
-			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 			batch.begin();
 			stage.draw();
 			batch.end();
@@ -141,7 +178,6 @@ public class TempMapScreen extends GameScreen implements Screen {
 			button2.setTouchable(Touchable.disabled);
 			button3.setTouchable(Touchable.disabled);
 			button4.setTouchable(Touchable.disabled);
-			
 			
 			myEvent.render(delta);
 			if(myEvent.done()) {
@@ -177,6 +213,15 @@ public class TempMapScreen extends GameScreen implements Screen {
 		}
 	}
 
+	private void renderPhone() {
+		if (showLarge) {
+			batch.begin();
+			font.draw(batch, phone.getText(), largePhone.getOriginX(), 
+					largePhone.getOriginY() + largePhone.getHeight() - 30f);
+			batch.end();
+		}
+	}
+	
 	@Override
 	public void dispose() {
 		batch.dispose();

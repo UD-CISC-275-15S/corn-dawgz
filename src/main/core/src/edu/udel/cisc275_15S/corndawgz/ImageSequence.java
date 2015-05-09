@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
-public class ClickableSequenceStage extends Stage {
+public class ImageSequence extends Stage {
 	private ArrayList<Image> images;
 	private int counter;
 	
-	public ClickableSequenceStage () {
+	public ImageSequence () {
 		images = new ArrayList<Image>();
 		counter = 0;
 	}
@@ -46,11 +46,17 @@ public class ClickableSequenceStage extends Stage {
 			return false;
 		}
 		return true;
-		}
+	}
 
 	public void prevImage(){
 		counter--;
 		this.clear();
 		this.addActor(images.get(counter));
+	}
+	
+	public void setFillParentTrue() {
+		for(Image i: images) {
+			i.setFillParent(true);
+		}
 	}
 }
