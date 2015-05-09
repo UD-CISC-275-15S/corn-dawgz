@@ -2,7 +2,7 @@ package edu.udel.cisc275_15S.corndawgz;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -16,7 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
-public class TempMapScreen extends GameScreen implements Screen {
+public class TempMapScreen extends GameScreen  {
 	private SpriteBatch batch;
 	private Skin skin;
 	private Stage stage;
@@ -43,14 +43,13 @@ public class TempMapScreen extends GameScreen implements Screen {
 	private TextButton button2;	
 	private TextButton button3;
 	private TextButton button4;		//udsis
+	
+	private int time;
 
 	public TempMapScreen(Game g) {
 		super(g);
 	}
 
-	public TempMapScreen(Game g, String name) {
-		super(g);
-	}
 
 	@Override
 	public void show() {
@@ -155,10 +154,13 @@ public class TempMapScreen extends GameScreen implements Screen {
 		stage.addActor(button4);	//udsis
 		stage.addActor(smallPhone);
 		Gdx.input.setInputProcessor(stage);
+		
+		time = 0;
 	}
 
 	@Override
 	public void render(float delta) {	
+		time++;
 		Gdx.gl.glClearColor(0, 0, 0.4f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		renderPhone();
@@ -186,7 +188,12 @@ public class TempMapScreen extends GameScreen implements Screen {
 			}
 		}
 		if (advisorBool && libraryBool && memorialBool && udsisBool) {
-			game.setScreen(new TestScreen(game));
+			game.setScreen(new BossBattle(game));
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.UP)){
+			if (time > 50) {
+				game.setScreen(new BossBattle(game));
+			}
 		}
 	}
 

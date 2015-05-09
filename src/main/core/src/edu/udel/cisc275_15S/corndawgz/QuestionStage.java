@@ -7,27 +7,27 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 public class QuestionStage extends Stage {
 	private FileHandle file;
 	private Skin skin;
-	private TestScreen screen;
+	private QuestionReader screen;
 	private String question;
 	
-	private TestButton aButton;
-	private TestButton bButton;
-	private TestButton cButton;
-	private TestButton dButton;
+	private BossButton aButton;
+	private BossButton bButton;
+	private BossButton cButton;
+	private BossButton dButton;
 	
-	public QuestionStage(FileHandle f, Skin s, TestScreen sc) {
+	public QuestionStage(FileHandle f, Skin s, QuestionReader sc) {
 		super();
 		file = f;
 		skin = s;
 		screen = sc; // observer
-		aButton = new TestButton("", skin, "A");
-		bButton = new TestButton("", skin, "B");
-		cButton = new TestButton("", skin, "C");
-		dButton = new TestButton("", skin, "D");
+		//aButton = new BossButton("", skin, "A");
+		//bButton = new BossButton("", skin, "B");
+		//cButton = new BossButton("", skin, "C");
+		//dButton = new BossButton("", skin, "D");
 	}
 	
 	public void clicked() {
-		screen.nextQuestion();
+		//screen.next();
 	}
 	
 	// makes TestButtons with the Strings in the Question object
@@ -51,10 +51,10 @@ public class QuestionStage extends Stage {
 		cButton.setPosition(2, q.getAnswerA().length() * 8);
 		dButton.setPosition(3, q.getAnswerA().length() * 8);
 		
-		aButton.addListener(file, this);
-		bButton.addListener(file, this);
-		cButton.addListener(file, this);
-		dButton.addListener(file, this);
+//		aButton.addListener(file);
+//		bButton.addListener(file);
+//		cButton.addListener(file);
+//		dButton.addListener(file);
 		
 		addActor(aButton);
 		addActor(bButton);

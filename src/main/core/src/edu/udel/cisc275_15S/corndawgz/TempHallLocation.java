@@ -67,7 +67,7 @@ public class TempHallLocation extends GameScreen{
 		@Override
 		public void act(float delta){
 			if(started){
-				game.setScreen(new TestScreen(game));
+				//game.setScreen(new QuestionReader(game));
 			}
 		}
 	}

@@ -105,7 +105,7 @@ public class WalkScreen extends GameScreen implements InputProcessor {
 			System.out.println("x: " + x + "y: " + y);
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
-			game.setScreen(new TestScreen(game));
+			//game.setScreen(new QuestionReader(game));
 		}
 	}
 

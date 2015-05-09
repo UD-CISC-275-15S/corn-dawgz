@@ -7,6 +7,7 @@ public class Question {
 	private String answerB;
 	private String answerC;
 	private String answerD;
+	private String correct;
 	public Question(){
 	}
 	public String getQuestion() {
@@ -24,6 +25,9 @@ public class Question {
 	public String getAnswerD() {
 		return answerD;
 	}
+	public String getCorrect() {
+		return correct;
+	}
 	public void setQuestion(String question) {
 		this.question = question;
 	}
@@ -38,5 +42,16 @@ public class Question {
 	}
 	public void setAnswerD(String answerD) {
 		this.answerD = answerD;
+	}
+	public void setCorrect(String cor) {
+		this.correct = cor;
+	}
+
+	@Override
+	public String toString() {
+		return question + "\n" + "A: " + answerA + "\n" 
+							   + "B: " + answerB + "\n" 
+							   + "C: " + answerC + "\n" 	
+							   + "D: " + answerD;
 	}
 }
