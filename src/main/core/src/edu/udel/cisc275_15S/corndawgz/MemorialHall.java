@@ -44,6 +44,7 @@ public class MemorialHall implements MyEvent {
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit4.png"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit5.png"))));
         stage.setFillParentTrue();
+        //test
         Comp.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
