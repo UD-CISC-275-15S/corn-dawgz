@@ -94,9 +94,11 @@ public class MapScreen extends GameScreen  {
 		button1.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
+				
 				myEvent = new Library();
 				otherStage = true;
-			}
+				}
+			
 		});
 
 		button2 = new TextButton("Memorial Hall", skin);
@@ -109,9 +111,15 @@ public class MapScreen extends GameScreen  {
 		button2.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
+				if (libraryBool == false) {
+					System.out.println("Nope");
+				}
+				if(libraryBool == true) {
 				myEvent = new MemorialHall();
 				otherStage = true;
+				
 			}
+		}
 		});
 
 		button3 = new TextButton("Advisor's Office", skin);
@@ -124,8 +132,13 @@ public class MapScreen extends GameScreen  {
 		button3.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
+				if(memorialBool == false) {
+					System.out.println("Nope");
+				}
+				if(memorialBool == true) {
 				myEvent = new Advisor();
 				otherStage = true;
+			}
 			}
 		});
 		
@@ -140,8 +153,13 @@ public class MapScreen extends GameScreen  {
 		button4.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
+				if(advisorBool == false) {
+					System.out.println("Nope");
+				}
+				if(advisorBool == true) {
 				myEvent = new UDSIS();
 				otherStage = true;
+				}
 			}
 		});
 
@@ -199,19 +217,19 @@ public class MapScreen extends GameScreen  {
 		if (s.equals("Advisor")) {
 			advisorBool = true;
 			button3.setColor(Color.GREEN);
-			button2.setColor(Color.YELLOW);
+			button4.setColor(Color.YELLOW);
 			button3.setTouchable(Touchable.disabled);
 		}
 		if (s.equals("Library")) {
 			libraryBool = true;
 			button1.setColor(Color.GREEN);
-			button3.setColor(Color.YELLOW);;
+			button2.setColor(Color.YELLOW);;
 			button4.setTouchable(Touchable.disabled);
 		}
 		if (s.equals("MemorialHall")) {
 			memorialBool = true;
 			button2.setColor(Color.GREEN);
-			button4.setColor(Color.YELLOW);;
+			button3.setColor(Color.YELLOW);;
 			button4.setTouchable(Touchable.disabled);
 		}
 		if(s.equals("UDSIS")) {
