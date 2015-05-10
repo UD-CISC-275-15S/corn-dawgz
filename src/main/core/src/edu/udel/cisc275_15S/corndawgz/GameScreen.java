@@ -4,7 +4,8 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 ///doijsdoifjsd
 public class GameScreen implements Screen{
-Game game;
+	Game game;
+	DialogueBox dialogue;
 	
 	public GameScreen (Game g){
 		this.game = g;

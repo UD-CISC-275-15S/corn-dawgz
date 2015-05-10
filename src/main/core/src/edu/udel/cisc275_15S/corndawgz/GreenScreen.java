@@ -20,6 +20,7 @@ public class GreenScreen extends GameScreen{
 	Texture roommateImg;
 	Rectangle roommate; 
 	
+	
 	public GreenScreen(Game g) {
 		super(g);
 	}
@@ -48,6 +49,7 @@ public class GreenScreen extends GameScreen{
 		
 		font = new BitmapFont();
 		font.setColor(Color.BLACK);
+		
 	}
 	
 	
