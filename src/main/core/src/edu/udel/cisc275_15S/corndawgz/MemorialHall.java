@@ -14,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.TimeUtils;
 
 public class MemorialHall implements MyEvent {
+	private MyEvent myEvent;
 	private long startTime;
 	private SpriteBatch batch;
 	private ImageSequence stage;
@@ -32,6 +33,14 @@ public class MemorialHall implements MyEvent {
         stage.addImages(new Image(new Texture(Gdx.files.internal("locations/careeradvisor.png"))));
         stage.addImages(new Image(new Texture(Gdx.files.internal("locations/careeradvisor.png"))));
         stage.setFillParentTrue();
+        Comp.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+			System.out.println("Hey");
+/// WANT TO MAKE IT SO WHEN YOU CLICK ON THE COMPUTER SCREEN, IT GOES TO UDSIS
+				}
+			
+		});
         stage.update();
 	}
 	
