@@ -1,7 +1,5 @@
 package edu.udel.cisc275_15S.corndawgz;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
@@ -10,7 +8,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.TimeUtils;
 
 public class MemorialHall implements MyEvent {
@@ -18,17 +18,23 @@ public class MemorialHall implements MyEvent {
 	private SpriteBatch batch;
 	private ImageSequence stage;
 	private boolean done;
+	public DialogueBox step1 = new DialogueBox("hey I am testing the dialogue ok lets see if this works yo");
+	private Image Comp;
 	
 	public MemorialHall() {
     	batch = new SpriteBatch();
         startTime = TimeUtils.millis();
         stage = new ImageSequence();
-        stage.addImages(new Image(new Texture(Gdx.files.internal("text_images/mem1.png"))));
-        stage.addImages(new Image(new Texture(Gdx.files.internal("text_images/mem2.png"))));
-        stage.addImages(new Image(new Texture(Gdx.files.internal("text_images/mem3.png"))));
+    	Comp = new Image(new Texture("phone/Unknown.jpeg"));
+    	Comp.setPosition(250, 150);
+		Comp.setScale(.75f);
+        stage.addImages(new Image(new Texture(Gdx.files.internal("locations/careeradvisor.png"))));
+        stage.addImages(new Image(new Texture(Gdx.files.internal("locations/careeradvisor.png"))));
+        stage.addImages(new Image(new Texture(Gdx.files.internal("locations/careeradvisor.png"))));
         stage.setFillParentTrue();
         stage.update();
 	}
+	
 	
 	
     @Override
@@ -38,6 +44,8 @@ public class MemorialHall implements MyEvent {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         stage.draw(); 
+        stage.addActor(step1);
+		stage.addActor(Comp);
         batch.end();
     }
 

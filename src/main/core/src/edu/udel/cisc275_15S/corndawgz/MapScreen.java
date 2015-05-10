@@ -101,7 +101,7 @@ public class MapScreen extends GameScreen  {
 			
 		});
 
-		button2 = new TextButton("Memorial Hall", skin);
+		button2 = new TextButton("Career Advisement Center", skin);
 		button2.setColor(Color.RED);
 		button2.setWidth(BUTTON_WIDTH);
 		button2.setHeight(BUTTON_HEIGHT);
