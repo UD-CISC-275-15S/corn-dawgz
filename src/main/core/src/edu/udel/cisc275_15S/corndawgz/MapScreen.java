@@ -85,7 +85,7 @@ public class MapScreen extends GameScreen  {
 		phone.update();
 
 		button1 = new TextButton("Library", skin);
-		button1.setColor(Color.RED);
+		button1.setColor(Color.YELLOW);
 		button1.setWidth(BUTTON_WIDTH);
 		button1.setHeight(BUTTON_HEIGHT);
 		button1.setPosition(Gdx.graphics.getWidth() / 2 - 100,
@@ -199,16 +199,19 @@ public class MapScreen extends GameScreen  {
 		if (s.equals("Advisor")) {
 			advisorBool = true;
 			button3.setColor(Color.GREEN);
+			button2.setColor(Color.YELLOW);
 			button3.setTouchable(Touchable.disabled);
 		}
 		if (s.equals("Library")) {
 			libraryBool = true;
 			button1.setColor(Color.GREEN);
+			button3.setColor(Color.YELLOW);;
 			button4.setTouchable(Touchable.disabled);
 		}
 		if (s.equals("MemorialHall")) {
 			memorialBool = true;
 			button2.setColor(Color.GREEN);
+			button4.setColor(Color.YELLOW);;
 			button4.setTouchable(Touchable.disabled);
 		}
 		if(s.equals("UDSIS")) {
