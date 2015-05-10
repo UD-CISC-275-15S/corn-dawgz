@@ -36,6 +36,11 @@ public class UDSIS implements MyEvent {
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register3.png"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/change1.png"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/change2.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit1.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit2.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit3.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit4.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit5.png"))));
 		stage.setFillParentTrue();
 		stage.update();
 		
