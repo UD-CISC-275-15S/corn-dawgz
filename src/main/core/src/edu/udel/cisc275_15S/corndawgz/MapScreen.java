@@ -16,7 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
-public class MapScreen extends GameScreen  {
+public class MapScreen extends GameScreen {
 	private SpriteBatch batch;
 	private Skin skin;
 	private Stage stage;
@@ -24,33 +24,31 @@ public class MapScreen extends GameScreen  {
 	private final float BUTTON_WIDTH = 50;
 	private final float LARGE_PHONE_X = 150;
 	private final float LARGE_PHONE_Y = 20;
-	
+
 	private ImageSequence phone;
 	private Image smallPhone;
 	private boolean showLarge;
 	private BitmapFont font;
-	
+
 	private Image background;
-	
+
 	private boolean otherStage = false;
 	private boolean advisorBool = false;
 	private boolean libraryBool = false;
-	private boolean memorialBool = false;
-	private boolean udsisBool = false;	//udsis
-	
+	private boolean careerAdvisementBool = false;
+	private boolean udsisBool = false; // udsis
+
 	private MyEvent myEvent;
-	
-	private TextButton button1;
-	private TextButton button2;	
-	private TextButton button3;
-	private TextButton button4;		//udsis
-	
+
+	private TextButton libraryButton;
+	private TextButton careerAdvisementButton;
+	private TextButton advisorButton;
+
 	private int time;
 
 	public MapScreen(Game g) {
 		super(g);
 	}
-
 
 	@Override
 	public void show() {
@@ -59,8 +57,8 @@ public class MapScreen extends GameScreen  {
 		stage = new Stage();
 
 		background = new Image(new Texture("CampusMap.png"));
-		background.setFillParent(true); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		
+		background.setFillParent(true);
+
 		showLarge = false;
 		smallPhone = new Image(new Texture("phone/phone.png"));
 		smallPhone.setPosition(20, 20);
@@ -70,13 +68,13 @@ public class MapScreen extends GameScreen  {
 			public void clicked(InputEvent event, float x, float y) {
 				showLarge = !showLarge;
 				if (showLarge) {
-					stage.addActor(phone.getImage());
+					stage.addActor(phone.getBackgroundImage());
 				} else {
-					phone.getImage().remove();
+					phone.getBackgroundImage().remove();
 				}
 			}
 		});
-		
+
 		phone = new ImageSequence();
 		phone.addImages(new Image(new Texture("phone/meetAtLibrary.png")));
 		phone.addImages(new Image(new Texture("phone/phoneLarge.png")));
@@ -84,99 +82,67 @@ public class MapScreen extends GameScreen  {
 		phone.setAllPosition(LARGE_PHONE_X, LARGE_PHONE_Y);
 		phone.update();
 
-		button1 = new TextButton("Library", skin);
-		button1.setColor(Color.YELLOW);
-		button1.setWidth(BUTTON_WIDTH);
-		button1.setHeight(BUTTON_HEIGHT);
-		button1.setPosition(Gdx.graphics.getWidth() / 2 - 100,
+		libraryButton = new TextButton("Library", skin);
+		libraryButton.setColor(Color.YELLOW);
+		libraryButton.setWidth(BUTTON_WIDTH);
+		libraryButton.setHeight(BUTTON_HEIGHT);
+		libraryButton.setPosition(Gdx.graphics.getWidth() / 2 - 100,
 				Gdx.graphics.getHeight() / 2 - 25);
 
-		button1.addListener(new ClickListener() {
+		libraryButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				
 				myEvent = new Library();
 				otherStage = true;
-				}
-			
+			}
+
 		});
 
-		button2 = new TextButton("Career Advisement Center", skin);
-		button2.setColor(Color.RED);
-		button2.setWidth(BUTTON_WIDTH);
-		button2.setHeight(BUTTON_HEIGHT);
-		button2.setPosition(Gdx.graphics.getWidth() / 2 - 30,
+		careerAdvisementButton = new TextButton("Career Advisement Center",
+				skin);
+		careerAdvisementButton.setColor(Color.RED);
+		careerAdvisementButton.setWidth(BUTTON_WIDTH);
+		careerAdvisementButton.setHeight(BUTTON_HEIGHT);
+		careerAdvisementButton.setPosition(Gdx.graphics.getWidth() / 2 - 30,
 				Gdx.graphics.getHeight() / 2 + 75);
 
-		button2.addListener(new ClickListener() {
+		careerAdvisementButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				if (libraryBool == false) {
-					System.out.println("Nope");
-				}
-				if(libraryBool == true) {
-				myEvent = new MemorialHall();
+				myEvent = new CareerAdvisement();
 				otherStage = true;
-				
+
 			}
-		}
 		});
 
-		button3 = new TextButton("Advisor's Office", skin);
-		button3.setColor(Color.RED);
-		button3.setWidth(BUTTON_WIDTH);
-		button3.setHeight(BUTTON_HEIGHT);
-		button3.setPosition(Gdx.graphics.getWidth() / 2 - 170,
+		advisorButton = new TextButton("Advisor's Office", skin);
+		advisorButton.setColor(Color.RED);
+		advisorButton.setWidth(BUTTON_WIDTH);
+		advisorButton.setHeight(BUTTON_HEIGHT);
+		advisorButton.setPosition(Gdx.graphics.getWidth() / 2 - 170,
 				Gdx.graphics.getHeight() / 2 + 100);
 
-		button3.addListener(new ClickListener() {
+		advisorButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				if(memorialBool == false) {
-					System.out.println("Nope");
-				}
-				if(memorialBool == true) {
 				myEvent = new Advisor();
 				otherStage = true;
-			}
-			}
-		});
-		
-		//UDSIS
-		button4 = new TextButton("Study Abroad Lecture", skin);
-		button4.setColor(Color.RED);
-		button4.setWidth(BUTTON_WIDTH);
-		button4.setHeight(BUTTON_HEIGHT);
-		button4.setPosition(Gdx.graphics.getWidth() / 2 + 50,
-				Gdx.graphics.getHeight() / 2 - 100);
-
-		button4.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				if(advisorBool == false) {
-					System.out.println("Nope");
-				}
-				if(advisorBool == true) {
-				myEvent = new UDSIS();
-				otherStage = true;
-				}
 			}
 		});
 
 		// add the button and textField to the stage
 		stage.addActor(background);
-		stage.addActor(button1);
-		stage.addActor(button2);
-		stage.addActor(button3);
-		stage.addActor(button4);	//udsis
+		stage.addActor(libraryButton);
+		stage.addActor(careerAdvisementButton);
+		stage.addActor(advisorButton);
 		stage.addActor(smallPhone);
 		Gdx.input.setInputProcessor(stage);
-		
+
 		time = 0;
 	}
 
 	@Override
-	public void render(float delta) {	
+	public void render(float delta) {
 		time++;
 		Gdx.gl.glClearColor(0, 0, 0.4f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -184,29 +150,28 @@ public class MapScreen extends GameScreen  {
 			batch.begin();
 			stage.draw();
 			batch.end();
-			
-			button1.setTouchable(Touchable.enabled);
-			button2.setTouchable(Touchable.enabled);
-			button3.setTouchable(Touchable.enabled);
-			button4.setTouchable(Touchable.enabled);
-			
-		} 
-		if(otherStage) {
-			button1.setTouchable(Touchable.disabled);
-			button2.setTouchable(Touchable.disabled);
-			button3.setTouchable(Touchable.disabled);
-			button4.setTouchable(Touchable.disabled);
-			
+
+			libraryButton.setTouchable(Touchable.enabled);
+			careerAdvisementButton.setTouchable(Touchable.enabled);
+			advisorButton.setTouchable(Touchable.enabled);
+
+		}
+		if (otherStage) {
+			libraryButton.setTouchable(Touchable.disabled);
+			careerAdvisementButton.setTouchable(Touchable.disabled);
+			advisorButton.setTouchable(Touchable.disabled);
+
 			myEvent.render(delta);
-			if(myEvent.done()) {
+			if (myEvent.done()) {
 				otherStage = false;
 				completed(myEvent.getEventType());
+				Gdx.input.setInputProcessor(stage);
 			}
 		}
-		if (advisorBool && libraryBool && memorialBool && udsisBool) {
+		if (advisorBool && libraryBool && careerAdvisementBool && udsisBool) {
 			game.setScreen(new BossBattle(game));
 		}
-		if (Gdx.input.isKeyPressed(Input.Keys.UP)){
+		if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
 			if (time > 50) {
 				game.setScreen(new BossBattle(game));
 			}
@@ -216,30 +181,27 @@ public class MapScreen extends GameScreen  {
 	public void completed(String s) {
 		if (s.equals("Advisor")) {
 			advisorBool = true;
-			button3.setColor(Color.GREEN);
-			button4.setColor(Color.YELLOW);
-			button3.setTouchable(Touchable.disabled);
+			advisorButton.setColor(Color.GREEN);
+			advisorButton.setTouchable(Touchable.disabled);
 		}
 		if (s.equals("Library")) {
 			libraryBool = true;
-			button1.setColor(Color.GREEN);
-			button2.setColor(Color.YELLOW);;
-			button4.setTouchable(Touchable.disabled);
+			libraryButton.setColor(Color.GREEN);
+			careerAdvisementButton.setColor(Color.YELLOW);
 		}
-		if (s.equals("MemorialHall")) {
-			memorialBool = true;
-			button2.setColor(Color.GREEN);
-			button3.setColor(Color.YELLOW);;
-			button4.setTouchable(Touchable.disabled);
+		if (s.equals("CareerAdvisement")) {
+			careerAdvisementBool = true;
+			careerAdvisementButton.setColor(Color.GREEN);
+			advisorButton.setColor(Color.YELLOW);
+			System.out.println("should be changing event now");
+			myEvent = new UDSIS();
+			otherStage = true;
 		}
-		if(s.equals("UDSIS")) {
+		if (s.equals("UDSIS")) {
 			udsisBool = true;
-			button4.setColor(Color.GREEN);
-			button4.setTouchable(Touchable.disabled);
 		}
 	}
 
-	
 	@Override
 	public void dispose() {
 		batch.dispose();

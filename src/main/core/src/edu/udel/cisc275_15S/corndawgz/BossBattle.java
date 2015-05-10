@@ -55,7 +55,7 @@ public class BossBattle extends GameScreen {
 		d = new BossButton("d", skin, 3, this);
 		
 		stage.addActor(background);
-		stage.addActor(boss.getImage());
+		stage.addActor(boss.getBackgroundImage());
 		stage.addActor(a);
 		stage.addActor(b);
 		stage.addActor(c);
@@ -81,7 +81,7 @@ public class BossBattle extends GameScreen {
 		//boss.setAllScale(bossScale);
 		stage.clear();
 		stage.addActor(background);
-		stage.addActor(boss.getImage());
+		stage.addActor(boss.getBackgroundImage());
 		stage.addActor(a);
 		stage.addActor(b);
 		stage.addActor(c);
