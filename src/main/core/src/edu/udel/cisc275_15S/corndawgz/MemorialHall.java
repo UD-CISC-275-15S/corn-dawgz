@@ -31,7 +31,18 @@ public class MemorialHall implements MyEvent {
 		Comp.setScale(.75f);
         stage.addImages(new Image(new Texture(Gdx.files.internal("locations/careeradvisor.png"))));
         stage.addImages(new Image(new Texture(Gdx.files.internal("locations/careeradvisor.png"))));
-        stage.addImages(new Image(new Texture(Gdx.files.internal("locations/careeradvisor.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/start.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/advisorLocation.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register1.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register2.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register3.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/change1.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/change2.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit1.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit2.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit3.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit4.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit5.png"))));
         stage.setFillParentTrue();
         Comp.addListener(new ClickListener() {
 			@Override
@@ -54,7 +65,7 @@ public class MemorialHall implements MyEvent {
         batch.begin();
         stage.draw(); 
         stage.addActor(step1);
-		stage.addActor(Comp);
+	//	stage.addActor(Comp);
         batch.end();
     }
 
@@ -66,6 +77,25 @@ public class MemorialHall implements MyEvent {
 					startTime = TimeUtils.millis();
 				} else {
 					done = true;
+				}
+			}
+		}
+    	
+    	if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+			if (TimeUtils.millis() > startTime + 500) {
+				if (stage.hasNext()) {
+					stage.nextImage();
+					startTime = TimeUtils.millis();
+				} else {
+					done = true;
+				}
+			}
+		}
+		else if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+			if (TimeUtils.millis() > startTime + 500) {
+				if (stage.hasPrev()) {
+					stage.prevImage();
+					startTime = TimeUtils.millis();
 				}
 			}
 		}

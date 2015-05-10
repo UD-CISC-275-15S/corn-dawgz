@@ -143,7 +143,7 @@ public class MapScreen extends GameScreen  {
 		});
 		
 		//UDSIS
-		button4 = new TextButton("UDSIS", skin);
+		button4 = new TextButton("Study Abroad Lecture", skin);
 		button4.setColor(Color.RED);
 		button4.setWidth(BUTTON_WIDTH);
 		button4.setHeight(BUTTON_HEIGHT);
