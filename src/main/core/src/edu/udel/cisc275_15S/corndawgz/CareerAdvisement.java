@@ -20,7 +20,7 @@ public class CareerAdvisement implements MyEvent {
     	batch = new SpriteBatch();
         stage = new ImageSequence();
 
-        step1 = new DialogueBox("hey I am testing the dialogue ok lets see if this works yo");
+        step1 = new DialogueBox("Click the computer to access UDSIS");
         
 		ArrayList<Image> list = new ArrayList<Image>();
 		Image image1 = new Image(new Texture(Gdx.files.internal("locations/careeradvisor.png")));

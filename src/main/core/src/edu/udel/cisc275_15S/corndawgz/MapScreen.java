@@ -137,7 +137,7 @@ public class MapScreen extends GameScreen {
 		studyButton.setPosition(Gdx.graphics.getWidth() / 2 - 190,
 				Gdx.graphics.getHeight() / 2 + 150);
 
-		advisorButton.addListener(new ClickListener() {
+		studyButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				myEvent = new StudyAbroad();
@@ -145,13 +145,16 @@ public class MapScreen extends GameScreen {
 			}
 		});
 
-		// add the button and textField to the stage
+		libraryButton.setTouchable(Touchable.enabled);
+		careerAdvisementButton.setTouchable(Touchable.disabled);
+		advisorButton.setTouchable(Touchable.disabled);
+		studyButton.setTouchable(Touchable.disabled);
 		stage.addActor(background);
 		stage.addActor(libraryButton);
 		stage.addActor(careerAdvisementButton);
 		stage.addActor(advisorButton);
-		stage.addActor(smallPhone);
 		stage.addActor(studyButton);
+		stage.addActor(smallPhone);
 		Gdx.input.setInputProcessor(stage);
 
 		time = 0;
@@ -166,12 +169,10 @@ public class MapScreen extends GameScreen {
 			batch.begin();
 			stage.draw();
 			batch.end();
-
 			studyButton.setTouchable(Touchable.enabled);
 			libraryButton.setTouchable(Touchable.enabled);
 			careerAdvisementButton.setTouchable(Touchable.enabled);
 			advisorButton.setTouchable(Touchable.enabled);
-
 		}
 		if (otherStage) {
 			studyButton.setTouchable(Touchable.disabled);
@@ -199,24 +200,28 @@ public class MapScreen extends GameScreen {
 	public void completed(String s) {
 		if (s.equals("Advisor")) {
 			advisorBool = true;
-			advisorButton.setColor(Color.RED);
-			advisorButton.setTouchable(Touchable.disabled);
+			advisorButton.setColor(Color.GREEN);
+			studyButton.setColor(Color.YELLOW);
 			studyButton.setTouchable(Touchable.enabled);
 		}
 		if (s.equals("Library")) {
 			libraryBool = true;
 			libraryButton.setColor(Color.GREEN);
 			careerAdvisementButton.setColor(Color.YELLOW);
+			careerAdvisementButton.setTouchable(Touchable.enabled);
 		}
 		if (s.equals("CareerAdvisement")) {
 			careerAdvisementBool = true;
 			careerAdvisementButton.setColor(Color.GREEN);
 			advisorButton.setColor(Color.YELLOW);
+			advisorButton.setTouchable(Touchable.enabled);
 			myEvent = new UDSIS();
 			otherStage = true;
+			Gdx.input.setInputProcessor(stage);
 		}
 		if (s.equals("UDSIS")) {
 			udsisBool = true;
+			otherStage = false;
 			
 		}
 		if (s.equals("StudyAbroad")) {
