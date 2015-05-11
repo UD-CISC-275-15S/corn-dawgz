@@ -35,9 +35,10 @@ public class MapScreen extends GameScreen {
 	private boolean libraryBool = false;
 	private boolean careerAdvisementBool = false;
 	private boolean udsisBool = false; // udsis
+	private boolean studyBool = false;
 
 	private MyEvent myEvent;
-
+	private TextButton studyButton;
 	private TextButton libraryButton;
 	private TextButton careerAdvisementButton;
 	private TextButton advisorButton;
@@ -127,6 +128,22 @@ public class MapScreen extends GameScreen {
 				otherStage = true;
 			}
 		});
+		
+		
+		studyButton = new TextButton("Study Abroad", skin);
+		studyButton.setColor(Color.RED);
+		studyButton.setWidth(BUTTON_WIDTH);
+		studyButton.setHeight(BUTTON_HEIGHT);
+		studyButton.setPosition(Gdx.graphics.getWidth() / 2 - 190,
+				Gdx.graphics.getHeight() / 2 + 150);
+
+		advisorButton.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				myEvent = new StudyAbroad();
+				otherStage = true;
+			}
+		});
 
 		// add the button and textField to the stage
 		stage.addActor(background);
@@ -134,6 +151,7 @@ public class MapScreen extends GameScreen {
 		stage.addActor(careerAdvisementButton);
 		stage.addActor(advisorButton);
 		stage.addActor(smallPhone);
+		stage.addActor(studyButton);
 		Gdx.input.setInputProcessor(stage);
 
 		time = 0;
@@ -149,12 +167,14 @@ public class MapScreen extends GameScreen {
 			stage.draw();
 			batch.end();
 
+			studyButton.setTouchable(Touchable.enabled);
 			libraryButton.setTouchable(Touchable.enabled);
 			careerAdvisementButton.setTouchable(Touchable.enabled);
 			advisorButton.setTouchable(Touchable.enabled);
 
 		}
 		if (otherStage) {
+			studyButton.setTouchable(Touchable.disabled);
 			libraryButton.setTouchable(Touchable.disabled);
 			careerAdvisementButton.setTouchable(Touchable.disabled);
 			advisorButton.setTouchable(Touchable.disabled);
@@ -166,7 +186,7 @@ public class MapScreen extends GameScreen {
 				Gdx.input.setInputProcessor(stage);
 			}
 		}
-		if (advisorBool && libraryBool && careerAdvisementBool && udsisBool) {
+		if (advisorBool && libraryBool && careerAdvisementBool && udsisBool && studyBool) {
 			game.setScreen(new BossBattle(game));
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
@@ -179,8 +199,9 @@ public class MapScreen extends GameScreen {
 	public void completed(String s) {
 		if (s.equals("Advisor")) {
 			advisorBool = true;
-			advisorButton.setColor(Color.GREEN);
+			advisorButton.setColor(Color.RED);
 			advisorButton.setTouchable(Touchable.disabled);
+			studyButton.setTouchable(Touchable.enabled);
 		}
 		if (s.equals("Library")) {
 			libraryBool = true;
@@ -196,6 +217,10 @@ public class MapScreen extends GameScreen {
 		}
 		if (s.equals("UDSIS")) {
 			udsisBool = true;
+			
+		}
+		if (s.equals("StudyAbroad")) {
+			studyBool = true;
 		}
 	}
 
