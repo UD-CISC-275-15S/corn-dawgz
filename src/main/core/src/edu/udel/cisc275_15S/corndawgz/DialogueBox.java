@@ -10,7 +10,7 @@ public class DialogueBox extends Label{
 	public DialogueBox(String content)	{
 		super(content, new Skin(Gdx.files.internal("skin/uiskin.json")));
 		super.setX(10);
-		super.setY(0);
+		super.setY(100);
 		super.setWrap(true);
 		super.setAlignment(Align.bottomLeft);
 	}

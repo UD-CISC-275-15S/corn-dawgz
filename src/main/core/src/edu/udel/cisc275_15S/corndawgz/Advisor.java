@@ -18,10 +18,15 @@ public class Advisor implements MyEvent {
 		startTime = TimeUtils.millis();
 		batch = new SpriteBatch();
 		stage = new ImageSequence();
+		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor1.png"))));
+		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor2.png"))));
+		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor3.png"))));
+		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor4.png"))));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("locations/Advisor.jpg"))));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("locations/Fountain1.jpg"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("locations/youdee.jpg"))));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("locations/Fountain2.jpg"))));
+		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor5.png"))));
 		stage.setFillParentTrue();
 		stage.update();
 	}

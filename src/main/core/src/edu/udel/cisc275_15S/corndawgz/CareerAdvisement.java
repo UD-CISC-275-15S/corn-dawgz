@@ -23,7 +23,7 @@ public class CareerAdvisement implements MyEvent {
         step1 = new DialogueBox("Click the computer to access UDSIS");
         
 		ArrayList<Image> list = new ArrayList<Image>();
-		Image image1 = new Image(new Texture(Gdx.files.internal("locations/careeradvisor.png")));
+		Image image1 = new Image(new Texture(Gdx.files.internal("imagesforbeta/careeradvisor1.png")));
 		Image image2 = new Image(new Texture("phone/Unknown.jpeg"));
 		image2.setPosition(250, 150);
 		image2.setScale(.2f);
