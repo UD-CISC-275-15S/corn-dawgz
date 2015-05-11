@@ -6,7 +6,6 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -28,7 +27,6 @@ public class MapScreen extends GameScreen {
 	private ImageSequence phone;
 	private Image smallPhone;
 	private boolean showLarge;
-	private BitmapFont font;
 
 	private Image background;
 
@@ -193,7 +191,6 @@ public class MapScreen extends GameScreen {
 			careerAdvisementBool = true;
 			careerAdvisementButton.setColor(Color.GREEN);
 			advisorButton.setColor(Color.YELLOW);
-			System.out.println("should be changing event now");
 			myEvent = new UDSIS();
 			otherStage = true;
 		}
