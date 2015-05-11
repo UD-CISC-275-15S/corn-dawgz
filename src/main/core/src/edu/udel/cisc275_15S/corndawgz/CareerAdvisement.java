@@ -3,18 +3,14 @@ package edu.udel.cisc275_15S.corndawgz;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.TimeUtils;
 
 public class CareerAdvisement implements MyEvent {
-	private MyEvent myEvent;
-	private long startTime;
 	private SpriteBatch batch;
 	private ImageSequence stage;
 	private boolean done;
@@ -22,7 +18,6 @@ public class CareerAdvisement implements MyEvent {
 	
 	public CareerAdvisement() {
     	batch = new SpriteBatch();
-        startTime = TimeUtils.millis();
         stage = new ImageSequence();
 
         step1 = new DialogueBox("hey I am testing the dialogue ok lets see if this works yo");
@@ -35,7 +30,6 @@ public class CareerAdvisement implements MyEvent {
 		image2.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				System.out.println("done");
 				done = true;
 			}
 		});

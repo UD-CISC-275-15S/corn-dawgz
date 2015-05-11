@@ -1,6 +1,5 @@
 package edu.udel.cisc275_15S.corndawgz;
 
-import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
