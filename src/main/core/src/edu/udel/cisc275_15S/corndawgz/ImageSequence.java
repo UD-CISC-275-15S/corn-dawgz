@@ -9,20 +9,11 @@ public class ImageSequence extends Stage {
 	private ArrayList<ArrayList<Image>> images;
 	private ArrayList<DialogueBox> dialogue;
 	private int index;
-	private boolean handlesInput;
 
 	public ImageSequence() {
 		images = new ArrayList<ArrayList<Image>>();
 		dialogue = new ArrayList<DialogueBox>();
 		index = 0;
-	}
-	
-	public void setHandlesInput(boolean b) {
-		handlesInput = b;
-	}
-	
-	public boolean getHandlesInput() {
-		return handlesInput;
 	}
 
 	public void update() {
