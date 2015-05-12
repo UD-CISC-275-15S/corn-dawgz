@@ -23,6 +23,8 @@ public class MapScreen extends GameScreen {
 	private final float BUTTON_WIDTH = 50;
 	private final float LARGE_PHONE_X = 150;
 	private final float LARGE_PHONE_Y = 20;
+	
+	private DialogueBox tutorial;
 
 	private ImageSequence phone;
 	private Image smallPhone;
@@ -144,7 +146,13 @@ public class MapScreen extends GameScreen {
 				otherStage = true;
 			}
 		});
-
+		tutorial = new DialogueBox("Welcome to University of Delaware!\n"
+				+ "Here you will navigate campus and learn all you need "
+				+ "to know before starting your journey. Click on the library "
+				+ "to start. And pay attention; there is a lot for you to learn "
+				+ "before you can become a hero.\nGood luck! YouDee needs you.");
+		tutorial.setAlignment(1, 1);
+		
 		libraryButton.setTouchable(Touchable.enabled);
 		careerAdvisementButton.setTouchable(Touchable.disabled);
 		advisorButton.setTouchable(Touchable.disabled);
@@ -155,6 +163,7 @@ public class MapScreen extends GameScreen {
 		stage.addActor(advisorButton);
 		stage.addActor(studyButton);
 		stage.addActor(smallPhone);
+		stage.addActor(tutorial);
 		Gdx.input.setInputProcessor(stage);
 
 		time = 0;
