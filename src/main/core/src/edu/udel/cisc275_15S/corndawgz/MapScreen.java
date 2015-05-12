@@ -150,7 +150,7 @@ public class MapScreen extends GameScreen {
 				+ "Here you will navigate campus and learn all you need "
 				+ "to know before starting your journey. Click on the library "
 				+ "to start. And pay attention; there is a lot for you to learn "
-				+ "before you can become a hero.\nGood luck! YouDee needs you.");
+				+ "before you can become a hero.\nGood luck! YouDee needs you.", DialogueBox.BOTTOMWIDE);
 		tutorial.setAlignment(1, 1);
 		
 		libraryButton.setTouchable(Touchable.enabled);
