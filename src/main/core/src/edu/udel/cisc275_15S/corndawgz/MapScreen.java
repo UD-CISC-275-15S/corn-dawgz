@@ -159,9 +159,9 @@ public class MapScreen extends GameScreen {
 		studyButton.setTouchable(Touchable.disabled);
 		stage.addActor(background);
 		stage.addActor(libraryButton);
-		stage.addActor(careerAdvisementButton);
-		stage.addActor(advisorButton);
-		stage.addActor(studyButton);
+		//stage.addActor(careerAdvisementButton);
+		//stage.addActor(advisorButton);
+		//stage.addActor(studyButton);
 		stage.addActor(smallPhone);
 		stage.addActor(tutorial);
 		Gdx.input.setInputProcessor(stage);
@@ -210,23 +210,28 @@ public class MapScreen extends GameScreen {
 		if (s.equals("Advisor")) {
 			advisorBool = true;
 			advisorButton.setColor(Color.GREEN);
-			studyButton.setColor(Color.YELLOW);
+			studyButton.setColor(Color.RED);
 			studyButton.setTouchable(Touchable.enabled);
+			stage.addActor(studyButton);
+
 		}
 		if (s.equals("Library")) {
 			libraryBool = true;
 			libraryButton.setColor(Color.GREEN);
-			careerAdvisementButton.setColor(Color.YELLOW);
+			careerAdvisementButton.setColor(Color.RED);
 			careerAdvisementButton.setTouchable(Touchable.enabled);
+			stage.addActor(careerAdvisementButton);
+			tutorial.remove();
 		}
 		if (s.equals("CareerAdvisement")) {
 			careerAdvisementBool = true;
 			careerAdvisementButton.setColor(Color.GREEN);
-			advisorButton.setColor(Color.YELLOW);
+			advisorButton.setColor(Color.RED);
 			advisorButton.setTouchable(Touchable.enabled);
 			myEvent = new UDSIS();
 			otherStage = true;
 			Gdx.input.setInputProcessor(stage);
+			stage.addActor(advisorButton);
 		}
 		if (s.equals("UDSIS")) {
 			udsisBool = true;
