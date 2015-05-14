@@ -2,6 +2,7 @@ package edu.udel.cisc275_15S.corndawgz;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -23,7 +24,7 @@ public class BossBattle extends GameScreen {
 	private BossButton b;
 	private BossButton c;
 	private BossButton d;
-	
+	private Sound sound;
 	public BossBattle(Game g) {
 		super(g);
 	}
@@ -39,6 +40,8 @@ public class BossBattle extends GameScreen {
 		background = new Image(new Texture("bossBattle/background.png"));
 		background.setFillParent(true);
 		boss = new ImageSequence();
+		sound = Gdx.audio.newSound(Gdx.files.internal("sounds/freemusic.mp3"));
+		sound.play(1.0f);
 		boss.addImages(new Image(new Texture("bossBattle/Test6.png")));
 		boss.addImages(new Image(new Texture("bossBattle/Test5.png")));
 		boss.addImages(new Image(new Texture("bossBattle/Test4.png")));
@@ -70,6 +73,7 @@ public class BossBattle extends GameScreen {
 			if (boss.hasNext()) {
 				boss.nextImage();
 			} else {
+				sound.stop();
 				game.setScreen(new SplashScreen(game));
 			}
 		} else {
