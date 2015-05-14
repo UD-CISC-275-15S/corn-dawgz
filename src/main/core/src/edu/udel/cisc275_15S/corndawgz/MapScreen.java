@@ -167,6 +167,7 @@ public class MapScreen extends GameScreen {
 		Gdx.input.setInputProcessor(stage);
 
 		time = 0;
+		
 	}
 
 	@Override
