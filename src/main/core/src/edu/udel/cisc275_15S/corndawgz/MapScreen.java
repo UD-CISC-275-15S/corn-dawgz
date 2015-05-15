@@ -63,7 +63,6 @@ public class MapScreen extends GameScreen {
 
 		background = new Image(new Texture("CampusMap.png"));
 		background.setFillParent(true);
-
 		showLarge = false;
 		smallPhone = new Image(new Texture("phone/phone.png"));
 		smallPhone.setPosition(20, 20);
@@ -225,10 +224,14 @@ public class MapScreen extends GameScreen {
 		}
 		if (advisorBool && libraryBool && careerAdvisementBool && udsisBool
 				&& studyBool) {
+			gamesound.setVolume(0, 0);
+			gamesound.dispose();
 			game.setScreen(new BossBattle(game));
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
 			if (time > 50) {
+				gamesound.setVolume(0, 0);
+				gamesound.dispose();
 				game.setScreen(new BossBattle(game));
 			}
 		}

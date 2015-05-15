@@ -2,6 +2,8 @@ package edu.udel.cisc275_15S.corndawgz;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -25,8 +27,7 @@ public class StartScreen extends GameScreen {
 	private final float textFieldHeight = 20;
 	private final float textFieldWidth = 200;
 	private Image background;
-	
-	
+
 	
 	public StartScreen(Game g){
 		super(g);
@@ -34,6 +35,7 @@ public class StartScreen extends GameScreen {
 	
 	@Override
 	public void show (){	
+		
 		batch = new SpriteBatch();
 		skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 		stage = new Stage();

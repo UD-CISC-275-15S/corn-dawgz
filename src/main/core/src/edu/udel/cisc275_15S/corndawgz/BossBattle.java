@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.audio.Music;
 
 public class BossBattle extends GameScreen {
 	private SpriteBatch batch;
@@ -29,6 +30,8 @@ public class BossBattle extends GameScreen {
 	
 	@Override
 	public void show() {
+		gamesound.stop();
+		gamesound.setVolume(0, 0);
 		batch = new SpriteBatch();
 		skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 		stage = new Stage();
@@ -61,6 +64,7 @@ public class BossBattle extends GameScreen {
 		stage.addActor(b);
 		stage.addActor(c);
 		stage.addActor(d);
+		music = false;
 		Gdx.input.setInputProcessor(stage);
 	}
 	
@@ -113,7 +117,7 @@ public class BossBattle extends GameScreen {
 	
 	@Override 
 	public void dispose() {
-		
+		gamesound.dispose();
 	}
 
 }

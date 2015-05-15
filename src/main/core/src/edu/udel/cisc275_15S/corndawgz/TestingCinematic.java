@@ -21,13 +21,17 @@ public class TestingCinematic extends GameScreen implements Screen {
 	private SpriteBatch batch;
 	private ImageSequence clickStage;
 	private long startTime;
-
+	public int count = 0;
 	public TestingCinematic(Game g) {
 		super(g);
 	}
 
 	@Override	
 	public void show() {
+	if (startTime > 0) {
+		gamesound.stop();
+	}
+		gamesound.play();
 		batch = new SpriteBatch();
 		startTime = TimeUtils.millis();
 		clickStage = new ImageSequence();

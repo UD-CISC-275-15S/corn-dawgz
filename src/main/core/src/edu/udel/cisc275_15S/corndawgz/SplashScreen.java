@@ -15,6 +15,7 @@ public class SplashScreen extends GameScreen {
     private Image background;
     private long startTime;
     private Stage stage;
+    private boolean music = false;
     
     public SplashScreen(Game g) {
     	super(g);
