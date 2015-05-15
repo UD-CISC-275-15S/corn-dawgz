@@ -73,18 +73,23 @@ public class BossBattle extends GameScreen {
 			//bossScale = bossScale*.9f;
 			if (boss.hasNext()) {
 				boss.nextImage();
-			} else {
-				sound.stop();
-				game.setScreen(new SplashScreen(game));
 			}
 		} else {
 			//bossScale = bossScale*1.1f;
 			if (boss.hasPrev()) {
 				boss.prevImage();
-			} 
+			}
 		}
+		
 		//boss.setAllScale(bossScale);
-		questions.nextQuestion();
+		if (questions.hasNext()) {
+			questions.nextQuestion();
+		} else {			
+			questions.getNumberCorrect(); // This prints the number of correct to console
+			sound.stop();
+			game.setScreen(new SplashScreen(game));
+		}
+		
 		stage.clear();
 		stage.addActor(background);
 		stage.addActor(boss.getBackgroundImage());

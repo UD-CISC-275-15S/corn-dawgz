@@ -63,11 +63,14 @@ public class QuestionReader {
 		file = Gdx.files.local(writeFile);
 	}
 
+	public boolean hasNext() {
+		if (index + 1 >= questions.size()) {
+			return false;
+		}
+		return true;
+	}
 	public Question nextQuestion() {
 		index++;
-		if (index >= questions.size()){
-			index = 0;
-		}
 		return questions.get(index);
 	}
 	
@@ -77,6 +80,39 @@ public class QuestionReader {
 	
 	public void writeFile(String s) {
 		file.writeString(s, true);
+	}
+	
+	public int getNumberCorrect() {
+		file = Gdx.files.internal("data/correctAnswers.txt");
+		String cor = file.readString();
+		// clean up the file (the numbers were to help make file readable)
+		cor = cor.replaceAll(":", "");
+		cor = cor.replaceAll("1", "");
+		cor = cor.replaceAll("2", "");
+		cor = cor.replaceAll("3", "");
+		cor = cor.replaceAll("4", "");
+		cor = cor.replaceAll("5", "");
+		cor = cor.replaceAll("6", "");
+		cor = cor.replaceAll("7", "");
+		cor = cor.replaceAll("8", "");
+		cor = cor.replaceAll("9", "");
+		cor = cor.replaceAll("\n","");
+		char[] correct = cor.toCharArray();
+		
+		file = Gdx.files.local("data/myfile.txt");
+		String m = file.readString();
+		m = m.replaceAll("\n", "");
+		char[] ans = m.substring(m.indexOf("@") + 1 , m.length()).toCharArray();
+		
+		// count the number of correct answers
+		int numCorrect = 0;
+		for (int i = 0; i < correct.length; i++) {
+			if (ans[i] == correct[i]){
+				numCorrect++;
+			}
+		}
+		System.out.println(numCorrect);
+		return numCorrect;
 	}
 
 }
