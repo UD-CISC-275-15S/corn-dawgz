@@ -3,9 +3,8 @@ package edu.udel.cisc275_15S.corndawgz;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
-///doijsdoifjsd
+
 public class GameScreen implements Screen{
 	public Sound gamesound = Gdx.audio.newSound(Gdx.files.internal("sounds/game.mp3"));
 	Game game;

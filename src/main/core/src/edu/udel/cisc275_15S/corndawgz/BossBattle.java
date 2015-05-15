@@ -42,15 +42,57 @@ public class BossBattle extends GameScreen {
 		boss = new ImageSequence();
 		sound = Gdx.audio.newSound(Gdx.files.internal("sounds/freemusic.mp3"));
 		sound.play(1.0f);
-		boss.addImages(new Image(new Texture("bossBattle/Test6.png")));
-		boss.addImages(new Image(new Texture("bossBattle/Test5.png")));
-		boss.addImages(new Image(new Texture("bossBattle/Test4.png")));
-		boss.addImages(new Image(new Texture("bossBattle/Test3.png")));
-		boss.addImages(new Image(new Texture("bossBattle/Test2.png")));
-		boss.addImages(new Image(new Texture("bossBattle/Test1.png")));
+		
+		Image image1 = new Image(new Texture("bossBattle/Test6.png"));
+		Image image2 = new Image(new Texture("bossBattle/Test5.png"));
+		Image image3 = new Image(new Texture("bossBattle/Test4.png"));
+		Image image4 = new Image(new Texture("bossBattle/Test3.png"));
+		Image image5 = new Image(new Texture("bossBattle/Test2.png"));
+		Image image6 = new Image(new Texture("bossBattle/Test1.png"));
+		
+
+		System.out.println("image1width: " + image1.getWidth());
+		System.out.println("image6width: " + image6.getWidth());
+//		image1.setScale(.5f);
+//		image2.setScale(.9f);
+//		image3.setScale(.8f);
+//		image4.setScale(.7f);
+//		image5.setScale(.6f);
+//		image6.setScale(.5f);
+		image1.setScaleX(image1.getWidth()/image1.getWidth() *.6f);
+		image1.setScaleY(image1.getHeight()/image1.getHeight() *.6f);
+		image2.setScaleX(image2.getWidth()/image1.getWidth() *.6f);
+		image2.setScaleY(image2.getHeight()/image1.getHeight() *.6f);
+		image3.setScaleX(image3.getWidth()/image1.getWidth() *.6f);
+		image3.setScaleY(image3.getHeight()/image1.getHeight() *.6f);
+		image4.setScaleX(image4.getWidth()/image1.getWidth() *.6f);
+		image4.setScaleY(image4.getHeight()/image1.getHeight() *.6f);
+		image5.setScaleX(image5.getWidth()/image1.getWidth() *.6f);
+		image5.setScaleY(image5.getHeight()/image1.getHeight() *.6f);
+		image6.setScaleX(image6.getWidth()/image1.getWidth() *.6f);
+		image6.setScaleY(image6.getHeight()/image1.getHeight() *.6f);
+		
+		image1.setPosition((Gdx.graphics.getHeight()-image1.getHeight())/2,
+				(Gdx.graphics.getWidth()-image1.getWidth())/2);
+		image2.setPosition((Gdx.graphics.getHeight()-image2.getHeight())/2,
+				(Gdx.graphics.getWidth()-image2.getWidth())/2);
+		image3.setPosition((Gdx.graphics.getHeight()-image3.getHeight())/2,
+				(Gdx.graphics.getWidth()-image3.getWidth())/2);
+		image4.setPosition((Gdx.graphics.getHeight()-image4.getHeight())/2,
+				(Gdx.graphics.getWidth()-image4.getWidth())/2);
+		image5.setPosition((Gdx.graphics.getHeight()-image5.getHeight())/2,
+				(Gdx.graphics.getWidth()-image5.getWidth())/2);
+		image6.setPosition((Gdx.graphics.getHeight()-image6.getHeight())/2,
+				(Gdx.graphics.getWidth()-image6.getWidth())/2);
+		
+		
+		boss.addImages(image1);
+		boss.addImages(image2);
+		boss.addImages(image3);
+		boss.addImages(image4);
+		boss.addImages(image5);
+		boss.addImages(image6);
 		//bossScale = .6f;
-		boss.setAllScale(.6f);//bossScale);
-		boss.setAllPosition(100, 30);
 		
 		a = new BossButton(questions.getQuestion().getAnswerAformated(), skin, 0, this, "a");
 		b = new BossButton(questions.getQuestion().getAnswerBformated(), skin, 1, this, "b");
