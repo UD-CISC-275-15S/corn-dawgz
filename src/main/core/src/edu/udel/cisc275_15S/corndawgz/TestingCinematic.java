@@ -31,7 +31,8 @@ public class TestingCinematic extends GameScreen implements Screen {
 		batch = new SpriteBatch();
 		startTime = TimeUtils.millis();
 		clickStage = new ImageSequence();
-		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreenone.png"))));
+		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreenone.png"))),
+				new DialogueBox("Click to continue", DialogueBox.TOPLEFT));
 		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreentwo.png"))));
 		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreenthree.png"))));
 		clickStage.setFillParentTrue();

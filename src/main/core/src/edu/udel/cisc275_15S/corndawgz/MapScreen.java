@@ -155,12 +155,11 @@ public class MapScreen extends GameScreen {
 			}
 		});
 		mainTutorial = new DialogueBox(
-				"Welcome to University of Delaware!\n"
-						+ "Here you will navigate campus and learn all you need "
-						+ "to know before starting your journey. Click on the library "
-						+ "to start. And pay attention; there is a lot for you to learn "
-						+ "before you can become a hero.\nGood luck! YouDee needs you.\n"
-						+ "Click to continue", DialogueBox.TOPWIDE);
+			  "Welcome to University of Delaware!\n"
+			+ "Here you will navigate campus and learn all you need to know before starting your journey\n"
+			+ "Pay attention! There is a lot for you to learn before you can become a hero.\n"
+			+ "Good luck! YouDee needs you.\n"
+			+ "Click to continue", DialogueBox.TOPWIDE);
 		mainTutorial.setAlignment(1, 1);
 		mainTutorial.addListener(new ClickListener() {
 			@Override
