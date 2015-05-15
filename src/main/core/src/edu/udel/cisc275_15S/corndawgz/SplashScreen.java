@@ -24,7 +24,7 @@ public class SplashScreen extends GameScreen {
     @Override
     public void show() {
     	batch = new SpriteBatch();
-    	texture = new Texture(Gdx.files.internal("startdawgz.png")); //** texture is now the splash image **//
+    	texture = new Texture(Gdx.files.internal("update/ImageOne.png")); //** texture is now the splash image **//
     	background = new Image(texture);
     	background.setFillParent(true);
     	startTime = TimeUtils.millis();

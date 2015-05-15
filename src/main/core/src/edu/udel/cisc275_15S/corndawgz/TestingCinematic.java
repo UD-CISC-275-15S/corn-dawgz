@@ -36,9 +36,14 @@ public class TestingCinematic extends GameScreen implements Screen {
 		startTime = TimeUtils.millis();
 		clickStage = new ImageSequence();
 		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreenone.png"))),
-				new DialogueBox("Click to continue", DialogueBox.TOPLEFT));
-		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreentwo.png"))));
-		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/startscreenthree.png"))));
+				new DialogueBox("In the olden days of UD, it was all fun and good.\n" 
+								+ "The Blue Hens cared about eachother, as Blue Hens Should\n", DialogueBox.BOTTOMWIDE));
+		clickStage.addImages(new Image(new Texture(Gdx.files.internal("update/ImageOne.png"))),
+				new DialogueBox("But one masked villain, DeeYou, hatched his evil scheme.\n"
+								+"He stole YouDee in the middle of the night without being seen!\n", DialogueBox.BOTTOMWIDE));
+		clickStage.addImages(new Image(new Texture(Gdx.files.internal("update/ImageOne.png"))), 
+				new DialogueBox("You're the hero that we deserve and need!\n"
+								+ "Help find YouDee so he can be freed!\n", DialogueBox.BOTTOMWIDE));
 		clickStage.setFillParentTrue();
 		clickStage.update();
 	}
