@@ -25,7 +25,9 @@ public class MapScreen extends GameScreen {
 	private final float LARGE_PHONE_X = 150;
 	private final float LARGE_PHONE_Y = 20;
 	
-	private DialogueBox tutorial;
+	private boolean tutorial;
+	private DialogueBox mainTutorial;
+	private DialogueBox phoneTutorial;
 
 	private ImageSequence phone;
 	private Image smallPhone;
@@ -68,6 +70,12 @@ public class MapScreen extends GameScreen {
 		smallPhone.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
+				if (tutorial) {
+					phoneTutorial.remove();
+					libraryButton.setTouchable(Touchable.enabled);
+					stage.addActor(libraryButton);
+					
+				}
 				showLarge = !showLarge;
 				if (showLarge) {
 					stage.addActor(phone.getBackgroundImage());
@@ -88,8 +96,8 @@ public class MapScreen extends GameScreen {
 		libraryButton.setColor(Color.YELLOW);
 		libraryButton.setWidth(BUTTON_WIDTH);
 		libraryButton.setHeight(BUTTON_HEIGHT);
-		libraryButton.setPosition(Gdx.graphics.getWidth() / 2 - 100,
-				Gdx.graphics.getHeight() / 2 - 25);
+		libraryButton.setPosition(Gdx.graphics.getWidth() / 2 - 88,
+				Gdx.graphics.getHeight() / 2 - 70);
 
 		libraryButton.addListener(new ClickListener() {
 			@Override
@@ -131,8 +139,7 @@ public class MapScreen extends GameScreen {
 				otherStage = true;
 			}
 		});
-		
-		
+
 		studyButton = new TextButton("Study Abroad", skin);
 		studyButton.setColor(Color.RED);
 		studyButton.setWidth(BUTTON_WIDTH);
@@ -147,28 +154,39 @@ public class MapScreen extends GameScreen {
 				otherStage = true;
 			}
 		});
-		tutorial = new DialogueBox("Welcome to University of Delaware!\n"
-				+ "Here you will navigate campus and learn all you need "
-				+ "to know before starting your journey. Click on the library "
-				+ "to start. And pay attention; there is a lot for you to learn "
-				+ "before you can become a hero.\nGood luck! YouDee needs you.", DialogueBox.BOTTOMWIDE);
-		tutorial.setAlignment(1, 1);
-		
-		libraryButton.setTouchable(Touchable.enabled);
+		mainTutorial = new DialogueBox(
+				"Welcome to University of Delaware!\n"
+						+ "Here you will navigate campus and learn all you need "
+						+ "to know before starting your journey. Click on the library "
+						+ "to start. And pay attention; there is a lot for you to learn "
+						+ "before you can become a hero.\nGood luck! YouDee needs you.\n"
+						+ "Click to continue", DialogueBox.TOPWIDE);
+		mainTutorial.setAlignment(1, 1);
+		mainTutorial.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				mainTutorial.remove();
+				stage.addActor(phoneTutorial);
+			}
+		});
+		phoneTutorial = new DialogueBox(
+				"<---- Here is your phone! Click it to view your notes and objectives!",
+				DialogueBox.BOTTOM);
+
+		libraryButton.setTouchable(Touchable.disabled);
 		careerAdvisementButton.setTouchable(Touchable.disabled);
 		advisorButton.setTouchable(Touchable.disabled);
 		studyButton.setTouchable(Touchable.disabled);
 		stage.addActor(background);
-		stage.addActor(libraryButton);
-		//stage.addActor(careerAdvisementButton);
-		//stage.addActor(advisorButton);
-		//stage.addActor(studyButton);
+		// stage.addActor(libraryButton);
+		// stage.addActor(careerAdvisementButton);
+		// stage.addActor(advisorButton);
+		// stage.addActor(studyButton);
 		stage.addActor(smallPhone);
-		stage.addActor(tutorial);
+		stage.addActor(mainTutorial);
 		Gdx.input.setInputProcessor(stage);
-
 		time = 0;
-		
+		tutorial = true;
 	}
 
 	@Override
@@ -198,7 +216,8 @@ public class MapScreen extends GameScreen {
 				Gdx.input.setInputProcessor(stage);
 			}
 		}
-		if (advisorBool && libraryBool && careerAdvisementBool && udsisBool && studyBool) {
+		if (advisorBool && libraryBool && careerAdvisementBool && udsisBool
+				&& studyBool) {
 			game.setScreen(new BossBattle(game));
 		}
 		if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
@@ -223,7 +242,7 @@ public class MapScreen extends GameScreen {
 			careerAdvisementButton.setColor(Color.RED);
 			careerAdvisementButton.setTouchable(Touchable.enabled);
 			stage.addActor(careerAdvisementButton);
-			tutorial.remove();
+			mainTutorial.remove();
 		}
 		if (s.equals("CareerAdvisement")) {
 			careerAdvisementBool = true;
@@ -238,7 +257,7 @@ public class MapScreen extends GameScreen {
 		if (s.equals("UDSIS")) {
 			udsisBool = true;
 			otherStage = false;
-			
+
 		}
 		if (s.equals("StudyAbroad")) {
 			studyBool = true;

@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -16,7 +15,6 @@ public class BossBattle extends GameScreen {
 	private QuestionReader questions;
 	private ImageSequence boss;
 	private Image background;
-	private BitmapFont font;
 	private Stage stage;
 	//private float bossScale;
 	private Skin skin;
@@ -34,7 +32,6 @@ public class BossBattle extends GameScreen {
 		batch = new SpriteBatch();
 		skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 		stage = new Stage();
-		font = new BitmapFont();
 		questions = new QuestionReader("data/correctAnswers.txt", 
 				"data/TestQuestions.txt", "data/myfile.txt");
 		background = new Image(new Texture("bossBattle/background.png"));
