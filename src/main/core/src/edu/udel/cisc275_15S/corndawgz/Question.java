@@ -28,6 +28,18 @@ public class Question {
 	public String getCorrect() {
 		return correct;
 	}
+	public String getAnswerAformated() {
+		return "A: " + answerA;
+	}
+	public String getAnswerBformated() {
+		return "B: " + answerB;
+	}
+	public String getAnswerCformated() {
+		return "C: " + answerC;
+	}
+	public String getAnswerDformated() {
+		return "D: " + answerD;
+	}
 	public void setQuestion(String question) {
 		this.question = question;
 	}

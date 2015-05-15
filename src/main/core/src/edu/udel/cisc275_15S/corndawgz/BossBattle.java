@@ -52,13 +52,14 @@ public class BossBattle extends GameScreen {
 		boss.setAllScale(.6f);//bossScale);
 		boss.setAllPosition(100, 30);
 		
-		a = new BossButton("a", skin, 0, this);
-		b = new BossButton("b", skin, 1, this);
-		c = new BossButton("c", skin, 2, this);
-		d = new BossButton("d", skin, 3, this);
+		a = new BossButton(questions.getQuestion().getAnswerAformated(), skin, 0, this, "a");
+		b = new BossButton(questions.getQuestion().getAnswerBformated(), skin, 1, this, "b");
+		c = new BossButton(questions.getQuestion().getAnswerCformated(), skin, 2, this, "c");
+		d = new BossButton(questions.getQuestion().getAnswerDformated(), skin, 3, this, "d");
 		
 		stage.addActor(background);
 		stage.addActor(boss.getBackgroundImage());
+		stage.addActor(new DialogueBox(questions.getQuestion().getQuestion()));
 		stage.addActor(a);
 		stage.addActor(b);
 		stage.addActor(c);
@@ -67,7 +68,7 @@ public class BossBattle extends GameScreen {
 	}
 	
 	public void clicked(String s) {
-		// TODO: write to file
+		questions.writeFile(s);
 		if(s.equals(questions.getQuestion().getCorrect())) {
 			//bossScale = bossScale*.9f;
 			if (boss.hasNext()) {
@@ -83,14 +84,21 @@ public class BossBattle extends GameScreen {
 			} 
 		}
 		//boss.setAllScale(bossScale);
+		questions.nextQuestion();
 		stage.clear();
 		stage.addActor(background);
 		stage.addActor(boss.getBackgroundImage());
+		stage.addActor(new DialogueBox(questions.getQuestion().getQuestion()));
+		
+		a.setText(questions.getQuestion().getAnswerAformated());
+		b.setText(questions.getQuestion().getAnswerBformated());
+		c.setText(questions.getQuestion().getAnswerCformated());
+		d.setText(questions.getQuestion().getAnswerDformated());
+		
 		stage.addActor(a);
 		stage.addActor(b);
 		stage.addActor(c);
 		stage.addActor(d);
-		questions.nextQuestion();
 	}
 	@Override
 	public void render(float delta) {
@@ -98,10 +106,6 @@ public class BossBattle extends GameScreen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		stage.draw();
-		batch.end();
-		
-		batch.begin();
-		font.drawMultiLine(batch, questions.getQuestion().toString(), 10, Gdx.graphics.getHeight() - 100f);
 		batch.end();
 	}
 	
