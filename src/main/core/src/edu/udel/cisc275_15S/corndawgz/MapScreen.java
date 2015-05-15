@@ -28,6 +28,7 @@ public class MapScreen extends GameScreen {
 	private boolean tutorial;
 	private DialogueBox mainTutorial;
 	private DialogueBox phoneTutorial;
+	private DialogueBox phoneTutorial2;
 
 	private ImageSequence phone;
 	private Image smallPhone;
@@ -71,9 +72,15 @@ public class MapScreen extends GameScreen {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				if (tutorial) {
-					phoneTutorial.remove();
-					libraryButton.setTouchable(Touchable.enabled);
-					stage.addActor(libraryButton);
+					if (stage.getActors().contains(phoneTutorial2, true)){
+						phoneTutorial2.remove();
+						tutorial = false;
+					} else {
+						phoneTutorial.remove();
+						libraryButton.setTouchable(Touchable.enabled);
+						stage.addActor(libraryButton);
+						stage.addActor(phoneTutorial2);
+					}
 					
 				}
 				showLarge = !showLarge;
@@ -171,6 +178,7 @@ public class MapScreen extends GameScreen {
 		phoneTutorial = new DialogueBox(
 				"<---- Here is your phone! Click it to view your notes and objectives!",
 				DialogueBox.BOTTOM);
+		phoneTutorial2 = new DialogueBox("Click again to go back\nto the map!", DialogueBox.LEFT);
 
 		libraryButton.setTouchable(Touchable.disabled);
 		careerAdvisementButton.setTouchable(Touchable.disabled);
