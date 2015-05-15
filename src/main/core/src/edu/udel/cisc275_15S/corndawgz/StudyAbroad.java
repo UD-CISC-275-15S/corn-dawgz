@@ -18,7 +18,7 @@ public class StudyAbroad implements MyEvent {
 		startTime = TimeUtils.millis();
 		batch = new SpriteBatch();
 		stage = new ImageSequence();
-		stage.addImages(new Image(new Texture (Gdx.files.internal("boss-pre-screen/studyabroad1.png"))));
+		stage.addImages(new Image(new Texture (Gdx.files.internal("update/ImageFour.png"))));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("boss-pre-screen/studyabroad2.png"))));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("boss-pre-screen/studyabroad3.png"))));
 		stage.setFillParentTrue();

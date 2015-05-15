@@ -18,17 +18,7 @@ public class UDSIS implements MyEvent {
 		batch = new SpriteBatch();
 		startTime = TimeUtils.millis();
 		stage = new ImageSequence();
-		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/start.png"))));
-		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register1.png"))));
-		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register2.png"))));
-		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register3.png"))));
-		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/change1.png"))));
-		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/change2.png"))));
-		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit1.png"))));
-		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit2.png"))));
-		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit3.png"))));
-		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit4.png"))));
-		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit5.png"))));
+	
 		stage.setFillParentTrue();
 		stage.update();
 
@@ -37,7 +27,6 @@ public class UDSIS implements MyEvent {
 	
 	@Override
 	public void render(float delta) {
-		HandleInput();
 		Gdx.gl.glClearColor(1,1,1,1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
@@ -45,26 +34,6 @@ public class UDSIS implements MyEvent {
 		batch.end();
 	}
 	
-    public void HandleInput() {
-    	if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-			if (TimeUtils.millis() > startTime + 1000) {
-				if (stage.hasNext()) {
-					stage.nextImage();
-					startTime = TimeUtils.millis();
-				} else {
-					done = true;
-				}
-			}
-		}
-    	if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-    		if (TimeUtils.millis() > startTime + 1000) {
-    			if (stage.hasPrev()) {
-    				stage.prevImage();
-    				startTime = TimeUtils.millis();
-    			}
-    		}
-    	}
-    }
 
 	@Override
 	public boolean done() {

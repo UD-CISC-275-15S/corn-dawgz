@@ -3,14 +3,19 @@ package edu.udel.cisc275_15S.corndawgz;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.TimeUtils;
+
+import edu.udel.cisc275_15S.corndawgz.DialogueBox;
 
 public class CareerAdvisement implements MyEvent {
+	private long startTime;
 	private SpriteBatch batch;
 	private ImageSequence stage;
 	private boolean done;
@@ -18,25 +23,24 @@ public class CareerAdvisement implements MyEvent {
 	
 	public CareerAdvisement() {
     	batch = new SpriteBatch();
+		startTime = TimeUtils.millis();
         stage = new ImageSequence();
-
         step1 = new DialogueBox("Click the computer to access UDSIS", DialogueBox.TOPLEFT);
-        
-		ArrayList<Image> list = new ArrayList<Image>();
-		Image image1 = new Image(new Texture(Gdx.files.internal("imagesforbeta/careeradvisor1.png")));
-		Image image2 = new Image(new Texture("phone/Unknown.jpeg"));
-		image2.setPosition(250, 150);
-		image2.setScale(.2f);
-		image2.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				done = true;
-			}
-		});
-		
-		list.add(image1);
-		list.add(image2);
-		stage.addImages(list, step1);
+		stage.addImages(new Image(new Texture(Gdx.files.internal("update/ImageThree.png"))),
+				new DialogueBox("You can't be DeeYou without knowing your stuff.\n"
+						+ "UDSIS will help your brain become strong and buff!\n", DialogueBox.BOTTOMWIDE));
+
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/start.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register1.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register2.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/register3.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/change1.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/change2.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit1.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit2.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit3.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit4.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit5.png"))));
         stage.setFillParentTrue();
         stage.update();
         Gdx.input.setInputProcessor(stage);
@@ -44,12 +48,45 @@ public class CareerAdvisement implements MyEvent {
 	
     @Override
     public void render(float delta) {
+    	HandleInput();
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         stage.draw(); 
         batch.end();
     }
+    
+    public void HandleInput() {
+    	if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+			if (TimeUtils.millis() > startTime + 1000) {
+				if (stage.hasNext()) {
+					stage.nextImage();
+					startTime = TimeUtils.millis();
+				} else {
+					done = true;
+				}
+			}
+		}
+    	if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+    		if (TimeUtils.millis() > startTime + 1000) {
+    			if (stage.hasPrev()) {
+    				stage.prevImage();
+    				startTime = TimeUtils.millis();
+    			}
+    		}
+    	}
+    	if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+			if (TimeUtils.millis() > startTime + 1000) {
+				if (stage.hasNext()) {
+					stage.nextImage();
+					startTime = TimeUtils.millis();
+				} else {
+					done = true;
+				}
+			}
+		}
+    }
+
     
     @Override
 	public boolean done() {

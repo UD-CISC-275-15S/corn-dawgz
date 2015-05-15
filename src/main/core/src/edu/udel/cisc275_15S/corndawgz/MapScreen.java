@@ -259,10 +259,10 @@ public class MapScreen extends GameScreen {
 			careerAdvisementButton.setColor(Color.GREEN);
 			advisorButton.setColor(Color.RED);
 			advisorButton.setTouchable(Touchable.enabled);
-			myEvent = new UDSIS();
-			otherStage = true;
+			otherStage = false;
 			Gdx.input.setInputProcessor(stage);
 			stage.addActor(advisorButton);
+			udsisBool = true;
 		}
 		if (s.equals("UDSIS")) {
 			udsisBool = true;
