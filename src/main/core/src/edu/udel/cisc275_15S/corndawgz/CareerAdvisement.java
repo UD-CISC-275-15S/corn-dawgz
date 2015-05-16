@@ -27,7 +27,7 @@ public class CareerAdvisement implements MyEvent {
         stage = new ImageSequence();
         step1 = new DialogueBox("Click the computer to access UDSIS", DialogueBox.TOPLEFT);
 		stage.addImages(new Image(new Texture(Gdx.files.internal("update/ImageThree.png"))),
-				new DialogueBox("You can't be DeeYou without knowing your stuff.\n"
+				new DialogueBox("You can't beat DeeYou without knowing your stuff.\n"
 						+ "UDSIS will help your brain become strong and buff!\n", DialogueBox.BOTTOMWIDE));
 
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/start.png"))));
@@ -41,6 +41,9 @@ public class CareerAdvisement implements MyEvent {
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit3.png"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit4.png"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit5.png"))));
+		stage.addImages(new Image(new Texture(Gdx.files.internal("update/ImageThree.png"))),
+				new DialogueBox("Well, what are you still doing here?!.\n"
+						+ "Quickly visit your advisor, I think DeeYou is near!\n", DialogueBox.BOTTOMWIDE));
         stage.setFillParentTrue();
         stage.update();
         Gdx.input.setInputProcessor(stage);

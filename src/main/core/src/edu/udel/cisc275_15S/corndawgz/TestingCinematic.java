@@ -36,14 +36,14 @@ public class TestingCinematic extends GameScreen implements Screen {
 		startTime = TimeUtils.millis();
 		clickStage = new ImageSequence();
 		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/sequenceone.png"))),
-				new DialogueBox("In the early days of UD, it was all fun and good.\n" 
-								+ "The Blue Hens cared about eachother, as Blue Hens should.\n", DialogueBox.BOTTOMWIDE));
+				new DialogueBox("At the University of Delaware, the sun was shining and the Blue Hens were bright.\n" 
+								+ "Everyone was happy throughout the days and the nights.\n", DialogueBox.BOTTOMWIDE));
 		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/sequencetwo.png"))),
-				new DialogueBox("But one evil villain, DeeYou, hatched his evil scheme.\n"
-								+"He stole YouDee in the middle of the night without being seen!\n", DialogueBox.BOTTOMWIDE));
+				new DialogueBox("Except one evil bird, DeeYou, began to hatch his evil scheme.\n"
+								+"He went and stole YouDee without being seen!\n", DialogueBox.BOTTOMWIDE));
 		clickStage.addImages(new Image(new Texture(Gdx.files.internal("story/sequencethree.png"))), 
-				new DialogueBox("UD erupted in chaos without our precious YouDee\n"
-								+ "You are the hero that could set him free!\n", DialogueBox.BOTTOMWIDE));
+				new DialogueBox("DeeYou wanted to be the new mascot, but we can't let that be.\n"
+								+ "We believe you could you be the hero to set YouDee free!\n", DialogueBox.BOTTOMWIDE));
 		clickStage.setFillParentTrue();
 		clickStage.update();
 	}

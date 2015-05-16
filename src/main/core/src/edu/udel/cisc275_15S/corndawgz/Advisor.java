@@ -22,7 +22,12 @@ public class Advisor implements MyEvent {
 				new DialogueBox("Welcome to my advising office, where all your dreams will come true.\n" 
 						+ "Would you care to read about what it is we do?\n", DialogueBox.BOTTOMWIDE));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("update/book.jpg"))));
-		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor.png"))));
+		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor.png"))),
+				new DialogueBox("Well, that's all there is to know to defeat DeeYou.\n" 
+						+ "I do not know where he is but check out what else there is to do.\n", DialogueBox.BOTTOMWIDE));
+		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor.png"))),
+				new DialogueBox("The Study Abroad lecture is about to begin, you should see the showing.\n" 
+						+ "Dee... Dr. Deyu is the study abroad professor on campus. He's really easy-going.?\n", DialogueBox.BOTTOMWIDE));
 		stage.setFillParentTrue();
 		stage.update();
 	}
