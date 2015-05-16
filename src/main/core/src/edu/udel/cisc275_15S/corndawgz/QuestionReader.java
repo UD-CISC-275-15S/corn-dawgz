@@ -111,7 +111,6 @@ public class QuestionReader {
 				numCorrect++;
 			}
 		}
-		System.out.println(numCorrect);
 		return numCorrect;
 	}
 

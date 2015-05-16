@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.audio.Music;
 
 public class BossBattle extends GameScreen {
+	
 	private SpriteBatch batch;
 	private QuestionReader questions;
 	private ImageSequence boss;
@@ -130,7 +131,13 @@ public class BossBattle extends GameScreen {
 		} else {			
 			questions.getNumberCorrect(); // This prints the number of correct to console
 			sound.stop();
-			game.setScreen(new SplashScreen(game));
+			if(questions.getNumberCorrect() > 4) {
+				winorlose = 1;
+			}
+			if(questions.getNumberCorrect() < 4) {
+				winorlose = 0;
+			}
+			game.setScreen(new EndScreen(game));
 		}
 		
 		stage.clear();

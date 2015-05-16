@@ -9,28 +9,38 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.TimeUtils;
 
-public class SplashScreen extends GameScreen {
+public class EndScreen extends GameScreen {
 	private SpriteBatch batch;
-    private Texture texture;
-    private Image background;
+    private Texture victorytexture;
+    private Image victoryimage;
+    private Texture defeattexture;
+    private Image defeatimage;
     private long startTime;
     private Stage stage;
     private boolean music = false;
     
-    public SplashScreen(Game g) {
+    public EndScreen(Game g) {
     	super(g);
     }
     
     @Override
     public void show() {
     	batch = new SpriteBatch();
-    	texture = new Texture(Gdx.files.internal("boss-pre-screen/tompls/start.png")); //** texture is now the splash image **//
-    	background = new Image(texture);
-    	background.setFillParent(true);
+    	victorytexture = new Texture(Gdx.files.internal("end/Victory.png")); //** texture is now the splash image **//
+    	victoryimage = new Image(victorytexture);
+    	victoryimage.setFillParent(true);
+    	defeattexture = new Texture(Gdx.files.internal("end/Defeat.png")); //** texture is now the splash image **//
+    	defeatimage = new Image(defeattexture);
+    	defeatimage.setFillParent(true);
     	startTime = TimeUtils.millis();
     	stage = new Stage();
-    	stage.addActor(background);
-    	
+    	if(winorlose == 1) {
+        	stage.addActor(victoryimage);
+        	}
+        	if(winorlose == 0) {
+        	stage.addActor(defeatimage);
+        	}
+    
     }
    
     @Override
@@ -42,16 +52,16 @@ public class SplashScreen extends GameScreen {
         batch.begin();
         stage.draw();	
         batch.end();
-        if (TimeUtils.millis()>(startTime+2000)) 
+        if (TimeUtils.millis()>(startTime+10000)) {
         	game.setScreen(new StartScreen(game));
-        
+        }
     }
 
     @Override
     public void dispose() {
-        texture.dispose();
+        victorytexture.dispose();
+        defeattexture.dispose();
         batch.dispose();
     }
 
 }
-
