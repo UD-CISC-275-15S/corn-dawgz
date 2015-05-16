@@ -18,15 +18,9 @@ public class Advisor implements MyEvent {
 		startTime = TimeUtils.millis();
 		batch = new SpriteBatch();
 		stage = new ImageSequence();
-		stage.addImages(new Image(new Texture (Gdx.files.internal("update/ImageTwo.png"))));
-		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor2.png"))));
-		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor3.png"))));
-		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor4.png"))));
-		stage.addImages(new Image(new Texture (Gdx.files.internal("locations/Advisor.jpg"))));
-		stage.addImages(new Image(new Texture (Gdx.files.internal("locations/Fountain1.jpg"))));
-		stage.addImages(new Image(new Texture(Gdx.files.internal("locations/youdee.jpg"))));
-		stage.addImages(new Image(new Texture (Gdx.files.internal("locations/Fountain2.jpg"))));
-		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor5.png"))));
+		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor.png"))));
+		stage.addImages(new Image(new Texture (Gdx.files.internal("update/book.jpg"))));
+		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor.png"))));
 		stage.setFillParentTrue();
 		stage.update();
 	}

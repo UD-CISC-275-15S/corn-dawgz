@@ -41,7 +41,7 @@ public class StartScreen extends GameScreen {
 		stage = new Stage();
 		file = Gdx.files.local("data/myfile.txt");
 		
-		background = new Image(new Texture("EnterUsername.png"));
+		background = new Image(new Texture("boss-pre-screen/tompls/Enter.png"));
 		background.setFillParent(true);
 		
 		// Set up the textField
