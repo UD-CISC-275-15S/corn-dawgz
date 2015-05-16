@@ -18,7 +18,9 @@ public class Advisor implements MyEvent {
 		startTime = TimeUtils.millis();
 		batch = new SpriteBatch();
 		stage = new ImageSequence();
-		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor.png"))));
+		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor.png"))),
+				new DialogueBox("Welcome to my advising office, where all your dreams will come true.\n" 
+						+ "Would you care to read about what it is we do?\n", DialogueBox.BOTTOMWIDE));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("update/book.jpg"))));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor.png"))));
 		stage.setFillParentTrue();

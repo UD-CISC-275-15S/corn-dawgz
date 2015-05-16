@@ -31,7 +31,7 @@ public class TestingCinematic extends GameScreen implements Screen {
 	if (startTime > 0) {
 		gamesound.stop();
 	}
-		gamesound.play();
+		gamesound.loop();
 		batch = new SpriteBatch();
 		startTime = TimeUtils.millis();
 		clickStage = new ImageSequence();
