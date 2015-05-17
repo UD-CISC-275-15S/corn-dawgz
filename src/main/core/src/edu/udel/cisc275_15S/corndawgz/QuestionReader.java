@@ -9,6 +9,7 @@ public class QuestionReader {
 	private FileHandle file;
 	private ArrayList<Question> questions;
 	private int index;
+	private int numberOfQuestions;
 
 	public QuestionReader(String answerFile, String questionFile, String writeFile){
 		file = Gdx.files.internal(answerFile);
@@ -59,7 +60,7 @@ public class QuestionReader {
 			i++;
 		}
 		index = 0;
-		
+		numberOfQuestions = numQuestions;
 		file = Gdx.files.local(writeFile);
 	}
 
@@ -114,4 +115,15 @@ public class QuestionReader {
 		return numCorrect;
 	}
 
+	public int getNumberOfQuestions() {
+		return numberOfQuestions;
+	}
+	
+	public float getPercentCorrect() {
+		return (float) getNumberCorrect() / (float) numberOfQuestions;
+	}
+	
+	public void clearAnswers() {	
+		file.writeString("", false);
+	}
 }

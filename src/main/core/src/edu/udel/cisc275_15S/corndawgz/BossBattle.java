@@ -38,6 +38,7 @@ public class BossBattle extends GameScreen {
 		stage = new Stage();
 		questions = new QuestionReader("data/correctAnswers.txt", 
 				"data/TestQuestions.txt", "data/myfile.txt");
+		questions.clearAnswers();
 		background = new Image(new Texture("bossBattle/background.png"));
 		background.setFillParent(true);
 		boss = new ImageSequence();
@@ -50,16 +51,7 @@ public class BossBattle extends GameScreen {
 		Image image4 = new Image(new Texture("bossBattle/Test3.png"));
 		Image image5 = new Image(new Texture("bossBattle/Test2.png"));
 		Image image6 = new Image(new Texture("bossBattle/Test1.png"));
-		
-
-		System.out.println("image1width: " + image1.getWidth());
-		System.out.println("image6width: " + image6.getWidth());
-//		image1.setScale(.5f);
-//		image2.setScale(.9f);
-//		image3.setScale(.8f);
-//		image4.setScale(.7f);
-//		image5.setScale(.6f);
-//		image6.setScale(.5f);
+ 
 		image1.setScaleX(image1.getWidth()/image1.getWidth() *.6f);
 		image1.setScaleY(image1.getHeight()/image1.getHeight() *.6f);
 		image2.setScaleX(image2.getWidth()/image1.getWidth() *.6f);
@@ -131,13 +123,7 @@ public class BossBattle extends GameScreen {
 		} else {			
 			questions.getNumberCorrect(); // This prints the number of correct to console
 			sound.stop();
-			if(questions.getNumberCorrect() > 4) {
-				winorlose = 1;
-			}
-			if(questions.getNumberCorrect() < 4) {
-				winorlose = 0;
-			}
-			game.setScreen(new EndScreen(game));
+			game.setScreen(new EndScreen(game, questions.getPercentCorrect()));
 		}
 		
 		stage.clear();

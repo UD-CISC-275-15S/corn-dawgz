@@ -2,6 +2,7 @@ package edu.udel.cisc275_15S.corndawgz;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -11,35 +12,35 @@ import com.badlogic.gdx.utils.TimeUtils;
 
 public class EndScreen extends GameScreen {
 	private SpriteBatch batch;
-    private Texture victorytexture;
-    private Image victoryimage;
-    private Texture defeattexture;
-    private Image defeatimage;
+    private Image image;
     private long startTime;
     private Stage stage;
     private boolean music = false;
+    private float correct;
+    private final float PASS_PERCENTAGE = .70f;
+    private boolean pass;
     
-    public EndScreen(Game g) {
+    public EndScreen(Game g, float cor) {
     	super(g);
+    	correct = cor;
     }
     
     @Override
     public void show() {
     	batch = new SpriteBatch();
-    	victorytexture = new Texture(Gdx.files.internal("end/Victory.png")); //** texture is now the splash image **//
-    	victoryimage = new Image(victorytexture);
-    	victoryimage.setFillParent(true);
-    	defeattexture = new Texture(Gdx.files.internal("end/Defeat.png")); //** texture is now the splash image **//
-    	defeatimage = new Image(defeattexture);
-    	defeatimage.setFillParent(true);
     	startTime = TimeUtils.millis();
     	stage = new Stage();
-    	if(winorlose == 1) {
-        	stage.addActor(victoryimage);
-        	}
-        	if(winorlose == 0) {
-        	stage.addActor(defeatimage);
-        	}
+    	if(correct >=  PASS_PERCENTAGE) {
+    		image = new Image(new Texture(Gdx.files.internal("end/Victory.png")));
+    		image.setFillParent(true);
+        	stage.addActor(image);
+        	pass = true;
+        } else {
+        	image = new Image(new Texture(Gdx.files.internal("end/Defeat.png")));
+        	image.setFillParent(true);
+        	stage.addActor(image);
+        	pass = false;
+        }
     
     }
    
@@ -52,15 +53,14 @@ public class EndScreen extends GameScreen {
         batch.begin();
         stage.draw();	
         batch.end();
-        if (TimeUtils.millis()>(startTime+10000)) {
-        	game.setScreen(new StartScreen(game));
-        }
+        if (TimeUtils.millis()>(startTime+1000) && !pass) 
+        	if (Gdx.input.isButtonPressed(Input.Buttons.LEFT))
+        		game.setScreen(new MapScreen(game, true));
     }
 
     @Override
     public void dispose() {
-        victorytexture.dispose();
-        defeattexture.dispose();
+    	stage.dispose();
         batch.dispose();
     }
 

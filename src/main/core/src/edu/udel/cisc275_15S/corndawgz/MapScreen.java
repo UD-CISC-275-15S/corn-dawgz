@@ -51,8 +51,15 @@ public class MapScreen extends GameScreen {
 
 	private int time;
 
+	private boolean fromBoss;
+	
 	public MapScreen(Game g) {
 		super(g);
+	}
+	
+	public MapScreen(Game g, boolean complete) {
+		super(g);
+		fromBoss = complete;
 	}
 
 	@Override
@@ -193,6 +200,30 @@ public class MapScreen extends GameScreen {
 		Gdx.input.setInputProcessor(stage);
 		time = 0;
 		tutorial = true;
+		
+		if (fromBoss) {
+			stage.clear();
+			tutorial = false;
+			advisorBool = true;
+			libraryBool = true;
+			careerAdvisementBool = true;
+			udsisBool = true;
+			studyBool = false;
+			stage.addActor(background);
+			stage.addActor(libraryButton);
+			stage.addActor(careerAdvisementButton);
+			stage.addActor(advisorButton);
+			stage.addActor(studyButton);
+			stage.addActor(smallPhone);
+			libraryButton.setTouchable(Touchable.enabled);
+			careerAdvisementButton.setTouchable(Touchable.enabled);
+			advisorButton.setTouchable(Touchable.enabled);
+			studyButton.setTouchable(Touchable.enabled);
+			libraryButton.setColor(Color.GREEN);
+			careerAdvisementButton.setColor(Color.GREEN);
+			advisorButton.setColor(Color.GREEN);
+			studyButton.setColor(Color.RED);
+		}
 	}
 
 	@Override

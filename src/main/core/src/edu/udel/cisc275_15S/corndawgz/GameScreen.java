@@ -6,7 +6,6 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
 
 public class GameScreen implements Screen{
-	public int winorlose;
 	public Sound gamesound = Gdx.audio.newSound(Gdx.files.internal("sounds/game.mp3"));
 	Game game;
 	DialogueBox dialogue;
