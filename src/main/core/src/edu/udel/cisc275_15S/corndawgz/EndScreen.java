@@ -15,7 +15,6 @@ public class EndScreen extends GameScreen {
     private Image image;
     private long startTime;
     private Stage stage;
-    private boolean music = false;
     private float correct;
     private final float PASS_PERCENTAGE = .70f;
     private boolean pass;

@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.audio.Music;
 
 public class BossBattle extends GameScreen {
 	
@@ -45,12 +44,11 @@ public class BossBattle extends GameScreen {
 		sound = Gdx.audio.newSound(Gdx.files.internal("sounds/freemusic.mp3"));
 		sound.play(1.0f);
 		
-		Image image1 = new Image(new Texture("bossBattle/Test6.png"));
-		Image image2 = new Image(new Texture("bossBattle/Test5.png"));
-		Image image3 = new Image(new Texture("bossBattle/Test4.png"));
-		Image image4 = new Image(new Texture("bossBattle/Test3.png"));
-		Image image5 = new Image(new Texture("bossBattle/Test2.png"));
-		Image image6 = new Image(new Texture("bossBattle/Test1.png"));
+		Image image1 = new Image(new Texture("bossBattle/DUBB.png"));
+		Image image2 = new Image(new Texture("bossBattle/DUBB1.png"));
+		Image image3 = new Image(new Texture("bossBattle/DUBB2.png"));
+		Image image4 = new Image(new Texture("bossBattle/DUBB3.png"));
+		Image image5 = new Image(new Texture("bossBattle/DUBB4.png"));
  
 		image1.setScaleX(image1.getWidth()/image1.getWidth() *.6f);
 		image1.setScaleY(image1.getHeight()/image1.getHeight() *.6f);
@@ -62,30 +60,13 @@ public class BossBattle extends GameScreen {
 		image4.setScaleY(image4.getHeight()/image1.getHeight() *.6f);
 		image5.setScaleX(image5.getWidth()/image1.getWidth() *.6f);
 		image5.setScaleY(image5.getHeight()/image1.getHeight() *.6f);
-		image6.setScaleX(image6.getWidth()/image1.getWidth() *.6f);
-		image6.setScaleY(image6.getHeight()/image1.getHeight() *.6f);
-		
-		image1.setPosition((Gdx.graphics.getHeight()-image1.getHeight())/2,
-				(Gdx.graphics.getWidth()-image1.getWidth())/2);
-		image2.setPosition((Gdx.graphics.getHeight()-image2.getHeight())/2,
-				(Gdx.graphics.getWidth()-image2.getWidth())/2);
-		image3.setPosition((Gdx.graphics.getHeight()-image3.getHeight())/2,
-				(Gdx.graphics.getWidth()-image3.getWidth())/2);
-		image4.setPosition((Gdx.graphics.getHeight()-image4.getHeight())/2,
-				(Gdx.graphics.getWidth()-image4.getWidth())/2);
-		image5.setPosition((Gdx.graphics.getHeight()-image5.getHeight())/2,
-				(Gdx.graphics.getWidth()-image5.getWidth())/2);
-		image6.setPosition((Gdx.graphics.getHeight()-image6.getHeight())/2,
-				(Gdx.graphics.getWidth()-image6.getWidth())/2);
-		
 		
 		boss.addImages(image1);
 		boss.addImages(image2);
 		boss.addImages(image3);
 		boss.addImages(image4);
 		boss.addImages(image5);
-		boss.addImages(image6);
-		//bossScale = .6f;
+		boss.setAllPosition(160, 90);
 		
 		a = new BossButton(questions.getQuestion().getAnswerAformated(), skin, 0, this, "a");
 		b = new BossButton(questions.getQuestion().getAnswerBformated(), skin, 1, this, "b");
@@ -106,22 +87,18 @@ public class BossBattle extends GameScreen {
 	public void clicked(String s) {
 		questions.writeFile(s);
 		if(s.equals(questions.getQuestion().getCorrect())) {
-			//bossScale = bossScale*.9f;
 			if (boss.hasNext()) {
 				boss.nextImage();
 			}
 		} else {
-			//bossScale = bossScale*1.1f;
 			if (boss.hasPrev()) {
 				boss.prevImage();
 			}
 		}
 		
-		//boss.setAllScale(bossScale);
 		if (questions.hasNext()) {
 			questions.nextQuestion();
 		} else {			
-			questions.getNumberCorrect(); // This prints the number of correct to console
 			sound.stop();
 			game.setScreen(new EndScreen(game, questions.getPercentCorrect()));
 		}
