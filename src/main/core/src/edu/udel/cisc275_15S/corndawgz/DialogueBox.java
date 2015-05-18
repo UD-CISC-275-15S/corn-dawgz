@@ -1,7 +1,5 @@
 package edu.udel.cisc275_15S.corndawgz;
 
-import javax.swing.text.AbstractDocument.Content;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -12,7 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.sun.xml.internal.ws.util.StringUtils;
 
 public class DialogueBox extends Label{
 	

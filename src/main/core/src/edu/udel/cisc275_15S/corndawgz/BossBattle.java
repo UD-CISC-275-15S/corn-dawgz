@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 public class BossBattle extends GameScreen {
 	
@@ -75,7 +76,9 @@ public class BossBattle extends GameScreen {
 		
 		stage.addActor(background);
 		stage.addActor(boss.getBackgroundImage());
-		stage.addActor(new DialogueBox(questions.getQuestion().getQuestion()));
+		stage.addActor(new DialogueBox(questions.getQuestion().getQuestion() + "\n \n \n \n \n ",
+				       DialogueBox.BOTTOMWIDE,
+				       Align.left));
 		stage.addActor(a);
 		stage.addActor(b);
 		stage.addActor(c);
@@ -106,8 +109,9 @@ public class BossBattle extends GameScreen {
 		stage.clear();
 		stage.addActor(background);
 		stage.addActor(boss.getBackgroundImage());
-		stage.addActor(new DialogueBox(questions.getQuestion().getQuestion()));
-		
+		stage.addActor(new DialogueBox(questions.getQuestion().getQuestion() + "\n \n \n \n \n ", 
+									   DialogueBox.BOTTOMWIDE, 
+									   Align.left));
 		a.setText(questions.getQuestion().getAnswerAformated());
 		b.setText(questions.getQuestion().getAnswerBformated());
 		c.setText(questions.getQuestion().getAnswerCformated());
