@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class MapScreen extends GameScreen {
@@ -195,7 +196,7 @@ public class MapScreen extends GameScreen {
 		phoneTutorial = new DialogueBox(
 				"<---- Here is your phone! Click it to view your notes and objectives!",
 				DialogueBox.BOTTOM);
-		phoneTutorial2 = new DialogueBox("Click again to go back\nto the map!", DialogueBox.LEFT);
+		phoneTutorial2 = new DialogueBox("Click again to go back\nto the map!", DialogueBox.LEFT, Align.topLeft);
 
 		libraryButton.setTouchable(Touchable.disabled);
 		careerAdvisementButton.setTouchable(Touchable.disabled);

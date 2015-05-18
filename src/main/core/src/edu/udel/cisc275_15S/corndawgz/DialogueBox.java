@@ -1,5 +1,7 @@
 package edu.udel.cisc275_15S.corndawgz;
 
+import javax.swing.text.AbstractDocument.Content;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -10,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.sun.xml.internal.ws.util.StringUtils;
 
 public class DialogueBox extends Label{
 	
@@ -32,15 +35,17 @@ public class DialogueBox extends Label{
 	static public final int BOTTOMWIDE = 11;
 	
 	public DialogueBox(String content)	{
-		this(content, 11);
+		this(content, 11, Align.center);
 	}
 	
-	public DialogueBox(String content,  int alignment)	{
+	public DialogueBox(String content, int alignment)	{
+		this(content, alignment, Align.center);
+	}
+	
+	public DialogueBox(String content,  int alignment, int align)	{
 		super(content, new Skin(Gdx.files.internal("skin/uiskin.json")));
-		super.setX(10);
-		super.setY(100);
+		super.setAlignment(align);
 		super.setWrap(true);
-		super.setAlignment(Align.topLeft);
 		alignBox(alignment);
 		
 		
@@ -61,7 +66,9 @@ public class DialogueBox extends Label{
 	}
 
 	public float getPrefHeight() {
-		return (float) (Gdx.graphics.getHeight()*(1.0/4.0));
+		String content = super.getText().toString();
+		int lines = content.split("\n").length;
+		return (float) (Gdx.graphics.getHeight()*(1.0/30.0)) * (lines + 1);
 	}
 
 	public float getMaxWidth() {
@@ -69,7 +76,9 @@ public class DialogueBox extends Label{
 	}
 
 	public float getMaxHeight() {
-		return (float) (Gdx.graphics.getHeight()*(1.0/4.0));
+		String content = super.getText().toString();
+		int lines = content.split("\n").length;
+		return (float) (Gdx.graphics.getHeight()*(1.0/30.0)) * (lines + 1);
 	}
 	
 	public void alignBox(int alignment)	{
