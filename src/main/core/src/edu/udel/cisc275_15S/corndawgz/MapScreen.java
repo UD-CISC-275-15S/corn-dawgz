@@ -20,8 +20,6 @@ public class MapScreen extends GameScreen {
 	private SpriteBatch batch;
 	private Skin skin;
 	private Stage stage;
-	private final float BUTTON_HEIGHT = 30;
-	private final float BUTTON_WIDTH = 50;
 	private final float LARGE_PHONE_X = 150;
 	private final float LARGE_PHONE_Y = 20;
 	
@@ -103,8 +101,6 @@ public class MapScreen extends GameScreen {
 
 		libraryButton = new TextButton("Library", skin);
 		libraryButton.setColor(Color.YELLOW);
-		libraryButton.setWidth(BUTTON_WIDTH);
-		libraryButton.setHeight(BUTTON_HEIGHT);
 		libraryButton.setPosition(Gdx.graphics.getWidth() / 2 - 88,
 				Gdx.graphics.getHeight() / 2 - 70);
 
@@ -116,11 +112,9 @@ public class MapScreen extends GameScreen {
 			}
 		});
 
-		careerAdvisementButton = new TextButton("Career Advisement Center",
+		careerAdvisementButton = new TextButton("Career\nAdvisement\nCenter",
 				skin);
 		careerAdvisementButton.setColor(Color.RED);
-		careerAdvisementButton.setWidth(BUTTON_WIDTH);
-		careerAdvisementButton.setHeight(BUTTON_HEIGHT);
 		careerAdvisementButton.setPosition(Gdx.graphics.getWidth() / 2 - 30,
 				Gdx.graphics.getHeight() / 2 + 75);
 
@@ -132,10 +126,8 @@ public class MapScreen extends GameScreen {
 			}
 		});
 
-		advisorButton = new TextButton("Advisor's Office", skin);
+		advisorButton = new TextButton("Advisor's\nOffice", skin);
 		advisorButton.setColor(Color.RED);
-		advisorButton.setWidth(BUTTON_WIDTH);
-		advisorButton.setHeight(BUTTON_HEIGHT);
 		advisorButton.setPosition(Gdx.graphics.getWidth() / 2 - 170,
 				Gdx.graphics.getHeight() / 2 + 100);
 
@@ -149,8 +141,6 @@ public class MapScreen extends GameScreen {
 
 		studyButton = new TextButton("Study Abroad", skin);
 		studyButton.setColor(Color.RED);
-		studyButton.setWidth(BUTTON_WIDTH);
-		studyButton.setHeight(BUTTON_HEIGHT);
 		studyButton.setPosition(Gdx.graphics.getWidth() / 2 - 190,
 				Gdx.graphics.getHeight() / 2 + 150);
 
@@ -164,8 +154,6 @@ public class MapScreen extends GameScreen {
 		
 		bossButton = new TextButton("Battle DU!", skin);
 		bossButton.setColor(Color.RED);
-		bossButton.setWidth(BUTTON_WIDTH);
-		bossButton.setHeight(BUTTON_HEIGHT);
 		bossButton.setPosition(Gdx.graphics.getWidth() / 2 + 100,
 				Gdx.graphics.getHeight() / 2 + 150);
 		

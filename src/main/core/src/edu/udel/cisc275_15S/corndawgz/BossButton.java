@@ -13,7 +13,6 @@ public class BossButton extends TextButton {
 
 	public BossButton(String text, Skin skin, int offset, final BossBattle b, String n) {
 		super(text, skin);
-		this.setWidth(text.length() * textWidth);
 		this.setHeight(buttonHeight);
 		this.setPosition(10, 85f - buttonOffset*offset);
 		name = n;
