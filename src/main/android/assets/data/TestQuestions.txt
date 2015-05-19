@@ -53,3 +53,9 @@
 <C>for planning prior to your class scheduling appointment
 <D>A & C
 @
+<Q>10: Where can you stop by for information about Study Abroad?
+<A>Memorial Hall
+<B>Rodney Hall
+<C>Elliott Hall
+<D>There are no Study Abroad programs at UD
+@

@@ -16,6 +16,7 @@ public class QuestionReader {
 		String cor = file.readString();
 		// clean up the file (the numbers were to help make file readable)
 		cor = cor.replaceAll(":", "");
+		cor = cor.replaceAll("0", "");
 		cor = cor.replaceAll("1", "");
 		cor = cor.replaceAll("2", "");
 		cor = cor.replaceAll("3", "");
@@ -25,7 +26,6 @@ public class QuestionReader {
 		cor = cor.replaceAll("7", "");
 		cor = cor.replaceAll("8", "");
 		cor = cor.replaceAll("9", "");
-		cor = cor.replaceAll("10", "");
 		cor = cor.replaceAll("\n","");
 		char[] correct = cor.toCharArray();
 
@@ -89,6 +89,7 @@ public class QuestionReader {
 		String cor = file.readString();
 		// clean up the file (the numbers were to help make file readable)
 		cor = cor.replaceAll(":", "");
+		cor = cor.replaceAll("0", "");
 		cor = cor.replaceAll("1", "");
 		cor = cor.replaceAll("2", "");
 		cor = cor.replaceAll("3", "");
@@ -98,7 +99,6 @@ public class QuestionReader {
 		cor = cor.replaceAll("7", "");
 		cor = cor.replaceAll("8", "");
 		cor = cor.replaceAll("9", "");
-		cor = cor.replaceAll("10", "");
 		cor = cor.replaceAll("\n","");
 		char[] correct = cor.toCharArray();
 		
