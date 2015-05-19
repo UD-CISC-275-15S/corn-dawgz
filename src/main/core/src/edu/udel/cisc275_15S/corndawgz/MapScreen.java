@@ -22,20 +22,20 @@ public class MapScreen extends GameScreen {
 	private Stage stage;
 	private final float LARGE_PHONE_X = 150;
 	private final float LARGE_PHONE_Y = 20;
-	
+
 	private boolean tutorial;
 	private DialogueBox mainTutorial;
 	private DialogueBox phoneTutorial;
 	private DialogueBox phoneTutorial2;
 
 	private ImageSequence phone;
+	private int phonecount;
 	private Image smallPhone;
 	private boolean showLarge;
 
 	private Image background;
 
 	private boolean otherStage = false;
-
 
 	private MyEvent myEvent;
 	private TextButton studyButton;
@@ -47,14 +47,69 @@ public class MapScreen extends GameScreen {
 	private int time;
 
 	private boolean fromBoss;
-	
+
 	public MapScreen(Game g) {
 		super(g);
 	}
-	
+
 	public MapScreen(Game g, boolean complete) {
 		super(g);
 		fromBoss = complete;
+	}
+
+	public void updateSmallPhone() {
+		if (phonecount < 7) {
+			smallPhone.remove();
+
+			if (phonecount == 0) {
+				smallPhone = new Image(new Texture("phone/phone1.png"));
+			}
+			if (phonecount == 1) {
+				smallPhone = new Image(new Texture("phone/phone3.png"));
+			}
+			if (phonecount == 2) {
+				smallPhone = new Image(new Texture("phone/phone5.png"));
+			}
+			if (phonecount == 3) {
+				smallPhone = new Image(new Texture("phone/phone6.png"));
+			}
+			if (phonecount == 4) {
+				smallPhone = new Image(new Texture("phone/phone7.png"));
+			}
+			if (phonecount == 5) {
+				smallPhone = new Image(new Texture("phone/phone8.png"));
+			}
+			if (phonecount == 6) {
+				smallPhone = new Image(new Texture("phone/phonecomp.png"));
+			}
+			// smallPhone = new Image(new Texture("phone/phone1.png"));
+			smallPhone.setPosition(20, 20);
+			smallPhone.setScale(.5f);
+			smallPhone.addListener(new ClickListener() {
+				@Override
+				public void clicked(InputEvent event, float x, float y) {
+					if (tutorial) {
+						if (stage.getActors().contains(phoneTutorial2, true)) {
+							phoneTutorial2.remove();
+							tutorial = false;
+						} else {
+							phoneTutorial.remove();
+							libraryButton.setTouchable(Touchable.enabled);
+							stage.addActor(libraryButton);
+							stage.addActor(phoneTutorial2);
+						}
+					}
+					showLarge = !showLarge;
+					if (showLarge) {
+						stage.addActor(phone.getBackgroundImage());
+					} else {
+						phone.getBackgroundImage().remove();
+					}
+				}
+			});
+			stage.addActor(smallPhone);
+			phonecount += 1;
+		}
 	}
 
 	@Override
@@ -66,14 +121,18 @@ public class MapScreen extends GameScreen {
 		background = new Image(new Texture("CampusMap.png"));
 		background.setFillParent(true);
 		showLarge = false;
-		smallPhone = new Image(new Texture("phone/phone.png"));
+
+		// phone setting
+		phonecount = 1;
+		//updateSmallPhone();
+		smallPhone = new Image(new Texture("phone/phone1.png"));
 		smallPhone.setPosition(20, 20);
 		smallPhone.setScale(.5f);
 		smallPhone.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				if (tutorial) {
-					if (stage.getActors().contains(phoneTutorial2, true)){
+					if (stage.getActors().contains(phoneTutorial2, true)) {
 						phoneTutorial2.remove();
 						tutorial = false;
 					} else {
@@ -81,7 +140,7 @@ public class MapScreen extends GameScreen {
 						libraryButton.setTouchable(Touchable.enabled);
 						stage.addActor(libraryButton);
 						stage.addActor(phoneTutorial2);
-					}		
+					}
 				}
 				showLarge = !showLarge;
 				if (showLarge) {
@@ -151,12 +210,12 @@ public class MapScreen extends GameScreen {
 				otherStage = true;
 			}
 		});
-		
+
 		bossButton = new TextButton("Battle DU!", skin);
 		bossButton.setColor(Color.RED);
 		bossButton.setPosition(Gdx.graphics.getWidth() / 2 + 100,
 				Gdx.graphics.getHeight() / 2 + 150);
-		
+
 		bossButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
@@ -165,13 +224,13 @@ public class MapScreen extends GameScreen {
 				game.setScreen(new BossBattle(game));
 			}
 		});
-		
+
 		mainTutorial = new DialogueBox(
-			  "Welcome to University of Delaware!\n"
-			+ "Here you will navigate campus and learn all you need to know before starting your journey\n"
-			+ "Pay attention! There is a lot for you to learn before you can become a hero.\n"
-			+ "Good luck! YouDee needs you.\n"
-			+ "Click here to continue", DialogueBox.TOPWIDE);
+				"Welcome to University of Delaware!\n"
+						+ "Here you will navigate campus and learn all you need to know before starting your journey\n"
+						+ "Pay attention! There is a lot for you to learn before you can become a hero.\n"
+						+ "Good luck! YouDee needs you.\n"
+						+ "Click here to continue", DialogueBox.TOPWIDE);
 		mainTutorial.setAlignment(1, 1);
 		mainTutorial.addListener(new ClickListener() {
 			@Override
@@ -184,7 +243,8 @@ public class MapScreen extends GameScreen {
 		phoneTutorial = new DialogueBox(
 				"<---- Here is your phone! Click it to view your notes and objectives!",
 				DialogueBox.BOTTOM);
-		phoneTutorial2 = new DialogueBox("Click again to go back\nto the map!", DialogueBox.LEFT, Align.topLeft);
+		phoneTutorial2 = new DialogueBox("Click again to go back\nto the map!",
+				DialogueBox.LEFT, Align.topLeft);
 
 		libraryButton.setTouchable(Touchable.disabled);
 		careerAdvisementButton.setTouchable(Touchable.disabled);
@@ -195,7 +255,7 @@ public class MapScreen extends GameScreen {
 		Gdx.input.setInputProcessor(stage);
 		time = 0;
 		tutorial = true;
-		
+
 		if (fromBoss) {
 			stage.clear();
 			tutorial = false;
@@ -260,24 +320,28 @@ public class MapScreen extends GameScreen {
 			careerAdvisementButton.setColor(Color.RED);
 			careerAdvisementButton.setTouchable(Touchable.enabled);
 			stage.addActor(careerAdvisementButton);
+			updateSmallPhone();
 		}
 		if (s.equals("CareerAdvisement")) {
 			careerAdvisementButton.setColor(Color.GREEN);
 			advisorButton.setColor(Color.RED);
 			advisorButton.setTouchable(Touchable.enabled);
 			stage.addActor(advisorButton);
+			updateSmallPhone();
 		}
 		if (s.equals("Advisor")) {
 			advisorButton.setColor(Color.GREEN);
 			studyButton.setColor(Color.RED);
 			studyButton.setTouchable(Touchable.enabled);
 			stage.addActor(studyButton);
+			updateSmallPhone();
 
 		}
 		if (s.equals("StudyAbroad")) {
 			studyButton.setColor(Color.GREEN);
 			bossButton.setTouchable(Touchable.enabled);
 			stage.addActor(bossButton);
+			updateSmallPhone();
 		}
 		Gdx.input.setInputProcessor(stage);
 	}
