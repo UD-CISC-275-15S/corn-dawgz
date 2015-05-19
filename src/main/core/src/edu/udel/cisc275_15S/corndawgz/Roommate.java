@@ -18,13 +18,18 @@ public class Roommate implements MyEvent{
 			startTime = TimeUtils.millis();
 			batch = new SpriteBatch();
 			stage = new ImageSequence();
-			stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor.png"))),
-					new DialogueBox("", DialogueBox.BOTTOMWIDE));
-			stage.addImages(new Image(new Texture (Gdx.files.internal("update/book.jpg"))));
-			stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor.png"))),
-					new DialogueBox("", DialogueBox.BOTTOMWIDE));
-			stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor.png"))),
-					new DialogueBox("", DialogueBox.BOTTOMWIDE));
+			stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/Room1.jpg"))),
+					new DialogueBox("If you are serious about wanting to beat DeeYou, I can show you the way.\n" 
+							+ "The answers are here on campus but I won't delay.\n", DialogueBox.BOTTOMWIDE));
+			stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/Room1.jpg"))),
+					new DialogueBox("The secrets are in 016 Memorial Hall -- the writing center.\n" 
+							+ "I can help you fight DeeYou, we'll stop that evil dissenter!\n", DialogueBox.BOTTOMWIDE));
+			stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/Room1.jpg"))),
+					new DialogueBox("There's one other subject that DeeYou hates more than the rest.\n" 
+							+ "Math! If you need help with math, don't start to stress.\n", DialogueBox.BOTTOMWIDE));
+			stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/Room1.jpg"))),
+					new DialogueBox("There's a math lab on campus at 053 McKinly.\n" 
+							+ "There are tutors and tests there to help you succeed nimbly!\n", DialogueBox.BOTTOMWIDE));
 			stage.setFillParentTrue();
 			stage.update();
 		}
