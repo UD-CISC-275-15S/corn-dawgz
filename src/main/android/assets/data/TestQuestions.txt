@@ -37,13 +37,19 @@
 @
 <Q>7: Where can you find information on different majors?
 <A>Morris Library	
-<B>The Fountain
+<B>Memorial 016
 <C>Your Roommate
-<D>Academic Catalog
+<D>Academic Catalog on UDSIS
 @
 <Q>8: Where can you change your major?
 <A>Old College
 <B>UDSIS
 <C>Little Bob
 <D>Student Career Services
+@
+<Q>9: As a student, you should contact your advisor when
+<A>you have concerns with your major
+<B>you have concerns with your diet
+<C>for planning prior to your class scheduling appointment
+<D>A & C
 @

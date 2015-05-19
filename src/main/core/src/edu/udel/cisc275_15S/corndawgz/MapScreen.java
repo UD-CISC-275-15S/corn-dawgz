@@ -199,7 +199,7 @@ public class MapScreen extends GameScreen {
 			}
 		});
 
-		studyButton = new TextButton("Study Abroad", skin);
+		studyButton = new TextButton("Elliott Hall", skin);
 		studyButton.setColor(Color.RED);
 		studyButton.setPosition(Gdx.graphics.getWidth() / 2 - 190,
 				Gdx.graphics.getHeight() / 2 + 150);

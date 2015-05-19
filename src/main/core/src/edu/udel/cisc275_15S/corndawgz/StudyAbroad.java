@@ -19,11 +19,11 @@ public class StudyAbroad implements MyEvent {
 		batch = new SpriteBatch();
 		stage = new ImageSequence();
 		stage.addImages(new Image(new Texture (Gdx.files.internal("UDSIS/StudyAbroad1.png"))),
-				new DialogueBox("Welcome to the Study Abroad lecture, I have a lot for you all to learn.\n" 
+				new DialogueBox("Welcome to Elliot Hall, you are here for study abroad and to learn.\n" 
 						+ "I am Dr. Deeyu, the future of this school. Listen to me, and have no concerns.\n", DialogueBox.BOTTOMWIDE));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("UDSIS/StudyAbroad2.png"))),
-				new DialogueBox("What? Who are you? You've come here to fight me?.\n" 
-						+ "I'm in the middle of something? Besides, I'm stronger than you'll ever be!\n", DialogueBox.BOTTOMWIDE));
+				new DialogueBox("What? Who are you? You've come here to fight me?\n" 
+						+ "I'm in the middle of something! Can't you see I'm stronger than you'll ever be!\n", DialogueBox.BOTTOMWIDE));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("UDSIS/StudyAbroad4.jpg"))),
 				new DialogueBox("Hey roomie, uhh... I'm gonna go back to the room.\n" 
 						+ "Remember what you learned and goodluck with this crazy loon!\n", DialogueBox.BOTTOMWIDE));

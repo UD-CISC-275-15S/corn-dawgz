@@ -25,6 +25,7 @@ public class QuestionReader {
 		cor = cor.replaceAll("7", "");
 		cor = cor.replaceAll("8", "");
 		cor = cor.replaceAll("9", "");
+		cor = cor.replaceAll("10", "");
 		cor = cor.replaceAll("\n","");
 		char[] correct = cor.toCharArray();
 
@@ -97,6 +98,7 @@ public class QuestionReader {
 		cor = cor.replaceAll("7", "");
 		cor = cor.replaceAll("8", "");
 		cor = cor.replaceAll("9", "");
+		cor = cor.replaceAll("10", "");
 		cor = cor.replaceAll("\n","");
 		char[] correct = cor.toCharArray();
 		
