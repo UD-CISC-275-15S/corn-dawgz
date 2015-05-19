@@ -168,6 +168,11 @@ public class MapScreen extends GameScreen {
 		libraryButton.setPosition(Gdx.graphics.getWidth() / 2 - 88,
 				Gdx.graphics.getHeight() / 2 - 70);
 
+		libraryButton = new TextButton("Library", skin);
+		libraryButton.setColor(Color.YELLOW);
+		libraryButton.setPosition(Gdx.graphics.getWidth() / 2 - 60,
+				Gdx.graphics.getHeight() / 2 - 90);
+
 		libraryButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
@@ -179,8 +184,8 @@ public class MapScreen extends GameScreen {
 		careerAdvisementButton = new TextButton("Career\nAdvisement\nCenter",
 				skin);
 		careerAdvisementButton.setColor(Color.RED);
-		careerAdvisementButton.setPosition(Gdx.graphics.getWidth() / 2 - 30,
-				Gdx.graphics.getHeight() / 2 + 75);
+		careerAdvisementButton.setPosition(Gdx.graphics.getWidth() / 2 + 30,
+				Gdx.graphics.getHeight() / 2 + 15);
 
 		careerAdvisementButton.addListener(new ClickListener() {
 			@Override
@@ -205,8 +210,8 @@ public class MapScreen extends GameScreen {
 
 		studyButton = new TextButton("Elliott Hall", skin);
 		studyButton.setColor(Color.RED);
-		studyButton.setPosition(Gdx.graphics.getWidth() / 2 - 190,
-				Gdx.graphics.getHeight() / 2 + 150);
+		studyButton.setPosition(Gdx.graphics.getWidth() / 2 - 10,
+				Gdx.graphics.getHeight() - 40);
 
 		studyButton.addListener(new ClickListener() {
 			@Override
@@ -216,9 +221,9 @@ public class MapScreen extends GameScreen {
 			}
 		});
 		
-		roommateButton = new TextButton("Rodney Hall", skin);
+		roommateButton = new TextButton("Smyth Hall", skin);
 		roommateButton.setColor(Color.RED);
-		roommateButton.setPosition((Gdx.graphics.getWidth()/ 3) * 2, ((Gdx.graphics.getHeight() /4) * 2));
+		roommateButton.setPosition((Gdx.graphics.getWidth()/ 3) * 2 + 30, (Gdx.graphics.getHeight() / 8));
 		roommateButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
@@ -229,8 +234,8 @@ public class MapScreen extends GameScreen {
 
 		bossButton = new TextButton("Battle DU!", skin);
 		bossButton.setColor(Color.RED);
-		bossButton.setPosition(Gdx.graphics.getWidth() / 2 + 100,
-				Gdx.graphics.getHeight() / 2 + 150);
+		bossButton.setPosition(Gdx.graphics.getWidth() / 2 + 20,
+				Gdx.graphics.getHeight() / 15 - 10);
 
 		bossButton.addListener(new ClickListener() {
 			@Override
