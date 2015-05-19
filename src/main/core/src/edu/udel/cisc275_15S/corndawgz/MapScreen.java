@@ -154,8 +154,12 @@ public class MapScreen extends GameScreen {
 
 		phone = new ImageSequence();
 		phone.addImages(new Image(new Texture("phone/meetAtLibrary.png")));
-		phone.addImages(new Image(new Texture("phone/phoneLarge.png")));
-		phone.setAllScale(.7f);
+		phone.addImages(new Image(new Texture("phone/notes1.png")));
+		phone.addImages(new Image(new Texture("phone/notes2.png")));
+		phone.addImages(new Image(new Texture("phone/notes3.png")));
+		phone.addImages(new Image(new Texture("phone/notes4.png")));
+		phone.setAllScaleY(.7f);
+		phone.setAllScaleX(.5f);
 		phone.setAllPosition(LARGE_PHONE_X, LARGE_PHONE_Y);
 		phone.update();
 
@@ -272,6 +276,12 @@ public class MapScreen extends GameScreen {
 		if (fromBoss) {
 			stage.clear();
 			tutorial = false;
+			for (int i = 0; i < 6; i++)
+				updateSmallPhone();
+			
+			while(phone.hasNext())
+				phone.nextImage();
+			
 			stage.addActor(background);
 			stage.addActor(libraryButton);
 			stage.addActor(careerAdvisementButton);
@@ -295,8 +305,7 @@ public class MapScreen extends GameScreen {
 	}
 
 	@Override
-	public void render(float delta) {
-		//System.out.println("height: " +Gdx.graphics.getHeight() + " width " + Gdx.graphics.getWidth());
+	public void render(float delta) { 
 		time++;
 		Gdx.gl.glClearColor(0, 0, 0.4f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -340,6 +349,7 @@ public class MapScreen extends GameScreen {
 			careerAdvisementButton.setTouchable(Touchable.enabled);
 			stage.addActor(careerAdvisementButton);
 			updateSmallPhone();
+			phone.nextImage();
 		}
 		if (s.equals("CareerAdvisement")) {
 			careerAdvisementButton.setColor(Color.GREEN);
@@ -347,6 +357,7 @@ public class MapScreen extends GameScreen {
 			advisorButton.setTouchable(Touchable.enabled);
 			stage.addActor(advisorButton);
 			updateSmallPhone();
+			phone.nextImage();
 		}
 		if (s.equals("Advisor")) {
 			advisorButton.setColor(Color.GREEN);
@@ -354,6 +365,7 @@ public class MapScreen extends GameScreen {
 			roommateButton.setTouchable(Touchable.enabled);
 			stage.addActor(roommateButton);
 			updateSmallPhone();
+			phone.nextImage();
 
 		}
 		if(s.equals("Roommate")){
@@ -362,6 +374,7 @@ public class MapScreen extends GameScreen {
 			studyButton.setColor(Color.RED);
 			stage.addActor(studyButton);
 			updateSmallPhone();
+			phone.nextImage();
 		}
 		if (s.equals("StudyAbroad")) {
 			studyButton.setColor(Color.GREEN);

@@ -107,6 +107,22 @@ public class ImageSequence extends Stage {
 			}
 		}
 	}
+	
+	public void setAllScaleX(float s) {
+		for (ArrayList<Image> list : images) {
+			for (Image i : list) {
+				i.setScaleX(s);
+			}
+		}
+	}
+	
+	public void setAllScaleY(float s) {
+		for (ArrayList<Image> list : images) {
+			for (Image i : list) {
+				i.setScaleY(s);
+			}
+		}
+	}
 
 	public void setAllPosition(float x, float y) {
 		for (ArrayList<Image> list : images) {

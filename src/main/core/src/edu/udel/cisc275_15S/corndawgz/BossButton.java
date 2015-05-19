@@ -8,13 +8,13 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 public class BossButton extends TextButton {
 	private final float textWidth = 8;
 	private final float buttonHeight = 20;
-	private final float buttonOffset = 25;
+	private final float buttonOffset = 22;
 	private String name;
 
 	public BossButton(String text, Skin skin, int offset, final BossBattle b, String n) {
 		super(text, skin);
 		this.setHeight(buttonHeight);
-		this.setPosition(10, 85f - buttonOffset*offset);
+		this.setPosition(10, 80f - buttonOffset*offset);
 		name = n;
 		addListener(new ClickListener() {
 			@Override

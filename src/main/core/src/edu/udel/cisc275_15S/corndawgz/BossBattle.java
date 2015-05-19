@@ -51,23 +51,23 @@ public class BossBattle extends GameScreen {
 		Image image4 = new Image(new Texture("bossBattle/DUBB3.png"));
 		Image image5 = new Image(new Texture("bossBattle/DUBB4.png"));
  
-		image1.setScaleX(image1.getWidth()/image1.getWidth() *.6f);
+		image1.setScaleX(image1.getWidth()/image1.getWidth() *.5f);
 		image1.setScaleY(image1.getHeight()/image1.getHeight() *.6f);
-		image2.setScaleX(image2.getWidth()/image1.getWidth() *.6f);
-		image2.setScaleY(image2.getHeight()/image1.getHeight() *.6f);
-		image3.setScaleX(image3.getWidth()/image1.getWidth() *.6f);
-		image3.setScaleY(image3.getHeight()/image1.getHeight() *.6f);
-		image4.setScaleX(image4.getWidth()/image1.getWidth() *.6f);
-		image4.setScaleY(image4.getHeight()/image1.getHeight() *.6f);
-		image5.setScaleX(image5.getWidth()/image1.getWidth() *.6f);
-		image5.setScaleY(image5.getHeight()/image1.getHeight() *.6f);
+		image2.setScaleX(image2.getWidth()/image1.getWidth() *.5f);
+		image2.setScaleY(image2.getHeight()/image1.getHeight() *.5f);
+		image3.setScaleX(image3.getWidth()/image1.getWidth() *.5f);
+		image3.setScaleY(image3.getHeight()/image1.getHeight() *.5f);
+		image4.setScaleX(image4.getWidth()/image1.getWidth() *.5f);
+		image4.setScaleY(image4.getHeight()/image1.getHeight() *.5f);
+		image5.setScaleX(image5.getWidth()/image1.getWidth() *.5f);
+		image5.setScaleY(image5.getHeight()/image1.getHeight() *.5f);
 		
 		boss.addImages(image1);
 		boss.addImages(image2);
 		boss.addImages(image3);
 		boss.addImages(image4);
 		boss.addImages(image5);
-		boss.setAllPosition(160, 90);
+		boss.setAllPosition(160, 100);
 		
 		a = new BossButton(questions.getQuestion().getAnswerAformated(), skin, 0, this, "a");
 		b = new BossButton(questions.getQuestion().getAnswerBformated(), skin, 1, this, "b");
@@ -76,7 +76,7 @@ public class BossBattle extends GameScreen {
 		
 		stage.addActor(background);
 		stage.addActor(boss.getBackgroundImage());
-		stage.addActor(new DialogueBox(questions.getQuestion().getQuestion() + "\n \n \n \n \n ",
+		stage.addActor(new DialogueBox(questions.getQuestion().getQuestion() + "\n \n \n \n ",
 				       DialogueBox.BOTTOMWIDE,
 				       Align.left));
 		stage.addActor(a);
@@ -109,7 +109,7 @@ public class BossBattle extends GameScreen {
 		stage.clear();
 		stage.addActor(background);
 		stage.addActor(boss.getBackgroundImage());
-		stage.addActor(new DialogueBox(questions.getQuestion().getQuestion() + "\n \n \n \n \n ", 
+		stage.addActor(new DialogueBox(questions.getQuestion().getQuestion() + "\n \n \n \n ", 
 									   DialogueBox.BOTTOMWIDE, 
 									   Align.left));
 		a.setText(questions.getQuestion().getAnswerAformated());
