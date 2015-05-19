@@ -61,6 +61,24 @@ public class Library implements MyEvent {
 				}
 			}
 		}
+		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+			if (TimeUtils.millis() > startTime + 1000) {
+				if (stage.hasNext()) {
+					stage.nextImage();
+					startTime = TimeUtils.millis();
+				} else {
+					done = true;
+				}
+			}
+		}
+    	if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+    		if (TimeUtils.millis() > startTime + 1000) {
+    			if (stage.hasPrev()) {
+    				stage.prevImage();
+    				startTime = TimeUtils.millis();
+    			}
+    		}
+    	}
 	}
 
 	public boolean done() {

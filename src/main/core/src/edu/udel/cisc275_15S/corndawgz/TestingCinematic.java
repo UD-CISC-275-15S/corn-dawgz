@@ -70,6 +70,7 @@ public class TestingCinematic extends GameScreen implements Screen {
 				}
 			}
 	    }
+	 
 	
 	@Override
 	public void dispose() {
