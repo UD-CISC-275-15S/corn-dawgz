@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -62,6 +63,7 @@ public class StartScreen extends GameScreen {
 				// write the String in the textField to the file
 				// only shows up in the Desktop assets 
 				file.writeString(textField.getText() + "@", false);
+				button.setTouchable(Touchable.disabled);
 				game.setScreen(new TestingCinematic(game));
 			}
 		});
