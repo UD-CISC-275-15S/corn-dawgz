@@ -43,6 +43,7 @@ public class MapScreen extends GameScreen {
 	private TextButton careerAdvisementButton;
 	private TextButton advisorButton;
 	private TextButton bossButton;
+	private TextButton roommateButton;
 
 	private int time;
 
@@ -210,6 +211,17 @@ public class MapScreen extends GameScreen {
 				otherStage = true;
 			}
 		});
+		
+		roommateButton = new TextButton("Rodney Hall", skin);
+		roommateButton.setColor(Color.RED);
+		roommateButton.setPosition((Gdx.graphics.getWidth()/ 3) * 2, ((Gdx.graphics.getHeight() /4) * 2));
+		roommateButton.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				myEvent = new Roommate();
+				otherStage = true;
+			}
+		});
 
 		bossButton = new TextButton("Battle DU!", skin);
 		bossButton.setColor(Color.RED);
@@ -249,6 +261,7 @@ public class MapScreen extends GameScreen {
 		libraryButton.setTouchable(Touchable.disabled);
 		careerAdvisementButton.setTouchable(Touchable.disabled);
 		advisorButton.setTouchable(Touchable.disabled);
+		roommateButton.setTouchable(Touchable.disabled);
 		studyButton.setTouchable(Touchable.disabled);
 		stage.addActor(background);
 		stage.addActor(mainTutorial);
@@ -264,22 +277,26 @@ public class MapScreen extends GameScreen {
 			stage.addActor(careerAdvisementButton);
 			stage.addActor(advisorButton);
 			stage.addActor(studyButton);
+			stage.addActor(roommateButton);
 			stage.addActor(bossButton);
 			stage.addActor(smallPhone);
 			libraryButton.setTouchable(Touchable.enabled);
 			careerAdvisementButton.setTouchable(Touchable.enabled);
 			advisorButton.setTouchable(Touchable.enabled);
 			studyButton.setTouchable(Touchable.enabled);
+			roommateButton.setTouchable(Touchable.enabled);
 			libraryButton.setColor(Color.GREEN);
 			careerAdvisementButton.setColor(Color.GREEN);
 			advisorButton.setColor(Color.GREEN);
 			studyButton.setColor(Color.GREEN);
+			roommateButton.setColor(Color.GREEN);
 			bossButton.setColor(Color.RED);
 		}
 	}
 
 	@Override
 	public void render(float delta) {
+		//System.out.println("height: " +Gdx.graphics.getHeight() + " width " + Gdx.graphics.getWidth());
 		time++;
 		Gdx.gl.glClearColor(0, 0, 0.4f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -291,12 +308,14 @@ public class MapScreen extends GameScreen {
 			libraryButton.setTouchable(Touchable.enabled);
 			careerAdvisementButton.setTouchable(Touchable.enabled);
 			advisorButton.setTouchable(Touchable.enabled);
+			roommateButton.setTouchable(Touchable.enabled);
 		}
 		if (otherStage) {
 			studyButton.setTouchable(Touchable.disabled);
 			libraryButton.setTouchable(Touchable.disabled);
 			careerAdvisementButton.setTouchable(Touchable.disabled);
 			advisorButton.setTouchable(Touchable.disabled);
+			roommateButton.setTouchable(Touchable.disabled);
 
 			myEvent.render(delta);
 			if (myEvent.done()) {
@@ -331,11 +350,18 @@ public class MapScreen extends GameScreen {
 		}
 		if (s.equals("Advisor")) {
 			advisorButton.setColor(Color.GREEN);
-			studyButton.setColor(Color.RED);
-			studyButton.setTouchable(Touchable.enabled);
-			stage.addActor(studyButton);
+			roommateButton.setColor(Color.RED);
+			roommateButton.setTouchable(Touchable.enabled);
+			stage.addActor(roommateButton);
 			updateSmallPhone();
 
+		}
+		if(s.equals("Roommate")){
+			roommateButton.setColor(Color.GREEN);
+			studyButton.setTouchable(Touchable.enabled);
+			studyButton.setColor(Color.RED);
+			stage.addActor(studyButton);
+			updateSmallPhone();
 		}
 		if (s.equals("StudyAbroad")) {
 			studyButton.setColor(Color.GREEN);
@@ -344,6 +370,7 @@ public class MapScreen extends GameScreen {
 			updateSmallPhone();
 		}
 		Gdx.input.setInputProcessor(stage);
+		
 	}
 
 	@Override
