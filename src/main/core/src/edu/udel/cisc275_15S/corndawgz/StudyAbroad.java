@@ -24,8 +24,11 @@ public class StudyAbroad implements MyEvent {
 		stage.addImages(new Image(new Texture (Gdx.files.internal("UDSIS/StudyAbroad2.png"))),
 				new DialogueBox("What? Who are you? You've come here to fight me?.\n" 
 						+ "I'm in the middle of something? Besides, I'm stronger than you'll ever be!\n", DialogueBox.BOTTOMWIDE));
+		stage.addImages(new Image(new Texture (Gdx.files.internal("UDSIS/StudyAbroad4.jpg"))),
+				new DialogueBox("Hey roomie, uhh... I'm gonna go back to the room.\n" 
+						+ "Remember what you learned and goodluck with this crazy loon!\n", DialogueBox.BOTTOMWIDE));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("UDSIS/StudyAbroad3.jpg"))),
-				new DialogueBox("Well, if it's a fight you want, you better be ready for the test!.\n" 
+				new DialogueBox("Well, if it's a fight you want, you better be ready for the test!\n" 
 						+ "You better check your notes if you want to battle the best!\n", DialogueBox.BOTTOMWIDE));
 		stage.setFillParentTrue();
 		stage.update();
