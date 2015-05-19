@@ -27,7 +27,7 @@ public class Advisor implements MyEvent {
 						+ "I do not know where he is but check out what else there is to do.\n", DialogueBox.BOTTOMWIDE));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("imagesforbeta/advisor.png"))),
 				new DialogueBox("The Study Abroad lecture is about to begin, you should see the showing.\n" 
-						+ "Dee... Dr. Deyu is the study abroad professor on campus. He's really easy-going.\n", DialogueBox.BOTTOMWIDE));
+						+ "Dee... Dr. Deeyu is the study abroad professor on campus. He's really easy-going.\n", DialogueBox.BOTTOMWIDE));
 		stage.setFillParentTrue();
 		stage.update();
 	}

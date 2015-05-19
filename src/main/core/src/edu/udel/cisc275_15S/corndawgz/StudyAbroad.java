@@ -20,7 +20,7 @@ public class StudyAbroad implements MyEvent {
 		stage = new ImageSequence();
 		stage.addImages(new Image(new Texture (Gdx.files.internal("UDSIS/StudyAbroad1.png"))),
 				new DialogueBox("Welcome to the Study Abroad lecture, I have a lot for you all to learn.\n" 
-						+ "I am Dr. Dewyu, the future of this school. Listen to me, and have no concerns.\n", DialogueBox.BOTTOMWIDE));
+						+ "I am Dr. Deeyu, the future of this school. Listen to me, and have no concerns.\n", DialogueBox.BOTTOMWIDE));
 		stage.addImages(new Image(new Texture (Gdx.files.internal("UDSIS/StudyAbroad2.png"))),
 				new DialogueBox("What? Who are you? You've come here to fight me?.\n" 
 						+ "I'm in the middle of something? Besides, I'm stronger than you'll ever be!\n", DialogueBox.BOTTOMWIDE));
