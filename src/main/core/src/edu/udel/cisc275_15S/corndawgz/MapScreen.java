@@ -250,6 +250,7 @@ public class MapScreen extends GameScreen {
 				"Welcome to University of Delaware!\n"
 						+ "Here you will navigate campus and learn all you need to know before starting your journey\n"
 						+ "Pay attention! There is a lot for you to learn before you can become a hero.\n"
+						+ "You can use your left and right arrow keys to move through events.\n"
 						+ "Good luck! YouDee needs you.\n"
 						+ "Click here to continue", DialogueBox.TOPWIDE);
 		mainTutorial.setAlignment(1, 1);
