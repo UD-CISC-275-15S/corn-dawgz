@@ -36,7 +36,7 @@ public class CareerAdvisement implements MyEvent {
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit4.png"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("UDSIS/audit5.png"))));
 		stage.addImages(new Image(new Texture(Gdx.files.internal("update/ImageThree.png"))),
-				new DialogueBox("Well, what are you still doing here?!.\n"
+				new DialogueBox("Well, what are you still doing here?\n"
 						+ "Quickly visit your advisor, I think DeeYou is near!\n", DialogueBox.BOTTOMWIDE));
         stage.setFillParentTrue();
         stage.update();
