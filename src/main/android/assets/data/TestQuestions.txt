@@ -1,61 +1,61 @@
 @
-<Q>1: When is the add/drop period?
-<A>2/8
-<B>3/7
-<C>2/6
-<D>1/2
+<Q>1: When does the free drop/add period for classes end?
+<A>After the first week
+<B>During the first 8 weeks
+<C>after the first 2 weeks
+<D>Right before finals week
 @
-<Q>2: As a student, you have the responsibility to...
-<A>clarify your personal values
-<B>become knowledgeable with the UDSIS system
-<C>not prepare for advisement sessions
+<Q>2: After what week will you receive a penalty for dropping a class?
+<A> Fourteen
+<B> Five
+<C> Eight
+<D> You never receive a penalty
+@
+<Q>3: As a student, you have the responsibility to...
+<A>Clarify your personal values
+<B>Become knowledgeable with the UDSIS system
+<C>Not prepare for advisement sessions
 <D>A & B
 @
-<Q>3: Advisors are not supposed to assist or mentor you in anyway, why?
+<Q>4: Advisors are not supposed to assist or mentor you, why?
 <A>They have better things to do
-<B>Advisors are mentors, this statement is false
+<B>This is false
 <C>Academic policies prevent them from showing favoritism
 <D>This is just policy, most advisors will help you anyway
 @
-<Q>4: Who is responsible for a students academic decisions?
+<Q>5: Who is responsible for a students academic decisions?
 <A>YoUDee
 <B>President Obama, thanks Obama...
-<C>the Chick-fil-et people
-<D>the student
+<C>Their Advisor
+<D>The student
 @
-<Q>5: Where can you find the Math Tutorial Lab?	
+<Q>6: Where can you find the Math Tutorial Lab?	
 <A>McKinly 053
 <B>McDowell 100
 <C>Brown 205	
 <D>Trabant Lounge
 @
-<Q>6: Where can you find the UD Writing Center?
+<Q>7: Where can you find the UD Writing Center?
 <A>Perkins Student Center
 <B>Library Basement
 <C>Memorial 016	
 <D>Wolf 100
 @
-<Q>7: Where can you find information on different majors?
+<Q>8: Where can you find information on different majors?
 <A>Morris Library	
 <B>Memorial 016
 <C>Your Roommate
 <D>Academic Catalog on UDSIS
 @
-<Q>8: Where can you change your major?
+<Q>9: Where can you change your major?
 <A>Old College
 <B>UDSIS
 <C>Little Bob
 <D>Student Career Services
 @
-<Q>9: As a student, you should contact your advisor when
+<Q>10: As a student, you should contact your advisor when
 <A>you have concerns with your major
 <B>you have concerns with your diet
 <C>for planning prior to your class scheduling appointment
 <D>A & C
-@
-<Q>10: Where can you stop by for information about Study Abroad?
-<A>Memorial Hall
-<B>Rodney Hall
-<C>Elliott Hall
-<D>There are no Study Abroad programs at UD
 @
