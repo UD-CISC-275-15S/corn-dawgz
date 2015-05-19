@@ -35,7 +35,10 @@ public class Library implements MyEvent {
 				.internal("update/ImageSeven.png"))),
 				new DialogueBox("But dropping after the drop/add period ends causes a 'withdrawal' on your record.\n"
 						+ "Remember what I've told you! This knowledge will be your shield and sword!\n", DialogueBox.BOTTOMWIDE));
-
+		stage.addImages(new Image(new Texture(Gdx.files
+				.internal("update/ImageSeven.png"))),
+				new DialogueBox("The first 2 weeks of classes you are free to drop or add,\n"
+						+ "But after 8 weeks a penalty will be had.\n", DialogueBox.BOTTOMWIDE));
 		stage.setFillParentTrue();
 		stage.update();
 	}
